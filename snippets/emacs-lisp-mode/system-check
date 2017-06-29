@@ -1,0 +1,7 @@
+#contributor: Xah Lee (XahLee.org)
+#name: whichsys
+#key: whichsys
+# --
+(if (string= system-type "darwin")
+    (message "yes")
+  (message "none"))

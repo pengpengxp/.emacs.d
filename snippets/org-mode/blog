@@ -1,0 +1,21 @@
+# -*- mode: snippet -*-
+# name: blog
+# key: blog
+# --
+
+#+OPTIONS: toc:nil 
+#+BEGIN_HTML
+---
+layout: post
+title: ${1:title}
+excerpt: "${2:excerpt}"
+modified: ${3:2016-10-08}
+tags: [${4:Tags1 , Tags2}]
+categories: Linux
+---
+
+#+END_HTML
+
+
+#+TOC: headlines 1 local
+$0

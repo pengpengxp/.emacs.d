@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: peng-defun
+# key: pengmain
+# --
+(defun peng-test ()
+  (interactive)
+  $0)

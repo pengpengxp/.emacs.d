@@ -1,0 +1,28 @@
+
+/home/pengpengxp/.emacs.d/site-lisp/evil/evil-commands.el,1073
+(defun evil-ret-gen 743,26194
+(defun evil-paste-from-register 1720,60984
+(defun evil-insert 1903,67278
+(defun evil-append 1945,69176
+(defun evil-insert-resume 1983,70871
+(defun evil-maybe-remove-spaces 1990,71073
+(defun evil-open-above 2007,71865
+(defun evil-open-below 2020,72286
+(defun evil-insert-line 2033,72707
+(defun evil-append-line 2051,73374
+(defun evil-copy-from-above 2093,74785
+(defun evil-copy-from-below 2109,75416
+(defun evil-copy-chars-from-line 2125,76025
+(defun evil-repeat-search 2194,78425
+(defun evil-repeat-ex-search 2777,98629
+(defun evil-resize-window 3117,111652
+(defun evil-get-buffer-tree 3142,112701
+(defun evil-restore-window-tree 3148,112929
+(defun evil-mouse-drag-region 3453,122991
+(defun evil-mouse-drag-track 3467,123550
+(defun evil-mouse--drag-set-mark-and-point 3644,131736
+(defun evil-mouse--remap-link-click-p 3661,132295
+(defun evil-mouse-start-end 3676,133028
+(defun evil-execute-in-normal-state 3716,134449
+(defun evil-stop-execute-in-emacs-state 3736,135260
+(defun evil-exit-visual-and-repeat 3765,136367

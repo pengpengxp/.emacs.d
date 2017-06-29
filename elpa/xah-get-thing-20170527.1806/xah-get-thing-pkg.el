@@ -1,0 +1,1 @@
+(define-package "xah-get-thing" "20170527.1806" "get thing or selection at point." '((emacs "24.1")) :commit "5adaf02b8a7464ffb81ae185edb48902a4c3a4d4" :url "http://ergoemacs.org/emacs/elisp_get-selection-or-unit.html" :keywords '("extensions" "lisp" "tools"))

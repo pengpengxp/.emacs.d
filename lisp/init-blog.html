@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>init-blog.html</title>
+<link rel="stylesheet" type="text/css" media="all" href="~/.data/css/markdown-mode-css/markdown.css"  />
+<link rel="stylesheet" type="text/css" media="all" href="/Users/pengpengxp/.data/css/markdown-mode-css/clearness.css"  />
+</head>
+
+<body>
+
+<div class="markdown clearness">
+
+<p>(require 'org-jekyll-mode)
+(setq org-jekyll/jekyll-project-root "/tmp/researcher-gh-pages")
+(setq org-jekyll/org-mode-project-root "/tmp/blog")
+(setq org-jekyll/org-mode-static-files-folder-name  "/tmp/blog/assets")</p>
+
+<p>(org-jekyll-mode)</p>
+
+<p>(require 'ox-md)
+;;; set org publish
+(setq org-publish-project-alist
+      '(</p>
+
+<pre><code>    ("org-source"
+     ;; Path to your org files.
+     :base-directory "~/blog/org/_posts/"
+     :base-extension "org"
+
+     ;; Path to your Jekyll project.
+     :publishing-directory "~/blog/jekyll/_posts/"
+     :recursive t
+     ;; :publishing-function org-html-publish-to-html
+     :publishing-function org-md-export-to-markdown
+     :headline-levels 4 
+     ;; :html-extension "html"
+     :html-extension "md"
+     ;; :body-only t ;; Only export section between &lt;body&gt; &lt;/body&gt;
+     )
+
+
+    ("org-assets"
+     :base-directory "~/blog/org/"
+     :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|php"
+     :publishing-directory "~/devel/ianbarton/"
+     :recursive t
+     :publishing-function org-publish-attachment)
+
+    ("blog" :components ("org-source" "org-assets"))
+
+    ))
+</code></pre>
+
+<p>(provide 'init-blog)</p>
+
+</div>
+
+</body>
+</html>

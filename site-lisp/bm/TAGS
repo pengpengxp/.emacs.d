@@ -1,0 +1,115 @@
+
+/home/pengpengxp/.emacs.d/site-lisp/bm/bm.el,4193
+(defconst bm-version 259,9566
+(defconst bm-bookmark-repository-version 262,9622
+(defgroup bm 265,9695
+(defcustom bm-highlight-style 272,9863
+(defcustom bm-face 279,10128
+(defcustom bm-persistent-face 285,10240
+(defcustom bm-priority 290,10398
+(defface bm-face299,10631
+(defface bm-persistent-face312,11048
+(defcustom bm-fringe-face 325,11496
+(defcustom bm-fringe-persistent-face 330,11615
+(defface bm-fringe-face335,11781
+(defface bm-fringe-persistent-face347,12215
+(defcustom bm-annotate-on-create 360,12681
+(defcustom bm-wrap-search 369,12924
+(defcustom bm-wrap-immediately 378,13090
+(defcustom bm-cycle-all-buffers 388,13302
+(defcustom bm-in-lifo-order 397,13541
+(defcustom bm-recenter 405,13794
+(defcustom bm-goto-position 411,13931
+(defcustom bm-electric-show 420,14150
+(defcustom bm-repository-file 426,14264
+(defcustom bm-repository-size 434,14470
+(defcustom bm-buffer-persistence 440,14604
+(defcustom bm-show-annotations 451,14856
+(defvar bm-restore-repository-on-load 458,14992
+(defvar bm-repository 465,15224
+(defvar bm-regexp-history 468,15297
+(defvar bm-annotation-history 471,15358
+(defvar bm-bookmark-context-size 474,15427
+(defvar bm-wrapped 477,15534
+(defconst bm-show-buffer-name 481,15640
+(defvar bm-marker 484,15753
+(defvar bm-current 487,15828
+(defun bm-customize 495,16111
+(defun bm-bookmark-annotate 501,16202
+(defun bm-bookmark-show-annotation 517,16799
+(defun bm-highlight-line 529,17236
+(defun bm-highlight-fringe 534,17420
+(defun bm-get-highlight-face 539,17610
+(defun bm-get-highlight-face-fringde 543,17777
+(defun bm-get-fringe-marker 547,17974
+(defun bm-bookmark-add 559,18428
+(defun bm-bookmark-remove 596,20098
+(defun bm-toggle 606,20366
+(defun bm-toggle-mouse 616,20577
+(defun bm-count 625,20753
+(defun bm-start-position 631,20912
+(defun bm-end-position 636,21001
+(defun bm-freeze-in-front 641,21110
+(defun bm-freeze 657,21772
+(defun bm-equal 679,22658
+(defun bm-bookmarkp 686,22876
+(defun bm-bookmark-at 694,23075
+(defun bm-lists 705,23375
+(defun bm-overlay-in-buffer(722,24156
+(defun bm-overlay-all(733,24500
+(defun bm-overlays-lifo-order(742,24812
+(defun bm-find-lifo-next(752,25136
+(defun bm-lifo-previous(762,25547
+(defun bm-lifo-next(780,26279
+(defun bm-next 798,26998
+(defun bm-common-next 805,27116
+(defun bm-wrap-forward 819,27611
+(defun bm-next-mouse 832,27951
+(defun bm-previous 842,28243
+(defun bm-common-previous 849,28373
+(defun bm-wrap-backward 864,28892
+(defun bm-previous-mouse 877,29244
+(defun bm-first-in-next-buffer 887,29534
+(defun bm-last-in-previous-buffer 914,30445
+(defun bm-first 939,31305
+(defun bm-last 946,31487
+(defun bm-remove-all-all-buffers 953,31665
+(defun bm-remove-all-current-buffer 963,31936
+(defun bm-toggle-wrapping 970,32152
+(defun bm-toggle-cycle-all-buffers 979,32400
+(defun bm-goto 988,32661
+(defun bm-bookmark-regexp 1004,33190
+(defun bm-bookmark-regexp-region 1010,33338
+(defun bm-bookmark-line 1032,34067
+(defun bm-show-quit-window 1045,34519
+(defun bm-show-all 1051,34683
+(defun bm-show 1057,34856
+(defconst bm-header-buffer-name 1064,35031
+(defconst bm-header-line 1068,35142
+(defconst bm-header-annotation 1072,35259
+(defconst bm-header-contents 1076,35387
+(defconst bm-annotation-width 1080,35518
+(defun bm-find-file-line-max-width 1084,35645
+(defun bm-show-extract-bookmarks 1114,37125
+(defun bm-show-display-lines 1177,40168
+(defun bm-show-goto-bookmark 1196,40942
+(defun bm-show-bookmark 1208,41390
+(defvar bm-show-mode-map1221,41872
+(defun bm-show-next 1232,42231
+(defun bm-show-prev 1240,42413
+(defun bm-show-mode 1248,42605
+(defun bm-toggle-buffer-persistence 1257,42818
+(defun bm-get-position-from-context 1285,43872
+(defun bm-buffer-restore 1308,44628
+(defun bm-buffer-restore-all 1321,45158
+(defun bm-buffer-restore-2 1330,45379
+(defun bm-buffer-save 1359,46505
+(defun bm-buffer-save-all 1406,48794
+(defun bm-repository-add 1415,49006
+(defun bm-repository-remove 1426,49393
+(defun bm-repository-load 1438,49842
+(defun bm-repository-save 1451,50328
+(defun bm-repository-clear 1466,50852
+(defun bm-load-and-restore 1472,50955
+(defun bm-save 1479,51118
+(defun bm-buffer-file-name 1486,51247

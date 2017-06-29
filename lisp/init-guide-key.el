@@ -1,0 +1,37 @@
+(require 'guide-key)
+(guide-key-mode 1)
+(setq guide-key/idle-delay 0.1)
+(setq guide-key/guide-key-sequence '("C-c" "C-c C-x" "C-x" "C-x r"
+				     "," ",c" ",l" "z" "<f8>" "C-c &"
+				     "C-c C-o" "C-c s" "M-s M-s" "<SPC>"
+                                     "M-c"
+                                     "C-c C-e"
+                                     "<SPC>"
+				     "<SPC> a"
+				     "<SPC> b"
+				     "<SPC> c"
+				     "<SPC> d"
+				     "<SPC> e"
+				     "<SPC> f"
+				     "<SPC> g"
+				     "<SPC> i"
+				     "<SPC> j"
+				     "<SPC> k"
+				     "<SPC> l"
+				     "<SPC> o"
+				     "<SPC> v"
+				     "<SPC> m"
+				     "<SPC> y"
+				     "<SPC> n"
+				     "<SPC> w"
+				     "<SPC> l"
+				     "<SPC> f"
+				     "<SPC> x"
+				     "<SPC> x c"
+				     "<SPC> s"
+				     "<SPC> p"
+				     "<f5>"
+				     "<f12>"
+                                     ))
+
+(provide 'init-guide-key)

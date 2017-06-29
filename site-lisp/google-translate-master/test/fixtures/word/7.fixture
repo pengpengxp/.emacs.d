@@ -1,0 +1,32 @@
+разочарование
+
+
+HTTP/1.1 200 OK
+Pragma: no-cache
+Date: Wed, 05 Mar 2014 20:58:31 GMT
+Expires: Wed, 05 Mar 2014 20:58:31 GMT
+Cache-Control: private, max-age=600
+Content-Type: text/javascript; charset=UTF-8
+Content-Language: uk
+X-Content-Type-Options: nosniff
+Content-Disposition: attachment
+Server: HTTP server (unknown)
+X-XSS-Protection: 1; mode=block
+Alternate-Protocol: 80:quic
+Transfer-Encoding: chunked
+
+[[["розчарування","разочарование","rozcharuvannya","razocharovaniye"]],,"ru",,[["розчарування",[1],true,false,1000,0,1,0]],[["разочарование",1,[["розчарування",1000,true,false],["зневіра",0,true,false]],[[0,13]],"разочарование"]],,,[["ru"]],13]
+
+text-phonetic:
+razocharovaniye
+
+translation-phonetic:
+rozcharuvannya
+
+translation:
+розчарування
+
+suggestion:
+
+
+detailed-translation:

@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: main
+# key: pengmain
+# --
+
+#+latex_class: ctexart
+#+options: ^:{}
+#+title: $1
+
+$0

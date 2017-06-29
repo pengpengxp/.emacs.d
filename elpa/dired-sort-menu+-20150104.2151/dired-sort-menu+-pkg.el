@@ -1,0 +1,1 @@
+(define-package "dired-sort-menu+" "20150104.2151" "Extensions to `dired-sort-menu.el'" '((dired-sort-menu "0")) :url "http://www.emacswiki.org/dired-sort-menu+.el" :keywords '("directories" "diredp" "dired"))

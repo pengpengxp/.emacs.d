@@ -1,0 +1,23 @@
+(defun peng-makefile-mode-make ()
+  (interactive)
+  (compile "make"))
+
+(add-hook 'makefile-bsdmake-mode-hook '(lambda ()
+					 (interactive)
+					 (peng-local-set-key (kbd "C-c C-v") 'compile)
+					 ))
+
+(add-hook 'makefile-mode-hook '(lambda ()
+					 (interactive)
+					 (peng-local-set-key (kbd "C-c C-v") 'compile)
+					 ))
+;; (add-hook 'makefile-mode-hook '(lambda ()
+;; 					 (interactive)
+;; 					 (define-key evil-normal-state-local-map (kbd "SPC m") 'peng-makefile-mode-make)
+;; 					 ))
+;; (add-hook 'makefile-bsdmake-mode-hook '(lambda ()
+;; 					 (interactive)
+;; 					 (define-key evil-normal-state-local-map (kbd "SPC m") 'peng-makefile-mode-make)
+;; 					 ))
+
+(provide 'init-BSDmakefile-mode)

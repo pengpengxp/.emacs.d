@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: peng_c_begin
+# key: pengmain
+# --
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(int argc, char *argv[])
+{
+  $0
+  return 0;
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>README.html</title>
+<link rel="stylesheet" type="text/css" media="all" href="~/.data/css/markdown-mode-css/markdown.css"  />
+<link rel="stylesheet" type="text/css" media="all" href="/Users/pengpengxp/.data/css/markdown-mode-css/clearness.css" />
+</head>
+
+<body>
+
+<div class="markdown clearness">
+
+<h1>markdown-mode-css</h1>
+
+<p><a href="http://jblevins.org/projects/markdown-mode/">markdown-mode.el</a> is pretty cool, but I wanted CSS-themed output like you get with <a href="http://mouapp.com/">Mou.app</a>. Themes built from <a href="https://github.com/rhiokim/markdown-css">markdown-css</a>.</p>
+
+<h3>Installation</h3>
+
+<ul>
+<li>Drop <code>markdown-mode.el</code> into your <code>site-lisp</code> dir</li>
+<li>Place the files in <code>css</code> dir somewhere</li>
+<li><p>Add something similar to the following to your <code>~/.emacs</code> file:</p>
+
+<pre><code>;; Markdown mode
+(autoload 'markdown-mode "markdown-mode"
+"Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(setq markdown-command "/usr/local/bin/markdown")
+(setq markdown-css-dir "~/.emacs.d/markdown-css/")
+(setq markdown-css-theme "clearness")
+</code></pre></li>
+</ul>
+
+<h4>Themes</h4>
+
+<ul>
+<li>Clearness</li>
+<li>Clearness Dark</li>
+<li>Github</li>
+<li>Github Rhio</li>
+<li>Haroopad</li>
+<li>Node-Dark</li>
+<li>Solarized Light</li>
+<li>Solarized Dark</li>
+</ul>
+
+</div>
+
+</body>
+</html>

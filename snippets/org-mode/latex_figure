@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: latexfigure
+# key: latexfig
+# --
+#+BEGIN_LaTeX
+  \begin{figure}
+    \centering
+    \includegraphics{$0}
+    \caption{}
+    \label{fig:}
+  \end{figure}
+#+END_LaTeX

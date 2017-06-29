@@ -1,0 +1,5 @@
+(add-to-list 'load-path nil)
+(semantic-mode 1)
+(require 'semantic/bovine/el)
+(require 'ecb)
+(setq debug-on-error t)

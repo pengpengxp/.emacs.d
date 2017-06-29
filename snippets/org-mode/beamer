@@ -1,0 +1,60 @@
+# -*- mode: snippet -*-
+# name: beamer
+# key: beamer
+# --
+
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+BEAMER_THEME: Madrid
+#+OPTIONS: H:2
+#+LATEX_CLASS_OPTIONS: [presentation]
+#+COLUMNS: %45ITEM %10BEAMER_ENV(Env) %10BEAMER_ACT(Act) %4BEAMER_COL(Col) %8BEAMER_OPT(Opt)
+
+#+title: beamer模版
+#+author: 谢鹏
+
+
+* This is the first structural section
+  
+** Frame 1
+*** Thanks to Eric Fraga                                           :B_block:BMCOL:
+    :PROPERTIES: 
+    :BEAMER_COL: 0.48
+    :BEAMER_ENV: block
+    :END:      
+    for the first viable Beamer setup in Org
+*** Thanks to everyone else                                        :B_block:BMCOL:
+    :PROPERTIES: 
+    :BEAMER_COL: 0.48
+    :BEAMER_ACT: <2->
+    :BEAMER_ENV: block
+    :END:      
+    for contributing to the discussion
+**** This will be formatted as a beamer note                              :B_note:
+     :PROPERTIES: 
+     :BEAMER_env: note
+     :END:      
+** Frame 2 (where we will not use columns)
+*** Request
+    Please test this stuff!
+* 第二个section测试一下中文
+** 二级标题对应一个frame
+   :PROPERTIES: 
+   :BEAMER_ACT: [<+->]
+   :END:      
+   设置了 =#+OPTIONS: H:2= 选项后：
+   #+beamer:\pause
+
+   - \pkaishu{第一级默认为section}
+   - 第二级默认为frame
+   - 第三级默认为block
+   - 这些都可以使用`beamer_env'来手动指定
+   - 使用beamer_act属性设置动作
+   - 使用beamer_opt属性设置选项
+*** 测试block							    :B_block:
+    :PROPERTIES: 
+    :BEAMER_env: block
+    :END:      
+    这应该是一个block
+    
+    @@latex:\pkaishu{这是楷书}@@
