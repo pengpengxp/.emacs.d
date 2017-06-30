@@ -124,7 +124,7 @@
 	;; ("k" "test" entry (file(concat ORG-HOME "/test.org") "Tasks")
 	;;  "* TODO  %?  \n ")
 
-	("w" "website" entry (file(concat HOME "/org/cloud/website.org") "Websites")
+	("w" "website" entry (file(concat "/Users/pengpengxp/github/pengpengxp.github.io/source/2017-06-29-my-saved-website.org") "Websites")
 	 "* %?  \n")
 	))
 

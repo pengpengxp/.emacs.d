@@ -20,6 +20,7 @@ smex-items
 tramp
 tutorial
 url
+ac-comphist.dat
 
 lisp/init-mew.el
 lisp/init-river-security.el
