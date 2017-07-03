@@ -21,6 +21,9 @@ tramp
 tutorial
 url
 ac-comphist.dat
+ido.last
+ido.last~
+**.elc
 
 lisp/init-mew.el
 lisp/init-river-security.el
