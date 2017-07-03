@@ -1,0 +1,1 @@
+(define-package "projectile-ripgrep" "20170211.857" "Run ripgrep with Projectile" '((ripgrep "0.3.0") (projectile "0.14.0")) :commit "5af6a0b2ee8a639cf857724ce4328f1f0955c99e" :url "https://github.com/nlamirault/ripgrep.el" :keywords '("ripgrep" "projectile"))

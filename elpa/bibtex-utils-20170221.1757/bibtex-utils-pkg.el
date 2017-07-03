@@ -1,0 +1,1 @@
+(define-package "bibtex-utils" "20170221.1757" "Provides utilities for extending BibTeX mode" 'nil :commit "36953c6bd1e14eac553834720f383d4114585f55" :url "https://github.com/plantarum/bibtex-utils" :keywords '("bibtex"))

@@ -26,6 +26,7 @@
   (company-mode 1)
   (auto-complete-mode 1)
   (peng-local-set-key (kbd "C-c o") 'ac-trigger-key-command)
+  (dumb-jump-mode )
 )
 
 (add-hook 'sh-mode-hook 'peng-shell-script-mode)

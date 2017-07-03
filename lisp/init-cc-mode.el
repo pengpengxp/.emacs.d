@@ -128,6 +128,7 @@
   (peng-local-set-key (kbd "<M-backspace>") 'cscope-pop-mark)
   (peng-local-set-key (kbd "<C-down-mouse-1>") 'etags-select-find-tag-at-point)
   (peng-local-set-key (kbd "<mouse-3>") 'pop-tag-mark)
+  (dumb-jump-mode 1)
 
   )
 (add-hook 'c-mode-hook 'pengpengxp-c-common-mode)

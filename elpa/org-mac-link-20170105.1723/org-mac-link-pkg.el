@@ -1,0 +1,1 @@
+(define-package "org-mac-link" "20170105.1723" "Insert org-mode links to items selected in various Mac apps" 'nil :commit "dd757f14f00bd106165fe900b011c7c1ea4e62ce" :keywords '("org" "mac" "hyperlink"))

@@ -8,6 +8,7 @@
   (yas-minor-mode 1)
   (company-mode 1)
   (which-function-mode 1)
+  (dumb-jump-mode 1)
   )
 (add-hook 'emacs-lisp-mode-hook 'pengpengxp-emacs-lisp-mode)
 
