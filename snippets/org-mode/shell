@@ -1,8 +1,7 @@
 # -*- mode: snippet -*-
 # name: shell
-# key: shell
+# key: sh
 # --
-
-#+BEGIN_SRC shell-script
+#+BEGIN_SRC sh :results outputs :tangle /tmp/test_from_org_tangle.sh :exports both
 $0
 #+END_SRC

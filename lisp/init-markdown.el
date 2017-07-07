@@ -16,4 +16,9 @@
 (setq markdown-css-dir "~/.data/css/markdown-mode-css/")
 (setq markdown-css-theme "clearness")
 
+(add-hook 'markdown-mode-hook #'(lambda ()
+                                  (interactive)
+                                  (hl-line-mode 1)
+                                  ))
+
 (provide 'init-markdown)

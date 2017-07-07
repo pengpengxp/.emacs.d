@@ -294,8 +294,6 @@ file and open the pdf file. also compile the bibliography"
                                  (delete ".." (delete "." (directory-files img-dir))))))
         (setq filename (concat img-dir
                                "/"
-                               (buffer-name)
-                               "-"
                                (file-name-base temp-name)
                                ".png"))
         (call-process-shell-command "screencapture" nil nil nil nil "-i" (concat
@@ -359,4 +357,28 @@ file and open the pdf file. also compile the bibliography"
 ;;; 使用`org-tree-slide-mode'可以在org-mode中直接进行幻灯片类型的演示
 ;; (require 'init-org-tree-slide-mode)
 
+;;; 执行代码块进如果有错会产生一个名为`*Org-Babel Error Output*'的
+;;; buffer显示错误，但是把错误改正确后再执行，还需要再手动把这个显示错
+;;; 误的buffer删除，下面这样设置后，修改了错误就不需要手动删除了，直接
+;;; 运行即可。
+(defvar org-babel-eval-verbose t
+  "A non-nil value makes `org-babel-eval' display")
+(defun org-babel-eval (cmd body)
+  "Run CMD on BODY.
+If CMD succeeds then return its results, otherwise display
+STDERR with `org-babel-eval-error-notify'."
+  (let ((err-buff (get-buffer-create " *Org-Babel Error*")) exit-code)
+    (with-current-buffer err-buff (erase-buffer))
+    (with-temp-buffer
+      (insert body)
+      (setq exit-code
+            (org-babel--shell-command-on-region
+             (point-min) (point-max) cmd err-buff))
+      (if (or (not (numberp exit-code)) (> exit-code 0)
+              (and org-babel-eval-verbose (> (buffer-size err-buff) 0))) ; new condition
+          (progn
+            (with-current-buffer err-buff
+              (org-babel-eval-error-notify exit-code (buffer-string)))
+            nil)
+        (buffer-string)))))
 (provide 'init-org)

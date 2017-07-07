@@ -567,7 +567,7 @@
 "
   ("d" yas-load-directory)
   ("e" yas-activate-extra-mode)
-  ("i" yas-ido-expand)
+  ("i" yas-ivy-expand)
   ("f" yas-visit-snippet-file :color blue)
   ("n" yas-new-snippet)
   ("t" yas-tryout-snippet)
