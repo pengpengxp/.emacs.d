@@ -326,9 +326,9 @@ if that buffer is not exits,call org-agenda"
 	  (format "%s" title)))
 
       (defun peng-get-chrome-current-tab-url-to-org-capture ()
-	"Get the URL of the active tab of the first window"
-	(interactive)
-	(let ((result (replace-regexp-in-string "\""
+        "Get the URL of the active tab of the first window"
+        (interactive)
+        (let ((result (replace-regexp-in-string "\""
                                                 ""
                                                 (do-applescript
                                                  (concat
@@ -341,20 +341,19 @@ if that buffer is not exits,call org-agenda"
                                                   "set links to {}\n"
                                                   "copy theResult to the end of links\n"
                                                   "return links as string\n"))))
-	      (title  (read-from-minibuffer "The title of your linke: " (concat (format-time-string "%Y-%m-%d ")
+              (title  (read-from-minibuffer "The title of your linke: " (concat (format-time-string "%Y-%m-%d ")
                                                                                 (peng-get-chrome-current-tab-title)))
                       ))
-	  (org-capture nil "w")
-	  (insert (format "%s" (concat "[[" (format "%s" result) "]" "[" title "]]")))
-	  (org-capture-finalize nil))
+          (org-capture nil "w")
+          (insert (format "%s" (concat "[[" (format "%s" result) "]" "[" title "]]")))
+          (org-capture-finalize nil))
 
-        (org-capture-goto-last-stored)
-        ;; (org-set-tags-command)
+        (progn
+          (org-capture-goto-last-stored)
 
-        ;; ;; need to be improved
-        ;; (find-file "/Users/pengpengxp/org/cloud/website.org")
-        ;; (evil-goto-line)
-        )
+          ;; replace `*' to `+'
+          (replace-regexp "^*" "+" nil (line-beginning-position)
+                          (line-end-position))))
 
       ))
 
@@ -547,7 +546,7 @@ absolute path."
 (defun peng-get-buffer-mode (buffer-or-string)
   "Returns the major mode associated with a buffer."
   (with-current-buffer buffer-or-string
-     major-mode))
+    major-mode))
 (defun peng-real-buffer (&optional buffer)
   (cond ((buffer-file-name buffer)
          t)
@@ -650,11 +649,11 @@ absolute path."
   (interactive)
   (cond
    ((equal my-global-org-buffer-name nil) (progn
-                                             (peng-generate-org-buffer)
-                                             (message "It's nil, Create a new buffer")))
+                                            (peng-generate-org-buffer)
+                                            (message "It's nil, Create a new buffer")))
    (my-global-org-buffer-name (progn
-                                 (find-file  my-global-org-buffer-name)
-                                 (message "switch to it %s" my-global-org-buffer-name)))
+                                (find-file  my-global-org-buffer-name)
+                                (message "switch to it %s" my-global-org-buffer-name)))
    ))
 (defun toggle-fullscreen ()
   "Toggle full screen on mac"

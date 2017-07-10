@@ -24,6 +24,7 @@ ac-comphist.dat
 ido.last
 ido.last~
 **.elc
+ivy-views
 
 lisp/init-mew.el
 lisp/init-river-security.el

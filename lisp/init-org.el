@@ -118,7 +118,7 @@
    (emacs-lisp . t)
    (C . t)
    (perl . t)
-   (sh . t)
+   (shell . t)
    (python . t)
    (latex . t)
    (js . t)
