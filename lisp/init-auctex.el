@@ -87,6 +87,7 @@ xelatex %t;bibtex %b.aux;xelatex %t;open %b.pdf"
 	    (peng-local-set-key (kbd "<M-up>") 'outline-move-subtree-up)
 	    
 	    (hl-line-mode -1)
+            (auto-insert-mode -1)
 	    ))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
