@@ -246,7 +246,7 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["#343d46" "#bf616a" "#a3be8c" "#ebcb8b" "#8fa1b3" "#b48ead" "#8fa1b3" "#dfe1e8"])
- '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
+ '(bmkp-last-as-first-bookmark-file "/Users/pengpengxp/.emacs.d/bookmarks")
  '(column-number-mode t)
  '(display-time-mode t)
  '(ibuffer-saved-filter-groups nil)
