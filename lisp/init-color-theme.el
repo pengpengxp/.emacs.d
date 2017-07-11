@@ -77,6 +77,12 @@
 ;;                      "/.emacs.d/site-lisp/base16-emacs-master/build/"
 ;;                      THEMENAME)))
 
+
+;;; for light theme leuven
+(add-to-list 'custom-theme-load-path "/Users/pengpengxp/.emacs.d/site-lisp/emacs-leuven-theme-master")
+(load-theme 'leuven t) 
+
+
 (provide 'init-color-theme)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
