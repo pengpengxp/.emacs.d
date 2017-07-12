@@ -104,24 +104,16 @@
                     ""))
         nil))
 
-;; (setq ivy-re-builders-alist
-;;       '(
-;;         (swiper . ivy--regex-plus)
-;;         (ivy-switch-buffer . re-builder-pinyin)
-;;         (t . re-builder-pinyin)
-;;         ))
 
 ;;; 主要就是操作这个变量来控制`ivy'的匹配，现在又暂时不想要pinyin的匹
 ;;; 配了
-(setq ivy-re-builders-alist
-      '(
-        (ivy-switch-buffer . ivy--regex-ignore-order)
-        (t . ivy--regex-plus)
-        ))
+;; (setq ivy-re-builders-alist
+;;       '(
+;;         (ivy-switch-buffer . ivy--regex-ignore-order)
+;;         (t . ivy--regex-plus)
+;;         ))
 
-;; ;; ;;; 这样就可以去掉`pinyin'区配
-;; (defun pinyin-to-utf8 (str)
-;;   nil)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 参考是的我和abo-abo的邮件
 
@@ -132,9 +124,16 @@
 
 ;; Here's a function to get you started:
 
-;; (defun re-builder-pinyin (str)
-;;   (or (pinyin-to-utf8 str)
-;;       (ivy--regex-plus str)))
+(defun re-builder-pinyin (str)
+  (or (pinyin-to-utf8 str)
+      (ivy--regex-plus str)))
+
+(setq ivy-re-builders-alist
+      '((t . re-builder-pinyin)))
+
+;; ;; ;;; 这样就可以去掉`pinyin'区配
+;; (defun pinyin-to-utf8 (str)
+;;   nil)
 
 ;; Here, pinyin-to-utf8 is a function that you have to write. It takes
 ;; ASCII and returns UTF8 if it recognizes the input as pinyin;
