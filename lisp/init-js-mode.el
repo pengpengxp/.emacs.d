@@ -16,13 +16,14 @@
   (peng-local-set-key (kbd "<mouse-3>") 'pop-tag-mark)
   (hl-line-mode 1)
 
-  (auto-complete-mode 1)
   ;; setup for tern
   (eval-after-load 'tern
     '(progn
        (require 'tern-auto-complete)
        (tern-ac-setup)))
   (tern-mode 1)
+  (auto-complete-mode 1)
+  (define-key evil-insert-state-local-map (kbd "C-M-i") 'tern-ac-complete)
   )
 
 (add-hook 'js-mode-hook 'peng-js-mode)

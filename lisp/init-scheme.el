@@ -103,7 +103,6 @@ PS: this function is inspired by Wang Yin."
 			       (peng-local-set-key (kbd "C-c C-r") 'peng-scheme-send-region)
 			       (peng-local-set-key (kbd "C-c C-f") 'peng-scheme-load-current-file)
 			       (paredit-mode 1)
-			       (auto-complete-mode 1)
 			       ))
 
 (add-hook 'inferior-scheme-mode-hook '(lambda ()

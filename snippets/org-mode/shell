@@ -2,6 +2,6 @@
 # name: shell
 # key: sh
 # --
-#+BEGIN_SRC sh :results outputs :tangle /tmp/test_from_org_tangle.sh :exports both
+#+BEGIN_SRC sh :results outputs :tangle /tmp/test_from_org_tangle.sh :exports code :mkdirp yes
 $0
 #+END_SRC

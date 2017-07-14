@@ -24,7 +24,6 @@
   ;; (define-key evil-normal-state-local-map (kbd "SPC z") 'peng-run-current-script)
   (peng-local-set-key (kbd "C-c C-v") 'peng-run-current-script)
   (company-mode 1)
-  (auto-complete-mode 1)
   (peng-local-set-key (kbd "C-c o") 'ac-trigger-key-command)
   (dumb-jump-mode )
 )

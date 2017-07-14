@@ -93,7 +93,7 @@
 (require 'init-yasnippet)
 (require 'init-auto-complete)
 (require 'init-company-mode)		;company is the alternative for me
-;; (require 'init-ycmd)
+(require 'init-ycmd)
 (require 'init-irony-mode)
 
 
@@ -205,6 +205,7 @@
 (require 'init-occur-mode)
 (require 'init-google-translate)
 (require 'init-w3m)
+(require 'init-tern)
 
 
 ;; (require 'init-java.el)
@@ -246,7 +247,7 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["#343d46" "#bf616a" "#a3be8c" "#ebcb8b" "#8fa1b3" "#b48ead" "#8fa1b3" "#dfe1e8"])
- '(bmkp-last-as-first-bookmark-file "/Users/pengpengxp/.emacs.d/bookmarks")
+ '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
  '(column-number-mode t)
  '(display-time-mode t)
  '(ibuffer-saved-filter-groups nil)

@@ -13,13 +13,14 @@
 (add-hook 'web-mode-hook #'(lambda ()
                              (hl-line-mode)
                              (company-mode -1)
-                             (auto-complete-mode 1)
                              ;; setup for tern
                              (eval-after-load 'tern
                                '(progn
                                   (require 'tern-auto-complete)
                                   (tern-ac-setup)))
                              (tern-mode 1)
+                             (auto-complete-mode 1)
+                             (define-key evil-insert-state-local-map (kbd "C-M-i") 'tern-ac-complete)
                              ))
 
 

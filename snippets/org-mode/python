@@ -2,6 +2,6 @@
 # name: python
 # key: py
 # --
-#+BEGIN_SRC python :results output :exports both :tangle /tmp/test_from_org_tangle.py
+#+BEGIN_SRC python :results output :exports code :tangle /tmp/test_from_org_tangle.py :mkdirp yes
 $0
 #+END_SRC

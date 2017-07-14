@@ -54,7 +54,7 @@
   (define-key evil-normal-state-local-map (kbd "<M-DEL>") 'cscope-pop-mark)
 
   (hl-line-mode 1)
-  ;; (ycmd-mode 1)
+  (peng-setup-ycmd)
   (which-function-mode 1)
   (ggtags-mode 1)
   (dumb-jump-mode 1)

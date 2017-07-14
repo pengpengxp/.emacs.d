@@ -63,6 +63,7 @@
          :publishing-directory "/Users/pengpengxp/github/pengpengxp.github.io"
          :recursive t
          :publishing-function org-publish-attachment)
+        ("blog" :components ("html" "org-assets"))
         ))
 
 (defun peng-insert-blog-timestamp ()

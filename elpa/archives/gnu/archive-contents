@@ -534,12 +534,12 @@
 	    ((:url . "http://elpa.gnu.org/packages/landmark.html")
 	     (:keywords "games" "neural network" "adaptive search" "chemotaxis"))])
  (let-alist .
-	    [(1 0 5)
-	     ((emacs
-	       (24 1)))
-	     "Easily let-bind values of an assoc-list by their names" single
-	     ((:url . "http://elpa.gnu.org/packages/let-alist.html")
-	      (:keywords "extensions" "lisp"))])
+   [(1 0 5)
+    ((emacs
+      (24 1)))
+    "Easily let-bind values of an assoc-list by their names" single
+    ((:url . "http://elpa.gnu.org/packages/let-alist.html")
+     (:keywords "extensions" "lisp"))])
  (lex .
       [(1 1)
        nil "Lexical analyser construction" tar
@@ -695,7 +695,7 @@
 	     ((:url . "https://github.com/michael-heerdegen/on-screen.el")
 	      (:keywords "convenience"))])
  (org .
-      [(20170703)
+      [(20170710)
        nil "Outline-based notes management and organizer" tar nil])
  (org-edna .
 	   [(1 0 -3 1)
@@ -865,7 +865,7 @@
 	       ((:keywords "soap" "web-services" "comm" "hypermedia")
 		(:url . "http://elpa.gnu.org/packages/soap-client.html"))])
  (sokoban .
-	  [(1 4 1)
+	  [(1 4 2)
 	   nil "Implementation of Sokoban for Emacs." tar
 	   ((:keywords "games")
 	    (:url . "http://elpa.gnu.org/packages/sokoban.html"))])
