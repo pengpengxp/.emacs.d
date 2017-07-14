@@ -26,7 +26,8 @@ tab on left will act as indent while on the right of character as
 "
   (interactive)
   (setq c-tab-always-indent 'nil)
-  (setq c-insert-tab-function #'completion-at-point)
+  ;; (setq c-insert-tab-function #'completion-at-point)
+  (setq c-insert-tab-function #'company-complete)
   )
 
 (defun peng-compile-current-c-or-cpp-file ()
@@ -91,9 +92,10 @@ tab on left will act as indent while on the right of character as
 
   (dumb-jump-mode 1)
   (peng-setup-cc-mode-for-complete)
+
   (peng-setup-ycmd)
-  
-  (company-mode -1)
+  (company-mode 1)
+
   (smartparens-mode -1)
   )
 (add-hook 'c-mode-hook 'pengpengxp-c-common-mode)

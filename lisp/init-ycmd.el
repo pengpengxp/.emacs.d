@@ -31,4 +31,8 @@
   (add-hook 'completion-at-point-functions
             #'ycmd-complete-at-point nil :local))
 
+
+(require 'company-ycmd)
+(company-ycmd-setup)
+
 (provide 'init-ycmd)

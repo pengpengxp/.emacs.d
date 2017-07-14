@@ -94,7 +94,7 @@
 (require 'init-auto-complete)
 (require 'init-company-mode)		;company is the alternative for me
 (require 'init-ycmd)
-(require 'init-irony-mode)
+;; (require 'init-irony-mode)
 
 
 ;;(require 'init-header2)
