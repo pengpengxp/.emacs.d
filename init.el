@@ -53,7 +53,7 @@
 ;; for mac
 (require 'init-mac.el)
 
-(require 'init-benchmark-init)
+;;(require 'init-benchmark-init)
 
 ;;; my plugins
 (require 'init-peng-copyfun)		;;;; some function I copyed from others
