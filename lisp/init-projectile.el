@@ -77,8 +77,8 @@ choices."
 
 (defadvice projectile-ag (after peng-after-projectile-ag activate)
   (progn
-    (switch-to-buffer "*compilation*")
-    (delete-window)
+    ;; (switch-to-buffer "*compilation*")
+    ;; (delete-window)
     (define-key evil-normal-state-local-map (kbd "k") 'evil-previous-line)
     (define-key evil-normal-state-local-map (kbd "j") 'evil-next-line)
     (define-key evil-normal-state-local-map (kbd "SPC") peng-spc-main-map)

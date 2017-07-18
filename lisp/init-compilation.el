@@ -5,7 +5,7 @@
   		      (interactive)
   		      (bury-buffer)
   		      (delete-window)))
-  (switch-to-buffer-other-window "*compilation*") ; 有compilationbuffer的时候每次都自动跳转到这个buffer
+  ;; (switch-to-buffer-other-window "*compilation*") ; 有compilationbuffer的时候每次都自动跳转到这个buffer
   (local-set-key (kbd "<tab>") 'compilation-next-error)
 )
 (add-hook 'compilation-mode-hook 'peng-compilation-mode)
