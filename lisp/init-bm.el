@@ -25,5 +25,13 @@
   ;; (delete-other-windows)
   )
 
+(defun peng-bm-remove-all-all-buffers ()
+  (interactive)
+  (if (y-or-n-p "Do you really want to remove all bm tags? ")
+      (bm-remove-all-all-buffers)))
 
+(defun peng-bm-remove-current-buffer ()
+  (interactive)
+  (if (y-or-n-p "Do you really want to remove all tag in current buffer? ")
+      (bm-remove-all-current-buffer)))
 (provide 'init-bm)

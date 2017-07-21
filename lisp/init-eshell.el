@@ -310,13 +310,13 @@
 ;;; 这个配合`ido'使用很方便
 (defun eshell/j ()
   "Quickly jump to previous directories."
-  (eshell/cd (ido-completing-read "Jump to directory: "
+  (eshell/cd (ivy-read "Jump to directory: "
                                   (delete-dups (ring-elements eshell-last-dir-ring)))))
 
 (if (string= system-type "darwin")
     (defun eshell/jo ()
       "Quickly jump to previous directories."
-      (let ((result (helm-comp-read "Open the directory: "
+      (let ((result (ivy-read "Open the directory: "
 				    (delete-dups (ring-elements eshell-last-dir-ring)))))
 	(peng-async-shell-command (concat "open " result)))))
 
@@ -658,6 +658,18 @@
   (insert "exit")
   (eshell-send-input)
   (delete-window))
+
+
+
+;;; bookmark for eshell, if you want to add or delete a bookmark for
+;;; ehsell, just add or delete softlinks in the ~/.marks directory.
+(defun eshell/jb (mark)
+  "Jump to a directory symlinked to by a file called ~/.marks/MARK."
+  (eshell/cd (file-symlink-p (concat "~/.marks/" mark))))
+;;; add complete for shell/jb
+(defun pcomplete/jb ()
+  "Complete a command that wants a name of a file in ~/.marks."
+  (pcomplete-here* (directory-files "~/.marks/")))
 
 
 (provide 'init-eshell)
