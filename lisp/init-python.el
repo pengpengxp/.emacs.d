@@ -58,6 +58,7 @@
   (which-function-mode 1)
   (ggtags-mode 1)
   (dumb-jump-mode 1)
+  (highlight-indent-guides-mode 1)
   )
 
 (add-hook 'python-mode-hook 'peng-python-mode)

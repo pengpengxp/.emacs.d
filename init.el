@@ -63,6 +63,7 @@
 ;;; load each mode I have configured
 (require 'init-evil)
 (require 'init-evil-leader)
+(require 'init-highlight-indent-guides)
 
 ;;; to config the elpa
 (require 'init-package)

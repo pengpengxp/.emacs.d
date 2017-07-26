@@ -140,4 +140,8 @@
            ))
   )
 
+;;; to speed up org-publish
+(remove-hook 'find-file-hooks 'vc-find-file-hook)
+
+
 (provide 'init-blog)

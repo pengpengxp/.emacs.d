@@ -582,28 +582,8 @@
       (delete-char (- (length pcomplete-stub)))
       (insert (eshell-quote-argument completion-result)))))
 
-(defun eshell-ivy-pcomplete ()
-  "使用ivy作为eshell的pcomplete方法, 这里我是参考的
-`eshell-ido-pcomplete'，直接把它的 `ido-completing-read' 改成
-`ivy-read'了"
-  (interactive)
-  ;; @ To simplify completion function logic, the tag `pcompleted' may be thrown with a value of nil in order to abort the function.  It means that there were no completions available.
-  (catch 'pcompleted
-    (let* (completion-result
-	   (completions (eshell-ido-pcomplete--pcomplete-completions))
-	   (candidates (all-completions pcomplete-stub completions))
-	   (pcomplete-stub (replace-regexp-in-string ".*[\/]" "" pcomplete-stub))
-	   )
-      (cond ((null candidates)
-	     (error "没有匹配项"))
-	    ((= 1 (length candidates))
-	     (setq completion-result (car candidates)))
-	    (t (setq completion-result (ivy-read ": " candidates nil nil pcomplete-stub))))
-      (delete-char (- (length pcomplete-stub)))
-      (insert (eshell-quote-argument completion-result)))))
-
 (add-hook 'eshell-mode-hook (lambda ()
-			      (define-key evil-insert-state-local-map (kbd "<tab>") 'eshell-ivy-pcomplete)
+			      (define-key evil-insert-state-local-map (kbd "<tab>") 'eshell-ido-pcomplete)
                               ))
 
 (defadvice eshell/grep (after peng-eshell-change-buffer-name activate)
