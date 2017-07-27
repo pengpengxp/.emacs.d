@@ -687,6 +687,12 @@ Breadcrumb bookmarks:
 
 (peng-global-set-evil-non-edit-mode-key (kbd "SPC") peng-spc-main-map)
 (peng-global-set-key (kbd "M-k") peng-spc-main-map)
+
+(peng-global-set-key (kbd "C-M-k") 'sp-kill-hybrid-sexp)
+(peng-global-set-key (kbd "C-M-S-k") 'sp-kill-sexp)
+(peng-global-set-key (kbd "C-M-a") 'sp-beginning-of-sexp)
+(peng-global-set-key (kbd "C-M-e") 'sp-end-of-sexp)
+
 (peng-global-set-key (kbd "<f9>") peng-spc-main-map)
 (peng-global-set-key (kbd "<f8>") 'w3m-bookmark-view)
 (peng-global-set-key (kbd "<f5>") #'(lambda (x)

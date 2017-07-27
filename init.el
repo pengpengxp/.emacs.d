@@ -291,6 +291,9 @@
  '(magit-log-arguments (quote ("--graph" "--decorate" "-n10")))
  '(magit-log-section-arguments (quote ("-n10")))
  '(menu-bar-mode nil)
+ '(org-agenda-files
+   (quote
+    ("/Users/pengpengxp/org/gtd/inbox.org" "/Users/pengpengxp/org/gtd/note.org" "/Users/pengpengxp/org/gtd/test.org" "/Users/pengpengxp/org/gtd/Tips.org" "/Users/pengpengxp/org/gtd/daily.org")))
  '(safe-local-variable-values
    (quote
     ((major-mode . org-mode)
