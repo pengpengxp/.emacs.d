@@ -695,13 +695,14 @@ Breadcrumb bookmarks:
 
 (peng-global-set-key (kbd "<f9>") peng-spc-main-map)
 (peng-global-set-key (kbd "<f8>") 'w3m-bookmark-view)
-(peng-global-set-key (kbd "<f5>") #'(lambda (x)
-                                      (interactive "P")
-                                      (progn
-                                        (ibuffer)
-                                        (if x
-                                            (ibuffer-update t)
-                                          (ibuffer-update nil)))))
+;; (peng-global-set-key (kbd "<f5>") #'(lambda (x)
+;;                                       (interactive "P")
+;;                                       (progn
+;;                                         (ibuffer)
+;;                                         (if x
+;;                                             (ibuffer-update t)
+;;                                           (ibuffer-update nil)))))
+(peng-global-set-key (kbd "<f5>") 'mu4e)
 
 ;;; for windows configure
 ;; ;;; origin

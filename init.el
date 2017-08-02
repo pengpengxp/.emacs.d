@@ -235,6 +235,8 @@
 (require 'init-mouse)
 (require 'init-keys)
 (require 'init-hydra)
+(require 'init-mu4e)
+
 
 ;;; require the test file
 (require 'init-test)

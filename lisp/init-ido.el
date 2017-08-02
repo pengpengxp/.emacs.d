@@ -165,17 +165,21 @@ predicate PRED used to filter them."
   (define-key ido-file-completion-map (kbd "SPC") 'ido-restrict-to-matches)
   (define-key ido-common-completion-map (kbd "<tab>") 'ido-exit-minibuffer)
   (define-key ido-common-completion-map (kbd "TAB") 'ido-exit-minibuffer)
+  (define-key ido-common-completion-map (kbd "C-n") 'ido-next-match)
+  (define-key ido-common-completion-map (kbd "C-p") 'ido-prev-match)
+  (define-key ido-common-completion-map (kbd "<down>") 'ido-next-match)
+  (define-key ido-common-completion-map (kbd "<up>") 'ido-prev-match)
   )
 (add-hook 'ido-setup-hook 'peng-ido-define-key)
 
-;这样的<tab>才是我想要的。但是开启后`helm'用着不行了。关闭`ido-mode'就行。但是这样对smex无效。
+                                        ;这样的<tab>才是我想要的。但是开启后`helm'用着不行了。关闭`ido-mode'就行。但是这样对smex无效。
 ;; (define-key minibuffer-local-map [tab] 'ido-exit-minibuffer) 
 
 ;;; ido-fasd
 (defun peng-ido-fasd-find-file ()
   (interactive)
   (let* ((ido-candidats (split-string  (shell-command-to-string "fasd -a|awk '{print $2}'") "\n"))
-	(ido-results (ido-completing-read "test: " ido-candidats)))
+         (ido-results (ido-completing-read "test: " ido-candidats)))
     (find-file ido-results)))
 
 ;;; ido-jump
@@ -198,11 +202,11 @@ predicate PRED used to filter them."
 (defun peng-ido-insert-ls-and-grep ()
   (interactive)
   (let* ((pattern (read-from-minibuffer "Pattern: " "."))
-	(result (ido-completing-read "Choose: "
-				     (split-string (shell-command-to-string
-						    (concat "ls|grep -i "
-							    pattern))
-						   "\n"))))
+         (result (ido-completing-read "Choose: "
+                                      (split-string (shell-command-to-string
+                                                     (concat "ls|grep -i "
+                                                             pattern))
+                                                    "\n"))))
     (insert result)))
 
 ;;; ------------------------------------------------------------------
@@ -247,11 +251,11 @@ predicate PRED used to filter them."
 (defun peng-ido-insert-ls-and-grep ()
   (interactive)
   (let* ((pattern (read-from-minibuffer "Pattern: " "."))
-	(result (ido-completing-read  "Choose: "
-				     (split-string (shell-command-to-string
-						    (concat "ls|grep -i "
-							    pattern))
-						   "\n"))))
+         (result (ido-completing-read  "Choose: "
+                                       (split-string (shell-command-to-string
+                                                      (concat "ls|grep -i "
+                                                              pattern))
+                                                     "\n"))))
     (insert result)))
 ;;; ------------------------------------------------------------------
 
