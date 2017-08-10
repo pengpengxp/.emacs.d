@@ -236,6 +236,7 @@
 (require 'init-keys)
 (require 'init-hydra)
 (require 'init-mu4e)
+(require 'chm-view)
 
 
 ;;; require the test file

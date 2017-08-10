@@ -171,11 +171,13 @@
 ;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (setq google-translate--tkk-url "http://translate.google.cn/")
 (defhydra hydra-google-translate (:color pink
-                                                    :hint nil)
+                                         :hint nil
+                                         :exit t)
   "
          Google Translate:
 "
-  ("w" google-translate-chinese-open-word-with-web-2 "google-translate-open-word-with-web-2" :exit t)
+  ("w" google-translate-chinese-open-word-with-web-2 "google-translate-open-word-with-web-2")
+  ("p" peng-google-traslate-current-paragraph "peng-google-traslate-current-paragraph")
   )
 
 (peng-global-set-key (kbd "C-c d") 'hydra-google-translate/body)

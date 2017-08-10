@@ -36,6 +36,10 @@
   (company-mode -1)
   (peng-local-set-key (kbd "<C-right>") 'elpy-nav-forward-indent)
   (peng-local-set-key (kbd "<C-left>") 'elpy-nav-backward-indent)
+  (peng-local-set-key (kbd "<C-S-left>") 'elpy-nav-indent-shift-left)
+  (peng-local-set-key (kbd "<C-S-right>") 'elpy-nav-indent-shift-right)
+  
+  
   (peng-local-set-key (kbd "<C-down>") 'elpy-nav-forward-block)
   (peng-local-set-key (kbd "<C-up>") 'elpy-nav-backward-block)
   (peng-local-set-key (kbd "<C-S-return>") 'peng-resend-current-buffer)
