@@ -1,5 +1,5 @@
 (add-to-list 'load-path
-	     "/Users/pengpengxp/.emacs.d/site-lisp/ecb-master")
+	     "/home/pengpengxp/.emacs.d/site-lisp/ecb-master")
 
 (require 'ecb)
 ;; (require 'ecb-autoloads)

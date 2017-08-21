@@ -60,7 +60,7 @@
 
 ;; 我还是喜欢dark
 ;; (moe-light)
-;; (moe-dark)
+(moe-dark)
 ;; (color-theme-taming-mr-arneson)
 
 ;;; ====================moe theme==================== 
@@ -79,29 +79,29 @@
 
 
 ;;; for light theme leuven
-;; (add-to-list 'custom-theme-load-path "/Users/pengpengxp/.emacs.d/site-lisp/emacs-leuven-theme-master")
+;; (add-to-list 'custom-theme-load-path "/home/pengpengxp/.emacs.d/site-lisp/emacs-leuven-theme-master")
 ;; (load-theme 'leuven t)
 ;; (load-theme 'leuven-dark t)
 
-;;; ;;;;;;;;;;;;;;;; doom-themes config begin ;;;;;;;;;;;;;;;;
-(require 'doom-themes)
+;; ;;; ;;;;;;;;;;;;;;;; doom-themes config begin ;;;;;;;;;;;;;;;;
+;; (require 'doom-themes)
 
-;; Global settings (defaults)
-(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-      doom-themes-enable-italic t) ; if nil, italics is universally disabled
+;; ;; Global settings (defaults)
+;; (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+;;       doom-themes-enable-italic t) ; if nil, italics is universally disabled
 
-;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
-;; may have their own settings.
-(load-theme 'doom-one t)
-(load-theme 'doom-molokai t)
+;; ;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
+;; ;; may have their own settings.
+;; (load-theme 'doom-one t)
+;; (load-theme 'doom-molokai t)
 
-;; Enable flashing mode-line on errors
-(doom-themes-visual-bell-config)
+;; ;; Enable flashing mode-line on errors
+;; (doom-themes-visual-bell-config)
 
-;; Enable custom neotree theme
-(doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
+;; ;; Enable custom neotree theme
+;; (doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
 
-;;; ;;;;;;;;;;;;;;;; doom-themes config end ;;;;;;;;;;;;;;;;
+;; ;;; ;;;;;;;;;;;;;;;; doom-themes config end ;;;;;;;;;;;;;;;;
 
 
 

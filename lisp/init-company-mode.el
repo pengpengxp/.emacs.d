@@ -116,15 +116,15 @@
 
 ;;; heads in revier
 (setq company-clang-arguments '(
-                                "-I/Users/pengpengxp/src/ASP-Engine/core/"
-                                "-I/Users/pengpengxp/src/ASP-Engine/nginx/src"
-                                "-I/Users/pengpengxp/src/ASP-Engine/nginx/src/http"
-                                "-I/Users/pengpengxp/src/ASP-Engine/nginx/src/http/modules"
-                                "-I/Users/pengpengxp/src/ASP-Engine/nginx/src/core"
-                                "-I/Users/pengpengxp/src/ASP-Engine/nginx/mac"
-                                "-I/Users/pengpengxp/src/ASP-Engine/nginx/src/os/unix"
-                                "-I/Users/pengpengxp/src/ASP-Engine/nginx/src/event"
-                                "-I/Users/pengpengxp/src/ASP-Engine/third-parties/openssl/"
+                                "-I/home/pengpengxp/src/ASP-Engine/core/"
+                                "-I/home/pengpengxp/src/ASP-Engine/nginx/src"
+                                "-I/home/pengpengxp/src/ASP-Engine/nginx/src/http"
+                                "-I/home/pengpengxp/src/ASP-Engine/nginx/src/http/modules"
+                                "-I/home/pengpengxp/src/ASP-Engine/nginx/src/core"
+                                "-I/home/pengpengxp/src/ASP-Engine/nginx/mac"
+                                "-I/home/pengpengxp/src/ASP-Engine/nginx/src/os/unix"
+                                "-I/home/pengpengxp/src/ASP-Engine/nginx/src/event"
+                                "-I/home/pengpengxp/src/ASP-Engine/third-parties/openssl/"
                                 ))
 
 (provide 'init-company-mode)

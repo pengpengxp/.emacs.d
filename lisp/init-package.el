@@ -4,9 +4,9 @@
 
 (require 'package)
 (setq package-archives '(
-			 ("gnu" . "/Users/pengpengxp/emacs-packages/gnu")
-                         ("marmalade" . "/Users/pengpengxp/emacs-packages/marmalade")
-                         ("melpa" . "/Users/pengpengxp/emacs-packages/melpa")
+			 ("gnu" . "/home/pengpengxp/emacs-packages/gnu")
+                         ("marmalade" . "/home/pengpengxp/emacs-packages/marmalade")
+                         ("melpa" . "/home/pengpengxp/emacs-packages/melpa")
 			 ))
 
 ;; ;;; for elpy

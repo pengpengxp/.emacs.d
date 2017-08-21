@@ -442,7 +442,7 @@ absolute path."
                      (replace-regexp-in-string
                       "~/src/ASP-Engine/" "" filename)
                    (replace-regexp-in-string
-                    "/Users/pengpengxp/src/ASP-Engine/" "" filename))))
+                    "/home/pengpengxp/src/ASP-Engine/" "" filename))))
     (when filename
       (kill-new result)
       (message "Copied buffer file name '%s' to the clipboard." result))))

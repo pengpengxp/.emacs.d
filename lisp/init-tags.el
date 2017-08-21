@@ -1,7 +1,7 @@
 ;; (require 'helm-etags+)
 
 ;; (setq tags-table-list
-;;       '("~/.emacs.d/TAGS" "/Users/pengpengxp/.data/emacs-24.4/src"))
+;;       '("~/.emacs.d/TAGS" "/home/pengpengxp/.data/emacs-24.4/src"))
 
 ;; (setq tags-file-name nil)
 

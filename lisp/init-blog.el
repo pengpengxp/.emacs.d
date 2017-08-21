@@ -6,49 +6,14 @@
 (org-jekyll-mode)
 
 (require 'ox-md)
-;;; set org publish
-;; (setq org-publish-project-alist
-;;       '(
-
-;;         ("html"
-;;          ;; Path to your org files.
-;;          :base-directory "~/blog/org/"
-;;          :base-extension "org"
-
-;;          ;; Path to your Jekyll project.
-;;          :publishing-directory "~/blog/jekyll/"
-;;          :recursive t
-;;          :publishing-function org-html-publish-to-html
-;;          :headline-levels 4 
-;;          :html-extension "html"
-;;          :body-only t ;; Only export section between <body> </body>
-;;          )
-
-;;         ("org-assets"
-;;          :base-directory "~/blog/org"
-;;          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|php"
-;;          :publishing-directory "~/blog/jekyll"
-;;          :recursive t
-;;          :publishing-function org-publish-attachment)
-
-;;         ("org-source"
-;;          :base-directory "~/blog/org"
-;;          :base-extension "org"
-;;          :publishing-directory "~/blog/jekyll/_site/"
-;;          :recursive t
-;;          :publishing-function org-publish-attachment)
-
-;;         ("blog" :components ("org-source" "org-assets" "html"))
-;;         ))
-
 (setq org-publish-project-alist
       '(
         ("html"
          ;; Path to your org files.
-         :base-directory "/Users/pengpengxp/github/pengpengxp.github.io/source"
+         :base-directory "/home/pengpengxp/github/pengpengxp.github.io/source"
          :base-extension "org"
          :auto-sitemap nil                  ;不自动生成 sitemap.org
-         :publishing-directory "/Users/pengpengxp/github/pengpengxp.github.io"
+         :publishing-directory "/home/pengpengxp/github/pengpengxp.github.io"
          :recursive t
          :publishing-function org-html-publish-to-html
          :headline-levels 4 
@@ -58,9 +23,9 @@
          )
 
         ("org-assets"
-         :base-directory "/Users/pengpengxp/github/pengpengxp.github.io/source"
+         :base-directory "/home/pengpengxp/github/pengpengxp.github.io/source"
          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|php"
-         :publishing-directory "/Users/pengpengxp/github/pengpengxp.github.io"
+         :publishing-directory "/home/pengpengxp/github/pengpengxp.github.io"
          :recursive t
          :publishing-function org-publish-attachment)
         ("blog" :components ("html" "org-assets"))

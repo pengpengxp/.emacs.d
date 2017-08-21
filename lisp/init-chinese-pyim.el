@@ -21,7 +21,7 @@
   (interactive)
   (setq pyim-dicts
         '((:name "BigDict"
-                 :file "/Users/pengpengxp/.emacs.d/site-lisp/chinese-pyim/pyim-bigdict.txt"
+                 :file "/home/pengpengxp/.emacs.d/site-lisp/chinese-pyim/pyim-bigdict.txt"
                  :coding utf-8-unix)))
   (pyim-restart-1 t))
 

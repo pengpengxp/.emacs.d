@@ -19,7 +19,7 @@
 (define-auto-insert 'ruby-mode '(nil "#!/usr/local/bin/ruby
 "))
 
-(define-auto-insert 'python-mode '(nil "#!/usr/local/bin/python
+(define-auto-insert 'python-mode '(nil "#!/usr/bin/python
 "))
 
 
