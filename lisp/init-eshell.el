@@ -51,6 +51,17 @@
 	      (mapcar #'expand-file-name (eshell-flatten-list (reverse args))))))
   )
 
+(if (string= system-type "gnu/linux")
+;;; 照着`eshell/ff'定义了一个`eshell/o'函数
+    (defun eshell/o (&rest args)
+      "Opens a file in emacs."
+      (when (not (null args))
+	(mapc '(lambda (a)
+		 (shell-command (concat "xdg-open "
+					a)))
+	      (mapcar #'expand-file-name (eshell-flatten-list (reverse args))))))
+  )
+
 (defun eshell/lg (&rest args)
   "因为经常使用`ls|grep xxx'这样的命令，就自己包装了一个"
   (when (not (null args))

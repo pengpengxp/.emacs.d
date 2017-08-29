@@ -376,8 +376,9 @@
   ("c" calendar "calendar")
   ("C" peng-mac-open-gui-calendar "peng-mac-open-gui-calendar")
   ("s" peng-open-in-desktop-and-select "peng-open-in-desktop-and-select")
+  ("S" peng-shutdown "SHUTDOWN!")
+  ("w" peng-open-electronic-wechat "wechat")
   )
-
 (defhydra hydra-help (:exit t :columns 4)
   "Help Mode"
   ("v" describe-variable "variable")

@@ -928,4 +928,17 @@ Version 2015-08-22"
       (kill-new (buffer-string))
       (delete-region (point-min) (point-max)))))
 
+(defun peng-shutdown ()
+  (interactive)
+  (async-shell-command (concat (getenv "HOME")
+                               "/bin/p_shutdown.sh")))
+
+
+
+(if (string= system-type "gnu/linux")
+    (defun peng-open-electronic-wechat ()
+      (interactive)
+      (async-shell-command "/usr/local/electronic-wechat-linux-x64/electronic-wechat &"))
+  )
+
 (provide 'init-peng-prifun)

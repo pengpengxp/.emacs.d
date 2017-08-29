@@ -11,7 +11,7 @@
 (setq w3m-use-toolbar t)
 ;; (setq browse-url-browser-function 'w3m-browse-url)                 ;set w3m as emacs's default browser
 (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "open")
+      browse-url-generic-program "xdg-open")
 
 (setq w3m-fill-column 70)
 (setq w3m-session-automatic-save 1)

@@ -71,14 +71,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; 让`ivy-read'支持拼音
 (require 'pinyinlib)
-
-;;; 这些是我自定义的匹配策略
-(defun re-builder-pinyin (str)
-  (or
-   (ivy--regex-plus str)
-   (pinyin-to-utf8 str)
-   ))
-
 (defun my-pinyinlib-build-regexp-string (str)
   (progn
     (cond ((equal str ".*")
@@ -104,6 +96,14 @@
                     ""))
         nil))
 
+;;; 这是我自定义的匹配策略
+(defun re-builder-pinyin (str)
+  (or (pinyin-to-utf8 str)
+      (ivy--regex-plus str)))
+
+(setq ivy-re-builders-alist
+      '((t . re-builder-pinyin)))
+
 
 ;;; 主要就是操作这个变量来控制`ivy'的匹配，现在又暂时不想要pinyin的匹
 ;;; 配了
@@ -124,12 +124,12 @@
 
 ;; Here's a function to get you started:
 
-(defun re-builder-pinyin (str)
-  (or (pinyin-to-utf8 str)
-      (ivy--regex-plus str)))
+;; (defun re-builder-pinyin (str)
+;;   (or (pinyin-to-utf8 str)
+;;       (ivy--regex-plus str)))
 
-(setq ivy-re-builders-alist
-      '((t . re-builder-pinyin)))
+;; (setq ivy-re-builders-alist
+;;       '((t . re-builder-pinyin)))
 
 ;; ;; ;;; 这样就可以去掉`pinyin'区配
 ;; (defun pinyin-to-utf8 (str)
