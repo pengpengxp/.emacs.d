@@ -719,4 +719,8 @@ Breadcrumb bookmarks:
 (define-key evil-normal-state-map "'" 'peng-ivy-switch-buffer-to-views)
 (define-key evil-motion-state-map "'" 'peng-ivy-switch-buffer-to-views)
 
+;;; on my thinkpad T420s, I don't want to use these keys.
+(global-unset-key (kbd "<XF86Back>"))
+(global-unset-key (kbd "<XF86Forward>"))
+
 (provide 'init-hydra)
