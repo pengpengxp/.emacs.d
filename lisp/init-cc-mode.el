@@ -52,9 +52,10 @@ tab on left will act as indent while on the right of character as
 (defun pengpengxp-c-common-mode ()
   (which-function-mode)
   (setq indent-tabs-mode nil)
-  (peng-local-set-key (kbd "C-c C-v") 'compile)
+  ;; (peng-local-set-key (kbd "C-c C-v") 'compile)
+  (peng-local-set-key (kbd "C-c C-v") 'peng-compile-current-c-or-cpp-file)
   (yas-minor-mode 1)
-  (linum-mode 0)			;show the line number
+  (linum-mode 1)			;show the line number
   (local-set-key (kbd "C-j") 'view-stardict-in-buffer)
   ;; for the #if #else #endif
   ;; (define-key evil-normal-state-map (kbd "M-.") 'peng-helm-etags-select) ; shoule be file local!!
@@ -81,6 +82,7 @@ tab on left will act as indent while on the right of character as
   ;; (evil-close-folds)			;每次打开文件都是折叠的
   (define-key evil-normal-state-local-map (kbd "zi") 'hide-ifdefs)
   (define-key evil-normal-state-local-map (kbd "SPC v") 'hydra-cscope/body)
+  (define-key evil-normal-state-local-map (kbd "SPC m") 'hydra-cc-mode/body)
   (define-key evil-normal-state-local-map (kbd "<M-return>") 'cscope-find-global-definition-no-prompting)
   (define-key evil-normal-state-local-map (kbd "<C-return>") 'peng-cscope-find-this-symbol-no-prompting)
   (define-key evil-normal-state-local-map (kbd "C-]") 'etags-select-find-tag-at-point)

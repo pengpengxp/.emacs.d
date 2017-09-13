@@ -290,14 +290,14 @@ file and open the pdf file. also compile the bibliography"
       (if (file-exists-p img-dir)
           (print "yes")
         (mkdir img-dir))
-      (let ((temp-name (ivy-read "please selete a image name"
+      (let ((temp-name (ivy-read "please selete a image name:"
                                  (delete ".." (delete "." (directory-files img-dir))))))
         (setq filename (concat img-dir
                                "/"
                                (file-name-base temp-name)
                                ".png"))
-        (call-process-shell-command "screencapture" nil nil nil nil "-i" (concat
-                                                                          "\"" filename "\"" ))
+        (call-process-shell-command "import" nil nil nil nil "" (concat
+                                                                 "\"" filename "\"" ))
         (insert (concat "[[./" filename "]]"))))))
 
 (defun peng-delete-org-screenshot-image-file ()
@@ -344,8 +344,8 @@ file and open the pdf file. also compile the bibliography"
                                 (org-element-property :end link))))))
          (img-dir peng-org-screenshot-dir-name)
          (temp-name (concat "./" img-dir "/"
-                                 (ivy-read "please selete a image name you want to delete"
-                                           (delete ".." (delete "." (directory-files img-dir))))))
+                            (ivy-read "please selete a image name you want to delete"
+                                      (delete ".." (delete "." (directory-files img-dir))))))
          (begin-end-list (peng-find-org-link-begin-and-end link-list temp-name)))
     (progn
       (if (yes-or-no-p "Do you really want to delete the image file? This can't be revertable!!")
@@ -381,4 +381,8 @@ STDERR with `org-babel-eval-error-notify'."
               (org-babel-eval-error-notify exit-code (buffer-string)))
             nil)
         (buffer-string)))))
+
+
+;;; make all the screenshot image the same size in org-mode file
+(setq org-image-actual-width 200)
 (provide 'init-org)

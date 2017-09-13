@@ -23,6 +23,10 @@
 (setq w3m-default-display-inline-images t)
 (setq w3m-default-toggle-inline-images t)
 
+(defun peng-browse-current-url-by-firefox()
+  (interactive)
+  (browse-url-firefox w3m-current-url))
+
 (defun pengpengxp-w3m-mode ()
   (evil-normal-state 1)
   ;; (setq evil-insert-state-cursor '("black" box))
@@ -49,6 +53,7 @@
   (peng-local-set-key (kbd "B") 'w3m-view-previous-page)
   (peng-local-set-key (kbd "N") 'w3m-view-next-page)
   (peng-local-set-key (kbd "f") 'w3m-lnum-follow)
+  (peng-local-set-key (kbd "F") 'peng-browse-current-url-by-firefox)
   (peng-local-set-key (kbd "RET") 'w3m-view-this-url)
   (peng-local-set-key (kbd "<return>") 'w3m-view-this-url)
   (define-key evil-normal-state-local-map (kbd "SPC m") 'hydra-google-translate/body)

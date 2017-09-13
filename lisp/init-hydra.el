@@ -1,7 +1,7 @@
 (defhydra my-hydra-zoom ()
   "zoom"
-  ("+" increase-emacs-font-size "scale increase")
-  ("-" decrease-emacs-font-size "scale decrease")
+  ("+" cnfonts-increase-fontsize "scale increase")
+  ("-" cnfonts-decrease-fontsize "scale decrease")
   ("c" nil "cancle")
   ;; ("C-+" 'text-scale-increase)
   ;; ("C--" 'text-scale-decrease)
@@ -66,9 +66,17 @@
   ("c" nil "calcel")
   )
 
-(defhydra hydra-cscope (:color pink
+(defhydra hydra-cc-mode (:color pink
                                :hint nil
                                :columns 3
+                               :exit t)
+  "CC Mode"
+  ("c" peng-compile-current-c-or-cpp-file "compile-current-c-file")
+  )
+
+(defhydra hydra-cscope (:color pink
+                               :hint nil
+                               :columns 2
                                :exit t)
   "Cscope"
   ("A" cscope-unset-initial-directory "cscope-unset-initial-directory")
