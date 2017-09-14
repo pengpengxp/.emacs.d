@@ -46,4 +46,42 @@
       (message "Sorry, current buffer is not related to file."))))
 
 
+(require 'ivy)
+(defun peng-ring-to-filename-and-position (marker)
+  "change ring to string format `filename:position'"
+  (let* ((buffername (marker-buffer marker))
+         (position (marker-position marker)))
+    (format "%s:%s" buffername position)))
+
+(defun peng-add-content (file-name-and-position)
+  "change `filename:position' to
+`filename:position:content-of-line'"
+  (let* ((rlist (split-string file-name-and-position ":"))
+         (buffer (car rlist))
+         (position (string-to-int (cadr rlist)))
+         content)
+    
+    (progn
+      (set-buffer buffer)
+      (goto-char position)
+      (setq content (buffer-substring-no-properties
+                    (line-beginning-position)
+                    (line-end-position)))
+      (message "%s:%s:%s" buffer
+               position
+               content))))
+
+(defun peng-walk-through-cscope-ring ()
+  (interactive)
+  (let* ((mymarker cscope-marker-ring)
+         (file-name-and-position (mapcar 'peng-ring-to-filename-and-position (ring-elements mymarker)))
+         (result (ivy-read "where do you want to jump: "
+                           (mapcar 'peng-add-content file-name-and-position)))
+         (rlist (split-string result ":"))
+         (buffer (car rlist))
+         (position (string-to-int (cadr rlist))))
+    (progn
+      (switch-to-buffer buffer)
+      (goto-char position))))
+
 (provide 'init-xcscope)

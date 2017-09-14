@@ -111,6 +111,7 @@
   ("s" cscope-find-this-symbol "cscope-find-this-symbol")
   ("t" cscope-find-this-text-string "cscope-find-this-text-string")
   ("u" cscope-pop-mark "cscope-pop-mark")
+  ("h" peng-walk-through-cscope-ring "history")
   ("<backspace>" nil "calcel")
   ("DEL" nil "calcel")
   )
