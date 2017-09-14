@@ -33,9 +33,17 @@
   (interactive)
   (peng-local-set-key (kbd "q") 'delete-window)
   (peng-local-set-key (kbd "<M-backspace>") 'cscope-pop-mark)
+  (peng-local-set-key (kbd "<kp-enter>") 'cscope-select-entry-other-window)
   )
 
 (add-hook 'cscope-list-entry-hook 'pengpengxp-cscope-common-mode)
+
+(defun peng-cscope-find-curren-files-including-file ()
+  (interactive)
+  (let ((name (file-name-nondirectory (buffer-file-name))))
+    (if name
+        (cscope-find-files-including-file name)
+      (message "Sorry, current buffer is not related to file."))))
 
 
 (provide 'init-xcscope)

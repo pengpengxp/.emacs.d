@@ -84,13 +84,17 @@ tab on left will act as indent while on the right of character as
   (define-key evil-normal-state-local-map (kbd "SPC v") 'hydra-cscope/body)
   (define-key evil-normal-state-local-map (kbd "SPC m") 'hydra-cc-mode/body)
   (define-key evil-normal-state-local-map (kbd "<M-return>") 'cscope-find-global-definition-no-prompting)
+  (define-key evil-normal-state-local-map (kbd "<kp-enter>") 'cscope-find-global-definition-no-prompting)
   (define-key evil-normal-state-local-map (kbd "<C-return>") 'peng-cscope-find-this-symbol-no-prompting)
+  (define-key evil-normal-state-local-map (kbd "<kp-delete>") 'peng-cscope-find-this-symbol-no-prompting)
   (define-key evil-normal-state-local-map (kbd "C-]") 'etags-select-find-tag-at-point)
   (define-key evil-normal-state-map (kbd "M-.") 'find-tag) ; shoule be file local!!
   (peng-local-set-key (kbd "M-DEL") 'cscope-pop-mark)
+  (peng-local-set-key (kbd "<kp-insert>") 'cscope-pop-mark)
   (peng-local-set-key (kbd "<M-backspace>") 'cscope-pop-mark)
   (peng-local-set-key (kbd "<C-down-mouse-1>") 'etags-select-find-tag-at-point)
   (peng-local-set-key (kbd "<mouse-3>") 'pop-tag-mark)
+  (peng-local-set-key (kbd "<kp-subtract>") 'cscope-find-functions-calling-this-function)
 
   (dumb-jump-mode 1)
   (peng-setup-cc-mode-for-complete)

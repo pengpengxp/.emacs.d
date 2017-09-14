@@ -72,6 +72,7 @@
                                :exit t)
   "CC Mode"
   ("c" peng-compile-current-c-or-cpp-file "compile-current-c-file")
+  ("g" dumb-jump-go "dumb-jump-go")
   )
 
 (defhydra hydra-cscope (:color pink
@@ -102,6 +103,7 @@
   ("d" cscope-find-global-definition "cscope-find-global-definition")
   ("e" cscope-find-egrep-pattern "cscope-find-egrep-pattern")
   ("f" cscope-find-this-file "cscope-find-this-file")
+  ("F" peng-cscope-find-curren-files-including-file "peng-cscope-find-curren-files-including-file")
   ("g" cscope-find-global-definition "cscope-find-global-definition")
   ("i" cscope-find-files-including-file "cscope-find-files-including-file")
   ("n" cscope-next-symbol "cscope-next-symbol")
