@@ -221,6 +221,7 @@
 (require 'init-global)
 (require 'init-xah-keys)
 (require 'init-misc)
+(require 'init-elfeed)
 
 ;; (require 'init-cursor)
 ;; (load-file (concat (getenv LISP)

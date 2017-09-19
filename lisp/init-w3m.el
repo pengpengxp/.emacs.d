@@ -1,4 +1,4 @@
-;; ;; pengpengxp's w3m-mode
+;; ;; pengpengxp's w3m-modet
 (require 'smart-tab)
 (add-to-list 'load-path (concat SITE-LISP "emacs-w3m"))
 (require 'w3m-load)
@@ -9,9 +9,12 @@
 (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
 (autoload 'w3m-search "w3m-search" "Search words using emacs-w3m." t)
 (setq w3m-use-toolbar t)
-;; (setq browse-url-browser-function 'w3m-browse-url)                 ;set w3m as emacs's default browser
-(setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "xdg-open")
+(setq browse-url-browser-function 'w3m-browse-url)                 ;set w3m as emacs's default browser
+;; (setq browse-url-browser-function 'browse-url-generic
+;;       browse-url-generic-program "xdg-open")
+
+;;; making new emacs-w3m buffers when visiting new pages
+(setq w3m-make-new-session t)
 
 (setq w3m-fill-column 70)
 (setq w3m-session-automatic-save 1)
@@ -56,6 +59,10 @@
   (peng-local-set-key (kbd "F") 'peng-browse-current-url-by-firefox)
   (peng-local-set-key (kbd "RET") 'w3m-view-this-url)
   (peng-local-set-key (kbd "<return>") 'w3m-view-this-url)
+  (peng-local-set-key (kbd "<C-return>") 'w3m-view-this-url-new-session)
+  (peng-local-set-key (kbd "<M-return>") 'w3m-view-this-url-new-session)
+  (peng-local-set-key (kbd "<S-left>") 'w3m-previous-buffer)
+  (peng-local-set-key (kbd "<S-right>") 'w3m-next-buffer)
   (define-key evil-normal-state-local-map (kbd "SPC m") 'hydra-google-translate/body)
   (smart-tab-mode-off)
   )

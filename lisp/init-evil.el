@@ -56,12 +56,14 @@
 (evil-set-initial-state 'mark-list-mode 'emacs)
 (evil-set-initial-state '2048-mode 'emacs)
 (evil-set-initial-state 'bc-menu-mode 'emacs)
+(evil-set-initial-state 'elfeed-search-mode 'emacs)
 
 (evil-set-initial-state 'dired-mode 'normal)
 (evil-set-initial-state 'Man-mode 'normal)
 (evil-set-initial-state 'org-agenda-mode 'normal)
 (evil-set-initial-state 'ibuffer-mode 'normal)
 (evil-set-initial-state 'occur-mode 'normal)
+
 
 ;;; pengpengxp's evil-toc-mode
 (evil-set-initial-state 'reftex-toc-mode 'normal)

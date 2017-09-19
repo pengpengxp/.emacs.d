@@ -30,6 +30,7 @@
     ("u" w3m-bookmark-undo "w3m-bookmark-undo")
     ("m" w3m-bookmark-menu "w3m-bookmark-menu")
     ("v" w3m-bookmark-view "w3m-bookmark-view")
+    ("V" w3m-bookmark-view-new-session "w3m-bookmark-view-new-session")
     ("a" w3m-bookmark-add-current-url "w3m-bookmark-add-current-url")
     ("k" w3m-bookmark-kill-entry "w3m-bookmark-kill-entry")
     ("t" w3m-bookmark-add-this-url "w3m-bookmark-add-this-url")
