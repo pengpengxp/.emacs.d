@@ -1,7 +1,6 @@
 ;; ;; pengpengxp's w3m-modet
 (require 'smart-tab)
 (add-to-list 'load-path (concat SITE-LISP "emacs-w3m"))
-(require 'w3m-load)
 (provide 'w3m-e23)
 (require 'w3m-lnum)
 (setq w3m-home-page "www.google.com") ;set your home page
@@ -12,6 +11,11 @@
 (setq browse-url-browser-function 'w3m-browse-url)                 ;set w3m as emacs's default browser
 ;; (setq browse-url-browser-function 'browse-url-generic
 ;;       browse-url-generic-program "xdg-open")
+
+;;; after I install w3m from using package other than install
+;;; manually, I must set this variable, or w3m can not work
+;;; well. Wierd.
+(setq w3m-url-invalid-regexp "\\`http:///")
 
 ;;; making new emacs-w3m buffers when visiting new pages
 (setq w3m-make-new-session t)
