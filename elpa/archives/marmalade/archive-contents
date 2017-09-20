@@ -1,11 +1,4 @@
 (1
- (emacs-visual-notifications .
-			     [(20170908 2035)
-			      ((emacs
-				(24))
-			       (cl-lib
-				(0 5)))
-			      "A utility to create visual notifications in emacs" single])
  (zone-nyan .
 	    [(0 2 2)
 	     ((esxml
@@ -467,7 +460,7 @@
 	     [(12)
 	      nil "A theme loosely based on Tron: Legacy colors" single])
  (transmission .
-	       [(0 11 1)
+	       [(0 12)
 		((emacs
 		  (24 4))
 		 (let-alist
@@ -582,7 +575,7 @@
 		 [(0 2)
 		  nil "A mode for SystemTap" single])
  (systemd .
-	  [(1 4 1)
+	  [(1 6)
 	   nil "Major mode for editing systemd units" tar])
  (syslog-mode .
 	      [(2 2)
@@ -3573,7 +3566,7 @@
 		  (20160725 724)))
 		"Sound effects for Emacs" single])
  (emacs-home .
-	     [(20170908 2045)
+	     [(20170911 1835)
 	      ((emacs
 		(24))
 	       (cl-lib
@@ -3582,6 +3575,15 @@
  (emacs-droid .
 	      [(0 0 0)
 	       nil "Android application development tools for Emacs" single])
+ (emacs-daily-events .
+		     [(20170911 2235)
+		      ((emacs
+			(24))
+		       (cl-lib
+			(0 5))
+		       (emacs-visual-notifications
+			(20170908 2035)))
+		      "An Emacs package to notify you on specified daily occurring events" single])
  (emacs-cl .
 	   [(0 5)
 	    nil "Emacs Common Lisp" tar])

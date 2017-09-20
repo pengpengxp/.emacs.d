@@ -1,0 +1,1 @@
+(define-package "rg" "20170908.2359" "A ripgrep frontend, similar to built in grep.el." '((cl-lib "0.5") (emacs "24") (s "1.10.0") (seq "2.19")) :commit "adfdf6230f02f469a1b508922b6837f95f6434d2" :url "https://github.com/dajva/rg.el" :keywords '("matching" "tools"))

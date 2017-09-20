@@ -1,0 +1,1 @@
+(define-package "xah-lookup" "20170821.405" "look up word on internet." '((emacs "24.1")) :commit "cd5d622140e78e01d0ab32fcb43edc49f4e7fbb5" :url "http://ergoemacs.org/emacs/xah-lookup.html" :keywords '("help" "docs" "convenience"))

@@ -34,6 +34,10 @@
   (interactive)
   (browse-url-firefox w3m-current-url))
 
+(defun peng-browse-current-url-by-chrome ()
+  (interactive)
+  (browse-url-chromium w3m-current-url))
+
 (defun pengpengxp-w3m-mode ()
   (evil-normal-state 1)
   ;; (setq evil-insert-state-cursor '("black" box))
@@ -61,6 +65,7 @@
   (peng-local-set-key (kbd "N") 'w3m-view-next-page)
   (peng-local-set-key (kbd "f") 'w3m-lnum-follow)
   (peng-local-set-key (kbd "F") 'peng-browse-current-url-by-firefox)
+  ;; (peng-local-set-key (kbd "F") 'peng-browse-current-url-by-chrome)
   (peng-local-set-key (kbd "RET") 'w3m-view-this-url)
   (peng-local-set-key (kbd "<return>") 'w3m-view-this-url)
   (peng-local-set-key (kbd "<C-return>") 'w3m-view-this-url-new-session)
@@ -90,7 +95,8 @@
                       "return links as string\n"))))
         (w3m-goto-url result))))
 
-
-
+;;; set `browse-url-chromium' to use `google-chrome' other than
+;;; `chromium'
+(setq browse-url-chromium-program "google-chrome")
 
 (provide 'init-w3m)
