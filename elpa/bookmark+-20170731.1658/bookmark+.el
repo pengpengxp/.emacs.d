@@ -4,23 +4,23 @@
 ;; Description: Bookmark+: extensions to standard library `bookmark.el'.
 ;; Author: Drew Adams, Thierry Volpiatto
 ;; Maintainer: Drew Adams (concat "drew.adams" "@" "oracle" ".com")
-;; Copyright (C) 2000-2016, Drew Adams, all rights reserved.
+;; Copyright (C) 2000-2017, Drew Adams, all rights reserved.
 ;; Copyright (C) 2009, Thierry Volpiatto, all rights reserved.
 ;; Created: Fri Sep 15 07:58:41 2000
-;; Version: 2015.04.03
-;; Last-Updated: Thu Dec 31 12:25:13 2015 (-0800)
+;; Version: 2017.03.31
+;; Last-Updated: Fri Mar 31 18:46:43 2017 (-0700)
 ;;           By: dradams
-;;     Update #: 15032
-;; URL: http://www.emacswiki.org/bookmark+.el
+;;     Update #: 15039
+;; URL: https://www.emacswiki.org/emacs/download/bookmark%2b.el
 ;; Doc URL: http://www.emacswiki.org/BookmarkPlus
-;; Keywords: bookmarks, bookmark+, projects, placeholders, annotations, search, info, url, w3m, gnus
+;; Keywords: bookmarks, bookmark+, projects, placeholders, annotations, search, info, url, eww, w3m, gnus
 ;; Compatibility: GNU Emacs: 20.x, 21.x, 22.x, 23.x, 24.x, 25.x
 ;;
 ;; Features that might be required by this library:
 ;;
 ;;   `apropos', `apropos+', `avoid', `bookmark', `bookmark+-1',
-;;   `bookmark+-bmu', `bookmark+-key', `bookmark+-lit', `cmds-menu',
-;;   `ffap', `fit-frame', `frame-fns', `help+20', `info', `info+20',
+;;   `bookmark+-bmu', `bookmark+-key', `bookmark+-lit', `ffap',
+;;   `fit-frame', `frame-fns', `help+20', `info', `info+20',
 ;;   `menu-bar', `menu-bar+', `misc-cmds', `misc-fns', `naked', `pp',
 ;;   `pp+', `second-sel', `strings', `thingatpt', `thingatpt+',
 ;;   `unaccent', `w32browser-dlgopen', `wid-edit', `wid-edit+',

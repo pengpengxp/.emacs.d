@@ -37,6 +37,10 @@
     ("t" w3m-bookmark-add-this-url "w3m-bookmark-add-this-url")
     ("e" w3m-bookmark-edit "w3m-bookmark-edit")
     ("c" peng-w3m-goto-chrome-current-tab-url "peng-w3m-goto-chrome-current-tab-url")
+    ("F" peng-firefox-view-current-url "firefox")
+    ("G" peng-chrome-view-current-url "chrome")
+    ("SPC" w3m "w3m")
+    ("<return>" peng-w3m-view-current-url-new-session "peng-w3m-view-current-url-new-session")
   )
 
 (defhydra hydra-global (:color pink

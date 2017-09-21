@@ -99,4 +99,26 @@
 ;;; `chromium'
 (setq browse-url-chromium-program "google-chrome")
 
+(defun peng-w3m-view-current-url-new-session ()
+  "open url at point with w3m in a new session"
+  (interactive)
+  (let ((url (xah-get-thing-at-point 'url)))
+    (progn
+      (w3m-goto-url-new-session url))))
+
+(defun peng-chrome-view-current-url ()
+  "open url at point with chrome"
+  (interactive)
+  (let ((url (xah-get-thing-at-point 'url)))
+    (progn
+      (browse-url-chromium url))))
+
+(defun peng-firefox-view-current-url ()
+  "open url at point with firefox"
+  (interactive)
+  (let ((url (xah-get-thing-at-point 'url)))
+    (progn
+      (browse-url-firefox url))))
+
+
 (provide 'init-w3m)
