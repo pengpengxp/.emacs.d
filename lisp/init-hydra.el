@@ -22,7 +22,6 @@
   ("c" nil "cancel")
   )
 
-
 (defhydra hydra-bookmarks ()
   "zoom"
   ("f" peng-bookmarks-firefox "firefox")
@@ -39,16 +38,19 @@
   "w3m"
     ("u" w3m-bookmark-undo "w3m-bookmark-undo")
     ("m" w3m-bookmark-menu "w3m-bookmark-menu")
-    ("v" w3m-bookmark-view "w3m-bookmark-view")
-    ("V" w3m-bookmark-view-new-session "w3m-bookmark-view-new-session")
+    ("v" (w3m-goto-url-new-session w3m-bookmark-file) "w3m-bookmark-view")
     ("h" helm-w3m-bookmarks "helm-w3m-bookmark")
+
     ("a" w3m-bookmark-add-current-url "w3m-bookmark-add-current-url")
-    ("k" w3m-bookmark-kill-entry "w3m-bookmark-kill-entry")
     ("t" w3m-bookmark-add-this-url "w3m-bookmark-add-this-url")
+
     ("e" w3m-bookmark-edit "w3m-bookmark-edit")
-    ("c" peng-w3m-view-current-url-new-session "peng-w3m-goto-chrome-current-tab-url")
+    ("g" w3m-goto-url-new-session "goto url")
+
+    ("C" peng-w3m-view-current-url-new-session "peng-w3m-goto-chrome-current-tab-url")
     ("F" peng-firefox-view-current-url "firefox")
     ("G" peng-chrome-view-current-url "chrome")
+
     ("b" hydra-bookmarks/body "open bookmarks")
     ("SPC" w3m "w3m")
     ("<return>" #'(lambda (arg)
