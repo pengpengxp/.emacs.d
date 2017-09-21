@@ -22,6 +22,16 @@
   ("c" nil "cancel")
   )
 
+
+(defhydra hydra-bookmarks ()
+  "zoom"
+  ("f" peng-bookmarks-firefox "firefox")
+  ("c" peng-bookmarks-chrome "chrome")
+  ("w" peng-bookmarks-w3m "w3m")
+  ("<return>" peng-bookmarks-w3m "default w3m")
+  ("q" nil "cancle")
+  )
+
 (defhydra hydra-w3m (:color pink
                                :hint nil
                                :columns 3
@@ -36,11 +46,16 @@
     ("k" w3m-bookmark-kill-entry "w3m-bookmark-kill-entry")
     ("t" w3m-bookmark-add-this-url "w3m-bookmark-add-this-url")
     ("e" w3m-bookmark-edit "w3m-bookmark-edit")
-    ("c" peng-w3m-goto-chrome-current-tab-url "peng-w3m-goto-chrome-current-tab-url")
+    ("c" peng-w3m-view-current-url-new-session "peng-w3m-goto-chrome-current-tab-url")
     ("F" peng-firefox-view-current-url "firefox")
     ("G" peng-chrome-view-current-url "chrome")
+    ("b" hydra-bookmarks/body "open bookmarks")
     ("SPC" w3m "w3m")
-    ("<return>" peng-w3m-view-current-url-new-session "peng-w3m-view-current-url-new-session")
+    ("<return>" #'(lambda (arg)
+                    (interactive "P")
+                    (if arg
+                        (hydra-bookmarks/body)
+                      (peng-bookmarks-w3m))) "open bookmarks default")
   )
 
 (defhydra hydra-global (:color pink
