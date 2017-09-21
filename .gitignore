@@ -29,3 +29,5 @@ ivy-views
 lisp/init-mew.el
 lisp/init-river-security.el
 image-dired
+
+abbrev_defs

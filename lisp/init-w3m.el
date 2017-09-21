@@ -120,5 +120,58 @@
     (progn
       (browse-url-firefox url))))
 
+;;; use `ivy' to use w3m-bookmarks
+(require 'dom)
+;;; where your bookmark file located
+(setq peng-bookmark-file "~/.w3m/bookmark.html")
+
+(defun peng-ivy-get-bookmarks ()
+  "use `ivy-read' to select bookmark and return its url
+"
+  (let* ((dom (with-temp-buffer
+                (insert-file-contents peng-bookmark-file)
+                (libxml-parse-html-region (point-min)
+                                          (point-max))))
+         (a (dom-by-tag dom 'a))
+         (mylist (mapcar 'peng-parse-dom-tag-to-personal-format a))
+         (name (ivy-read "Jump to bookmarks:" (mapcar 'car mylist)))
+         ;; todo: I need to find `name' in mylist, if find, break the
+         ;; loop. But now, I just use `mapcar' to deal with every
+         ;; element in mylist and get `final-result' by removing all
+         ;; nil element in the list `result'. It's very ugly code!
+         (result (mapcar #'(lambda (data)
+                             (if (string= (car data)
+                                          name)
+                                 (cdr data)
+                               nil))
+                         mylist))
+         (final-result (caar (remove nil result))))
+    final-result))
+
+(defun peng-parse-dom-tag-to-personal-format (dom)
+  "parse a tag to `(name url) format'"
+  (let ((url (dom-attr dom 'href))
+        (name (dom-text dom)))
+    (list name url)))
+
+(defun peng-bookmarks-firefox ()
+  (interactive)
+  (let ((url (peng-ivy-get-bookmarks)))
+    (browse-url-firefox url)))
+
+(defun peng-bookmarks-chrome ()
+  (interactive)
+  (let ((url (peng-ivy-get-bookmarks)))
+    (browse-url-chromium url)))
+
+(defun peng-bookmarks-w3m ()
+  (interactive)
+  (let ((url (peng-ivy-get-bookmarks)))
+    (w3m-goto-url-new-session url)))
+
+;;; for proxy?
+(setq url-gateway-method 'socks)
+(setq socks-server '("Default server" "127.0.0.1" 1080 5))
+
 
 (provide 'init-w3m)
