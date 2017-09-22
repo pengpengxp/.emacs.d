@@ -717,19 +717,20 @@ Breadcrumb bookmarks:
 (define-key peng-spc-main-map (kbd "p") 'hydra-peng-p-menu/body)
 (define-key peng-spc-main-map (kbd ";") 'counsel-M-x)
 (define-key peng-spc-main-map (kbd ".") 'hydra-redo)
+(define-key peng-spc-main-map (kbd "v") 'hydra-cscope/body)
 (define-key peng-spc-main-map (kbd "<backspace>") 'delete-other-windows)
 (define-key peng-spc-main-map (kbd "RET") 'counsel-M-x)
 (define-key peng-spc-main-map (kbd "<return>") 'counsel-M-x)
 
 (peng-global-set-evil-non-edit-mode-key (kbd "SPC") peng-spc-main-map)
 (peng-global-set-key (kbd "M-k") peng-spc-main-map)
+(peng-global-set-key (kbd "<f9>") peng-spc-main-map)
 
 (peng-global-set-key (kbd "C-M-k") 'sp-kill-hybrid-sexp)
 (peng-global-set-key (kbd "C-M-S-k") 'sp-kill-sexp)
 (peng-global-set-key (kbd "C-M-a") 'sp-beginning-of-sexp)
 (peng-global-set-key (kbd "C-M-e") 'sp-end-of-sexp)
 
-(peng-global-set-key (kbd "<f9>") peng-spc-main-map)
 (peng-global-set-key (kbd "<f8>") 'w3m-bookmark-view)
 ;; (peng-global-set-key (kbd "<f5>") #'(lambda (x)
 ;;                                       (interactive "P")
