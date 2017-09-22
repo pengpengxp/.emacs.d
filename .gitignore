@@ -31,3 +31,5 @@ lisp/init-river-security.el
 image-dired
 
 abbrev_defs
+
+*.pyc
