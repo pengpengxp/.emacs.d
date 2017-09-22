@@ -63,6 +63,8 @@
   (peng-local-set-key (kbd "b") 'switch-to-buffer)
   (peng-local-set-key (kbd "B") 'w3m-view-previous-page)
   (peng-local-set-key (kbd "N") 'w3m-view-next-page)
+  (peng-local-set-key (kbd "r") 'w3m-reload-this-page)
+  (peng-local-set-key (kbd "R") 'w3m-reload-all-pages)
   (peng-local-set-key (kbd "f") 'w3m-lnum-follow)
   (peng-local-set-key (kbd "F") 'peng-browse-current-url-by-firefox)
   ;; (peng-local-set-key (kbd "F") 'peng-browse-current-url-by-chrome)

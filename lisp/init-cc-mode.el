@@ -96,6 +96,10 @@ tab on left will act as indent while on the right of character as
   (peng-local-set-key (kbd "<mouse-3>") 'pop-tag-mark)
   (peng-local-set-key (kbd "<kp-subtract>") 'cscope-find-functions-calling-this-function)
 
+  (define-key evil-normal-state-local-map (kbd "<XF86forward>") 'cscope-find-global-definition-no-prompting)
+  (peng-local-set-key (kbd "<XF86Back>") 'cscope-pop-mark)
+
+
   (dumb-jump-mode 1)
   (peng-setup-cc-mode-for-complete)
 
