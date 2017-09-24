@@ -171,5 +171,6 @@
   (let ((url (peng-ivy-get-bookmarks)))
     (w3m-goto-url-new-session url)))
 
+(require 'w3m-bookmark)
 
 (provide 'init-w3m)

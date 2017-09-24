@@ -324,6 +324,7 @@ file and open the pdf file. also compile the bibliography"
               (add-to-list 'return-list (cdr (car plist))))
           (setq plist (cdr plist))))
       return-list)))
+
 (defun peng-do-delete-link-function (be-list)
   "goto the begining of link and delete it, be-list is a list
   just like `((name begin-position end-position))'"
@@ -385,4 +386,19 @@ STDERR with `org-babel-eval-error-notify'."
 
 ;;; make all the screenshot image the same size in org-mode file
 (setq org-image-actual-width 200)
+
+;;; grab firefox link to w3m bookmarkd
+(require 'grab-x-link)
+(defun peng-grab-firefox-tab-to-org-todo-file ()
+  "save firefox tab url and title to w3m bookmarks"
+  (interactive)
+  (let* (
+         (result (grab-x-link-firefox))
+         (url (car result))
+         (title (concat "todo:"
+                        (cdr result)))
+         (w3m-bookmark-default-section "todo")
+         )
+    (w3m-bookmark-add url title)))
+
 (provide 'init-org)
