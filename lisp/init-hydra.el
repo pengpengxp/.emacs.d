@@ -22,20 +22,43 @@
   ("c" nil "cancel")
   )
 
+(defhydra hydra-bookmarks ()
+  "zoom"
+  ("f" peng-bookmarks-firefox "firefox")
+  ("c" peng-bookmarks-chrome "chrome")
+  ("w" peng-bookmarks-w3m "w3m")
+  ("<return>" peng-bookmarks-w3m "default w3m")
+  ("q" nil "cancle")
+  )
+
 (defhydra hydra-w3m (:color pink
                                :hint nil
                                :columns 3
                                :exit t)
   "w3m"
     ("u" w3m-bookmark-undo "w3m-bookmark-undo")
-    ("m" w3m-bookmark-menu "w3m-bookmark-menu")
-    ("v" w3m-bookmark-view "w3m-bookmark-view")
-    ("V" w3m-bookmark-view-new-session "w3m-bookmark-view-new-session")
+    ("v" (w3m-goto-url-new-session w3m-bookmark-file) "w3m-bookmark-view")
+    ("h" helm-w3m-bookmarks "helm-w3m-bookmark")
+
+    ("c" peng-grab-firefox-tab-to-org-todo-file "grab-firefox-link")
+
     ("a" w3m-bookmark-add-current-url "w3m-bookmark-add-current-url")
-    ("k" w3m-bookmark-kill-entry "w3m-bookmark-kill-entry")
     ("t" w3m-bookmark-add-this-url "w3m-bookmark-add-this-url")
+
     ("e" w3m-bookmark-edit "w3m-bookmark-edit")
-    ("c" peng-w3m-goto-chrome-current-tab-url "peng-w3m-goto-chrome-current-tab-url")
+    ("g" w3m-goto-url-new-session "goto url")
+
+    ("C" peng-w3m-view-current-url-new-session "peng-w3m-goto-chrome-current-tab-url")
+    ("F" peng-firefox-view-current-url "firefox")
+    ("G" peng-chrome-view-current-url "chrome")
+
+    ("b" hydra-bookmarks/body "open bookmarks")
+    ("SPC" w3m "w3m")
+    ("<return>" #'(lambda (arg)
+                    (interactive "P")
+                    (if arg
+                        (hydra-bookmarks/body)
+                      (peng-bookmarks-w3m))) "open bookmarks default")
   )
 
 (defhydra hydra-global (:color pink
@@ -693,20 +716,22 @@ Breadcrumb bookmarks:
 (define-key peng-spc-main-map (kbd "s") 'save-buffer)
 (define-key peng-spc-main-map (kbd "l") 'hydra-select/body)
 (define-key peng-spc-main-map (kbd "p") 'hydra-peng-p-menu/body)
+(define-key peng-spc-main-map (kbd ";") 'counsel-M-x)
 (define-key peng-spc-main-map (kbd ".") 'hydra-redo)
+(define-key peng-spc-main-map (kbd "v") 'hydra-cscope/body)
 (define-key peng-spc-main-map (kbd "<backspace>") 'delete-other-windows)
 (define-key peng-spc-main-map (kbd "RET") 'counsel-M-x)
 (define-key peng-spc-main-map (kbd "<return>") 'counsel-M-x)
 
 (peng-global-set-evil-non-edit-mode-key (kbd "SPC") peng-spc-main-map)
 (peng-global-set-key (kbd "M-k") peng-spc-main-map)
+(peng-global-set-key (kbd "<f9>") peng-spc-main-map)
 
 (peng-global-set-key (kbd "C-M-k") 'sp-kill-hybrid-sexp)
 (peng-global-set-key (kbd "C-M-S-k") 'sp-kill-sexp)
 (peng-global-set-key (kbd "C-M-a") 'sp-beginning-of-sexp)
 (peng-global-set-key (kbd "C-M-e") 'sp-end-of-sexp)
 
-(peng-global-set-key (kbd "<f9>") peng-spc-main-map)
 (peng-global-set-key (kbd "<f8>") 'w3m-bookmark-view)
 ;; (peng-global-set-key (kbd "<f5>") #'(lambda (x)
 ;;                                       (interactive "P")

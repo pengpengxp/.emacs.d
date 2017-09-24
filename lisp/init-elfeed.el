@@ -19,6 +19,8 @@
         ("blog.ecocn.org/feed")         ;经济学人中文版
 
         ("http://rss.cnn.com/rss/edition_asia.rss") ;cnn Asia
+
+        ("http://www.chinagfw.org/feeds/posts/default")
         ))
 
 ;; (define-key elfeed-search-mode-map (kbd "RET") 'elfeed-search-show-entry)
@@ -26,9 +28,14 @@
 ;; (define-key elfeed-search-mode-map (kbd "U") 'elfeed-search-update--force)
 ;; (define-key elfeed-search-mode-map (kbd "F") 'elfeed-search-fetch-visible)
 
+(define-key elfeed-show-mode-map "<C-return>" 'peng-w3m-view-current-url-new-session)
+(define-key elfeed-show-mode-map (kbd "<mouse2>") 'peng-w3m-view-current-url-new-session)
+(define-key elfeed-search-mode-map "<C-return>" 'peng-w3m-view-current-url-new-session)
+
 (define-key elfeed-search-mode-map (kbd "j") 'next-line)
 (define-key elfeed-search-mode-map (kbd "k") 'previous-line)
 
+;; (define-key map [mouse-2] 'shr-browse-url)
 
 (setq shr-inhibit-images t)
 (provide 'init-elfeed)

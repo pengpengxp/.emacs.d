@@ -46,6 +46,7 @@
       (message "Sorry, current buffer is not related to file."))))
 
 
+;;; use `ivy' to walk throud cscope-history
 (require 'ivy)
 (defun peng-ring-to-filename-and-position (marker)
   "change ring to string format `filename:position'"
@@ -57,26 +58,34 @@
   "change `filename:position' to
 `filename:position:content-of-line'"
   (let* ((rlist (split-string file-name-and-position ":"))
-         (buffer (car rlist))
-         (position (string-to-int (cadr rlist)))
-         content)
-    
-    (progn
-      (set-buffer buffer)
-      (goto-char position)
-      (setq content (buffer-substring-no-properties
-                    (line-beginning-position)
-                    (line-end-position)))
-      (message "%s:%s:%s" buffer
-               position
-               content))))
+         bufffer
+         position
+         content
+         )
+    (if (or (string= (car rlist)
+                     "nil")
+            (string= (cadr rlist)
+                     "nil"))
+        nil
+      (progn
+        (setq buffer (car rlist))
+        (setq position (string-to-int (cadr rlist)))
+        (set-buffer buffer)
+        (goto-char position)
+        (setq content (buffer-substring-no-properties
+                       (line-beginning-position)
+                       (line-end-position)))
+        (format "%s:%s:%s" buffer
+                 position
+                 content)
+        ))))
 
 (defun peng-walk-through-cscope-ring ()
   (interactive)
   (let* ((mymarker cscope-marker-ring)
          (file-name-and-position (mapcar 'peng-ring-to-filename-and-position (ring-elements mymarker)))
          (result (ivy-read "where do you want to jump: "
-                           (mapcar 'peng-add-content file-name-and-position)))
+                           (remove nil (mapcar 'peng-add-content file-name-and-position))))
          (rlist (split-string result ":"))
          (buffer (car rlist))
          (position (string-to-int (cadr rlist))))

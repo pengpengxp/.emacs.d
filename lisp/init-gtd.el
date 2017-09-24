@@ -100,7 +100,7 @@
 				    )))
 (setq org-capture-templates 
       '(
-	("t" "New TODO item" entry (file(concat ORG-HOME "/inbox.org"))
+	("t" "New TODO item" entry (file (concat ORG-HOME "/inbox.org"))
 	 "* 待办  %?\n ")
 
 	;; ("p" "New plan item" entry (file(concat ORG-HOME "/daily.org"))
@@ -118,13 +118,13 @@
 	;; ("a" "Account" table-line (file+headline (concat ORG-HOME "/account.org.gpg") "Web accounts")
 	;;  "|")
 
-	("l" "link" entry (file(concat ORG-HOME "/inbox.org"))
+	("l" "link" entry (file (concat ORG-HOME "/inbox.org"))
 	 "* TODO  %(peng-get-chrome-current-tab-url-to-org-capture)  \n ")
 
 	;; ("k" "test" entry (file(concat ORG-HOME "/test.org") "Tasks")
 	;;  "* TODO  %?  \n ")
 
-	("w" "website" entry (file(concat "/home/pengpengxp/github/pengpengxp.github.io/source/2017-06-29-my-saved-website.org") "Websites")
+	("w" "website" entry (file (concat "/home/pengpengxp/github/pengpengxp.github.io/source/2017-06-29-my-saved-website.org") "Websites")
 	 "* %?  \n")
 	))
 

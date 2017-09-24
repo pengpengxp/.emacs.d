@@ -90,7 +90,7 @@
 (peng-global-set-key (kbd "C-c r") 'winner-redo)
 
 ;;; open recentf-file-mode
-(recentf-mode 1)
+;; (recentf-mode 1)
 (setq recentf-max-saved-items 200)
 (setq recentf-max-menu-items 100)
 
