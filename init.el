@@ -119,6 +119,7 @@
 ;; (require 'helm-ls-git)
 (require 'init-ag)
 
+(require 'init-magit)
 ;;; the use of dash
 ;; (require 'helm-dash)			; do not need dash
 
@@ -235,7 +236,6 @@
 (defun peng-require-other-package ()
   (interactive)
   (progn
-    (require 'init-magit)
     (require 'init-google-translate)
     (require 'init-yasnippet)
     (require 'init-mu4e)
