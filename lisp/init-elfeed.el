@@ -38,4 +38,23 @@
 ;; (define-key map [mouse-2] 'shr-browse-url)
 
 (setq shr-inhibit-images t)
+
+;;; rebind *elfeed entry* `RET' to open url in w3m new session
+(define-key shr-map (kbd "RET") 'peng-shr-browse-url)
+(defun peng-shr-browse-url (&optional external mouse-event)
+  "Browse the URL under point.
+If EXTERNAL, browse the URL using `shr-external-browser'."
+  (interactive (list current-prefix-arg last-nonmenu-event))
+  (mouse-set-point mouse-event)
+  (let ((url (get-text-property (point) 'shr-url)))
+    (cond
+     ((not url)
+      (message "No link under point"))
+     ((string-match "^mailto:" url)
+      (browse-url-mail url))
+     (t
+      (if external
+	  (funcall shr-external-browser url)
+	(w3m-goto-url-new-session url))))))
+
 (provide 'init-elfeed)
