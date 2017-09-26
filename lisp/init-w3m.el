@@ -1,8 +1,10 @@
 ;; ;; pengpengxp's w3m-modet
+;; (add-to-list 'load-path (concat SITE-LISP "emacs-w3m"))
 (require 'smart-tab)
-(add-to-list 'load-path (concat SITE-LISP "emacs-w3m"))
 (provide 'w3m-e23)
 (require 'w3m-lnum)
+(require 'w3m-bookmark)
+
 (setq w3m-home-page "www.google.com") ;set your home page
 (autoload 'w3m "w3m" "Interface for w3m on Emacs." t)
 (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
@@ -30,15 +32,20 @@
 (setq w3m-default-display-inline-images t)
 (setq w3m-default-toggle-inline-images t)
 
-(defun peng-browse-current-url-by-firefox()
-  (interactive)
-  (browse-url-firefox w3m-current-url))
-
-(defun peng-browse-current-url-by-chrome ()
-  (interactive)
-  (browse-url-chromium w3m-current-url))
+;;; set `browse-url-chromium' to use `google-chrome' other than
+;;; `chromium'
+(setq browse-url-chromium-program "google-chrome")
 
 (defun pengpengxp-w3m-mode ()
+  (defun peng-browse-current-url-by-firefox()
+    (interactive)
+    (browse-url-firefox w3m-current-url))
+
+  (defun peng-browse-current-url-by-chrome ()
+    (interactive)
+    (browse-url-chromium w3m-current-url))
+
+  
   (evil-normal-state 1)
   ;; (setq evil-insert-state-cursor '("black" box))
   ;; (setq evil-emacs-state-cursor '("black" box))
@@ -75,7 +82,6 @@
   (peng-local-set-key (kbd "<S-left>") 'w3m-previous-buffer)
   (peng-local-set-key (kbd "<S-right>") 'w3m-next-buffer)
   (define-key evil-normal-state-local-map (kbd "SPC m") 'hydra-google-translate/body)
-  (smart-tab-mode-off)
   )
 (add-hook 'w3m-mode-hook 'pengpengxp-w3m-mode)
 
@@ -96,10 +102,6 @@
                       "copy theResult to the end of links\n"
                       "return links as string\n"))))
         (w3m-goto-url result))))
-
-;;; set `browse-url-chromium' to use `google-chrome' other than
-;;; `chromium'
-(setq browse-url-chromium-program "google-chrome")
 
 (defun peng-w3m-view-current-url-new-session ()
   "open url at point with w3m in a new session"
@@ -171,6 +173,5 @@
   (let ((url (peng-ivy-get-bookmarks)))
     (w3m-goto-url-new-session url)))
 
-(require 'w3m-bookmark)
 
 (provide 'init-w3m)

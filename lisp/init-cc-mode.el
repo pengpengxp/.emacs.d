@@ -106,7 +106,6 @@ tab on left will act as indent while on the right of character as
   (peng-setup-ycmd)
   (company-mode 1)
 
-  (smartparens-mode -1)
   )
 (add-hook 'c-mode-hook 'pengpengxp-c-common-mode)
 (add-hook 'c++-mode-hook 'pengpengxp-c-common-mode)

@@ -92,7 +92,6 @@ PS: this function is inspired by Wang Yin."
 
 (add-hook 'scheme-mode-hook '(lambda ()
 			       (interactive)
-			       (smart-tab-mode-on)
 			       ;; (peng-local-set-key (kbd "<tab>") 'indent-for-tab-command)
 			       ;; (peng-local-set-key (kbd "<tab>") 'smart-tab)
 			       ;; (peng-local-set-key (kbd "<backtab>") 'ac-trigger-key-command)

@@ -35,8 +35,6 @@
 (define-key elfeed-search-mode-map (kbd "j") 'next-line)
 (define-key elfeed-search-mode-map (kbd "k") 'previous-line)
 
-;; (define-key map [mouse-2] 'shr-browse-url)
-
 (setq shr-inhibit-images t)
 
 ;;; rebind *elfeed entry* `RET' to open url in w3m new session

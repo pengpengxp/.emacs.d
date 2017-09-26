@@ -1,79 +1,83 @@
+(defun peng-dired-mode()
+  (interactive)
+  (require 'dired-sort)
+  (require 'dired+)
+  (setq dired-guess-shell-alist-user                     ;设置文件默认打开的模式
+        (list
+         ;; 图书
+         (list "\\.chm$" '(concat
+                           "google-chrome chm:"            ;执行特定的命令
+                           (replace-regexp-in-string ;替换空格为%20
+                            " " "%20" (w3m-expand-file-name-as-url (dired-get-filename))) ;用URL的模式解析文件名
+                           " -q"))
+         ;; (list "\\.pdf$" "wine /data/Backup/WindowsTools/FoxitReader/FoxitReader.exe")
+         (list "\\.pdf$" "open")
+         (list "\\.pdg$" "wine /data/Backup/WindowsTools/MiniPDG/pdgreader.exe")
+         ;; 多媒体
+         ;; (list (format "\\(%s\\)$" (emms-player-get emms-player-mplayer 'regex)) "mplayer")
+         (list "\\.\\(jpe?g\\|png\\)$" "open" )
+         ;; 网页
+         (list "\\.html?$" "open")
+         ;; 压缩包
+         (list "\\.rar$" "unrar e -ad")
+         (list "\\.tar.bz2$" "tar jxvf")
+         (list "\\.gz$" "gzip -d")
+         (list "\\.mkv$" "open")
+         (list "\\.rmvb$" "open")
+         (list "\\.mp4$" "open")
+         (list "\\.avi$" "open")
+         (list "\\.doc$" "open")
+         (list "\\.tex$" "xelatex")
+         ;; 其他
+         (list "\\.exe$" "wine")))
+  (setq dired-listing-switches "-alh")
+  (global-dired-hide-details-mode -1)
+  (setq dired-details-hidden-string "[ ... ] ") ;设置隐藏dired里面详细信息的字符串
+  (hl-line-mode 1)
+  (dired-hide-details-mode -1) ;进入时显示详细信息
 
-(require 'dired-sort)
+  (define-key evil-normal-state-local-map (kbd "SPC") peng-spc-main-map)
 
-(setq dired-listing-switches "-alh")
-(global-dired-hide-details-mode -1)
-(setq dired-details-hidden-string "[ ... ] ") ;设置隐藏dired里面详细信息的字符串
+  (define-key evil-normal-state-local-map (kbd "<tab>") #'dired-hide-details-mode)
+  (define-key evil-normal-state-local-map (kbd "TAB") #'dired-hide-details-mode)
+  (define-key evil-normal-state-local-map (kbd "r") #'revert-buffer)
+  (define-key evil-normal-state-local-map (kbd "f") #'dired-goto-file)
+  (define-key evil-normal-state-local-map (kbd "v") #'dired-view-file)
+  (define-key evil-normal-state-local-map (kbd "q") #'quit-window)
+  (define-key evil-normal-state-local-map (kbd "C") #'dired-do-copy)
+  (define-key evil-normal-state-local-map (kbd "R") #'dired-do-rename)
+  (define-key evil-normal-state-local-map (kbd "m") #'dired-mark)
+  (define-key evil-normal-state-local-map (kbd "u") #'dired-unmark)
+  (define-key evil-normal-state-local-map (kbd "U") #'dired-unmark-all-marks)
+  (define-key evil-normal-state-local-map (kbd "DEL") #'dired-unmark-backward)
+  (define-key evil-normal-state-local-map (kbd "<backspace>") #'dired-unmark-backward)
+  (define-key evil-normal-state-local-map (kbd "e i SPC") #'find-file)
+  (define-key evil-normal-state-local-map (kbd "G") #'evil-goto-line)
+  (define-key evil-normal-state-local-map (kbd "gg") #'evil-goto-first-line)
+  (define-key evil-normal-state-local-map (kbd "<M-up>") #'dired-up-directory)
 
-(add-hook 'dired-mode-hook #'(lambda ()
-                               (hl-line-mode 1)
-			       (dired-hide-details-mode -1) ;进入时显示详细信息
+  ;; 方便地进行排序
+  (define-key evil-normal-state-local-map (kbd "s t") #'dired-sort-time)
+  (define-key evil-normal-state-local-map (kbd "s x") #'dired-sort-extension)
+  (define-key evil-normal-state-local-map (kbd "s s") #'dired-sort-size)
+  (define-key evil-normal-state-local-map (kbd "s n") #'dired-sort-name)
 
-			       (define-key evil-normal-state-local-map (kbd "SPC") peng-spc-main-map)
+  (define-key evil-normal-state-local-map (kbd ",") peng-evil-insert-map)
 
-			       (define-key evil-normal-state-local-map (kbd "<tab>") #'dired-hide-details-mode)
-			       (define-key evil-normal-state-local-map (kbd "TAB") #'dired-hide-details-mode)
-			       (define-key evil-normal-state-local-map (kbd "r") #'revert-buffer)
-			       (define-key evil-normal-state-local-map (kbd "f") #'dired-goto-file)
-			       (define-key evil-normal-state-local-map (kbd "v") #'dired-view-file)
-			       (define-key evil-normal-state-local-map (kbd "q") #'quit-window)
-			       (define-key evil-normal-state-local-map (kbd "C") #'dired-do-copy)
-			       (define-key evil-normal-state-local-map (kbd "R") #'dired-do-rename)
-			       (define-key evil-normal-state-local-map (kbd "m") #'dired-mark)
-			       (define-key evil-normal-state-local-map (kbd "u") #'dired-unmark)
-			       (define-key evil-normal-state-local-map (kbd "U") #'dired-unmark-all-marks)
-			       (define-key evil-normal-state-local-map (kbd "DEL") #'dired-unmark-backward)
-			       (define-key evil-normal-state-local-map (kbd "<backspace>") #'dired-unmark-backward)
-			       (define-key evil-normal-state-local-map (kbd "e i SPC") #'find-file)
-			       (define-key evil-normal-state-local-map (kbd "G") #'evil-goto-line)
-			       (define-key evil-normal-state-local-map (kbd "gg") #'evil-goto-first-line)
-			       (define-key evil-normal-state-local-map (kbd "<M-up>") #'dired-up-directory)
+  (define-key evil-normal-state-local-map (kbd "M-c") peng-M-c-map)
+  (define-key evil-normal-state-local-map (kbd "<C-up>") 'dired-up-directory)
+  (peng-local-set-key (kbd "M-s") 'other-window)
+  (peng-local-set-key (kbd "C-o") 'counsel-find-file)
+  (peng-local-set-key (kbd "E") 'ora-ediff-files)
+  (peng-local-set-key (kbd "_") 'xah-dired-rename-space-to-underscore)
+  (peng-local-set-key (kbd "-") 'xah-dired-rename-space-to-hyphen))
 
-			       ;; 方便地进行排序
-			       (define-key evil-normal-state-local-map (kbd "s t") #'dired-sort-time)
-			       (define-key evil-normal-state-local-map (kbd "s x") #'dired-sort-extension)
-			       (define-key evil-normal-state-local-map (kbd "s s") #'dired-sort-size)
-			       (define-key evil-normal-state-local-map (kbd "s n") #'dired-sort-name)
 
-			       (define-key evil-normal-state-local-map (kbd ",") peng-evil-insert-map)
-
-			       (define-key evil-normal-state-local-map (kbd "M-c") peng-M-c-map)
-			       (define-key evil-normal-state-local-map (kbd "<C-up>") 'dired-up-directory)
-                               (peng-local-set-key (kbd "M-s") 'other-window)
-                               (peng-local-set-key (kbd "C-o") 'counsel-find-file)
-                               (peng-local-set-key (kbd "E") 'ora-ediff-files)
-                               (peng-local-set-key (kbd "_") 'xah-dired-rename-space-to-underscore)
-                               (peng-local-set-key (kbd "-") 'xah-dired-rename-space-to-hyphen)
-			       ))
-
-(setq dired-guess-shell-alist-user                     ;设置文件默认打开的模式
-      (list
-        ;; 图书
-        (list "\\.chm$" '(concat
-                          "google-chrome chm:"            ;执行特定的命令
-                          (replace-regexp-in-string ;替换空格为%20
-                           " " "%20" (w3m-expand-file-name-as-url (dired-get-filename))) ;用URL的模式解析文件名
-                          " -q"))
-        ;; (list "\\.pdf$" "wine /data/Backup/WindowsTools/FoxitReader/FoxitReader.exe")
-        (list "\\.pdf$" "open")
-        (list "\\.pdg$" "wine /data/Backup/WindowsTools/MiniPDG/pdgreader.exe")
-        ;; 多媒体
-        ;; (list (format "\\(%s\\)$" (emms-player-get emms-player-mplayer 'regex)) "mplayer")
-        (list "\\.\\(jpe?g\\|png\\)$" "open" )
-        ;; 网页
-        (list "\\.html?$" "open")
-        ;; 压缩包
-        (list "\\.rar$" "unrar e -ad")
-        (list "\\.tar.bz2$" "tar jxvf")
-        (list "\\.gz$" "gzip -d")
-        (list "\\.mkv$" "open")
-        (list "\\.rmvb$" "open")
-        (list "\\.mp4$" "open")
-        (list "\\.avi$" "open")
-        (list "\\.doc$" "open")
-        (list "\\.tex$" "xelatex")
-        ;; 其他
-        (list "\\.exe$" "wine")))
+(use-package dire-mode
+  :defer t
+  :init
+  (add-hook 'dired-mode-hook #'peng-dired-mode)
+  )
 
 (provide 'init-dired)
 

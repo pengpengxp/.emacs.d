@@ -19,7 +19,6 @@
   (interactive)
   (define-key evil-normal-state-local-map (kbd "SPC z") 'peng-run-current-script)
   (autopair-on)
-  (smart-tab-mode-off)
   (peng-local-set-key (kbd "C-c C-v") 'peng-run-current-script)
   )
 (add-hook 'ruby-mode-hook 'peng-ruby-mode)

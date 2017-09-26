@@ -174,7 +174,7 @@
   ;; ("i" ivy-imenu-anywhere "ivy-imenu-anywhere")
   ("i" helm-semantic-or-imenu "imenu")
   ("S" evil-write-all "evil-write-all")
-  ("s" lusty-sudo-explorer "lusty-sudo-explorer")
+  ("s" ido-sudo-find-file "sudo-explorer")
   ("q" my-hydra-zoom/body "my-hydra-zoom/body")
   ("c" nil "cancle" :color blue)
   ("<tab>" ivy-switch-buffer "ivy-switch-buffer" :color blue)

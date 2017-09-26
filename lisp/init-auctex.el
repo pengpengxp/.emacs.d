@@ -57,7 +57,6 @@ xelatex %t;bibtex %b.aux;xelatex %t;open %b.pdf"
 	    (reftex-mode)
 	    (auto-fill-mode -1)
 	    (TeX-PDF-mode 1)
-	    (smart-tab-mode-off)
 	    (outline-minor-mode)
 	    (setq TeX-engine 'xetex)
 	    (visual-line-mode 1)

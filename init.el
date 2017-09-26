@@ -51,6 +51,8 @@
 ;;(require 'init-el-get)
 
 ;;(require 'init-benchmark-init)
+(require 'use-package)
+(require 'benchmark-init)
 
 ;;; my plugins
 (require 'init-peng-copyfun)		;;;; some function I copyed from others
@@ -59,8 +61,8 @@
 
 ;;; load each mode I have configured
 (require 'init-evil)
-(require 'init-evil-leader)
-(require 'init-highlight-indent-guides)
+;; (require 'init-evil-leader)
+;; (require 'init-highlight-indent-guides)
 
 ;;; to config the elpa
 (require 'init-package)
@@ -72,14 +74,15 @@
 (require 'init-org)
 (require 'init-gtd)
 (require 'init-org-export)
+
 ;; (require 'init-org-publish)
-(require 'init-org-page)
+;; (require 'init-org-page)
 (require 'init-blog)
 
 (require 'init-emacs-lisp)
 ;; (require 'init-latex)
 (require 'init-compilation)
-(require 'init-sundry)
+;; (require 'init-sundry)
 (require 'init-eshell)
 ;; (require 'init-sql)
 (require 'init-ibuffer)
@@ -87,70 +90,62 @@
 (require 'init-dired)
 ;; (require 'init-cuda)
 
-
-(require 'init-yasnippet)
 (require 'init-auto-complete)
 (require 'init-company-mode)		;company is the alternative for me
-(require 'init-ycmd)
+;; (require 'init-ycmd)
 ;; (require 'init-irony-mode)
-
 
 ;;(require 'init-header2)
 (require 'init-auto-insert)
 (require 'init-outline-minor-mode.el)
 (require 'init-color-theme)
-(require 'init-ace-jump.el)
+;; (require 'init-ace-jump.el)
 (require 'init-sr-speedbar)
 ;; (require 'init-tabbar)
 ;; (require 'init-deft)
 (require 'init-markdown)
 (require 'etags-select)
 
-
-(require 'init-highlight)
-
+;; (require 'init-highlight)
 (require 'init-ido)
 (require 'init-smex)
-(require 'init-icicles)
+;; (require 'init-icicles)
 ;; (require 'init-ido-cb.el)
 ;; (require 'ido-pinyin)			;可以使ido支持拼音，它修改了ido中的一个函数，在mbp上可以默认打开，不慢
-
 (require 'init-ivy)
 
-(require 'init-helm)
+;; (require 'init-helm)
+;; (require 'helm-ag)
 ;; (require 'helm-ls-git)
-(require 'helm-ag)
 (require 'init-ag)
-
 
 ;;; the use of dash
 ;; (require 'helm-dash)			; do not need dash
 
-(require 'init-dash)			; use dash in emacs
+;; (require 'init-dash)			; use dash in emacs
 
 (require 'init-eim)
-(require 'init-chinese-pyim)
+;; (require 'init-chinese-pyim)
 
 ;; (require 'init-auctex)			;;;;you need to install auctex first
-(require 'init-smartparens)
-(require 'init-window-numbering)
+;; (require 'init-smartparens)
+;; (require 'init-window-numbering)
 ;; (require 'init-powerline)
 ;; (require 'init-guide-key)
 (require 'init-which-key)
-(require 'init-lusty-explorer)		; 和helm有些其别。平时没怎么用到
-(require 'init-shell-pop)
+;; (require 'init-lusty-explorer)		; 和helm有些其别。平时没怎么用到
+;; (require 'init-shell-pop)
 ;; (require 'init-flycheck)		;感觉用处不是很大？？
 (require 'init-uniquify)		;make the buffer unique
 ;; (require 'init-weibo)
 (require 'init-paredit)
-(require 'init-slime)
-(require 'init-magit)
+;; (require 'init-slime)
 ;; (require 'init-mew)
 (require 'init-expand-region)
 (require 'init-calendar)
-(require 'init-smart-tab)
+;; (require 'init-smart-tab)
 ;; (require 'init-calfw)
-(require 'alarm)
+;; (require 'alarm)
 (require 'pinyin-search)
 ;; (require 'init-mustache)
 (require 'init-xcscope)
@@ -163,8 +158,8 @@
 (require 'init-web-mode.el)
 ;; (require 'init-workgroups2)
 (require 'init-calculater)
-(require 'init-tramp)
-(require 'init-docker)
+;; (require 'init-tramp)
+;; (require 'init-docker)
 (require 'init-projectile)
 (require 'init-dumb-jump)
 
@@ -172,7 +167,8 @@
 ;; (require 'hydra)
 ;; (require 'hydra-ox)
 
-;; (require 'init-ecb)			; 代码浏览起来更加好，但是应该需要更多的资源
+;; (require 'init-ecb)			; 代码浏览起来更加好，但是应该需要更多的资源这个花不了那么多
+
 
 ;;; don't use too often
 (require 'init-bm)
@@ -181,27 +177,28 @@
 (require 'autopair)
 (require 'ascii)
 (require 'hide-region)
-(require 'init-multi-term)
+;; (require 'init-multi-term)
 (require 'stardict)
-(require 'dash)
+;; (require 'dash)
 (require 'iedit)
-(require 'breadcrumb)
+;; (require 'breadcrumb)
 
 ;;; pengpengxp's own mode
 (require 'init-cc-mode)
 (require 'init-bookmark-bmemu-mode)
 (require 'init-Info-mode)
 (require 'init-ruby)
+
 (require 'init-python)
-(require 'init-js-mode)
+
+;; (require 'init-js-mode)
 (require 'init-applescript)
-(require 'init-vba)
-(require 'init-iterm2)
+;; (require 'init-vba)
+;; (require 'init-iterm2)
 (require 'init-yaml)
 (require 'init-symbol-overlay)
 (require 'init-keyfreq)
 (require 'init-occur-mode)
-(require 'init-google-translate)
 (require 'init-w3m)
 (require 'init-tern)
 
@@ -229,14 +226,21 @@
 
 ;;; define pengpengxp's key bindings, it should in the last
 (require 'init-mouse)
-(require 'init-keys)
+;; (require 'init-keys)
 (require 'init-hydra)
-(require 'init-mu4e)
-(require 'chm-view)
-
+;; (require 'chm-view)
 
 ;;; require the test file
 (require 'init-test)
+(defun peng-require-other-package ()
+  (interactive)
+  (progn
+    (require 'init-magit)
+    (require 'init-google-translate)
+    (require 'init-yasnippet)
+    (require 'init-mu4e)
+    (require 'init-yasnippet)
+    ))
 
 
 (provide 'init)
@@ -245,7 +249,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks"))
+ '(bmkp-last-as-first-bookmark-file "/home/pengpengxp/.emacs.d/bookmarks"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

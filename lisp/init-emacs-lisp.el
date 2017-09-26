@@ -2,7 +2,6 @@
 (defun pengpengxp-emacs-lisp-mode ()
   (linum-mode 1)
   (hl-line-mode 1)
-  (smartparens-mode -1)
   (paredit-mode 1)
   (autopair-on)
   (yas-minor-mode 1)
