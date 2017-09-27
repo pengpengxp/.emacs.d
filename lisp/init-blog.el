@@ -1,11 +1,10 @@
-(require 'org-jekyll-mode)
-(setq org-jekyll/jekyll-project-root "/tmp/researcher-gh-pages")
-(setq org-jekyll/org-mode-project-root "/tmp/blog")
-(setq org-jekyll/org-mode-static-files-folder-name  "/tmp/blog/assets")
+;; (require 'org-jekyll-mode)
+;; (setq org-jekyll/jekyll-project-root "/tmp/researcher-gh-pages")
+;; (setq org-jekyll/org-mode-project-root "/tmp/blog")
+;; (setq org-jekyll/org-mode-static-files-folder-name  "/tmp/blog/assets")
+;; (org-jekyll-mode)
 
-(org-jekyll-mode)
-
-(require 'ox-md)
+;; (require 'ox-md)
 (setq org-publish-project-alist
       '(
         ("html"

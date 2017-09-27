@@ -4,26 +4,26 @@
 ;; `smex'又太慢。暂时先不开了。
 
 (require 'ido)
-(require 'ido-vertical-mode)
+;; (require 'ido-vertical-mode)
+;; (ido-vertical-mode 1)
 ;; (require 'ido-complete-space-or-hyphen)
-(require 'idomenu)
+;; (require 'idomenu)
 
 ;;; ido-hacks可以使ido在尽可能多的地方使用，这样可以几乎很少开helm了
-(require 'ido-hacks)
+;; (require 'ido-hacks)
 ;;; 这里不能使用这种形式，没用，只能手动开启
 ;;; helm卸载后这就可以了
 ;; (ido-hacks-mode)
 
-;;; 开启flex后我的Macbook Air太慢了，配置高了再说吧
-(require 'ido-better-flex)
-(ido-better-flex/disable)
+;; ;;; 开启flex后我的Macbook Air太慢了，配置高了再说吧
+;; (require 'ido-better-flex)
+;; (ido-better-flex/disable)
 
 (ido-mode 1)
 
 ;; (peng-global-set-key (kbd "C-h v") 'ido-describe-variable)
 ;; (peng-global-set-key (kbd "C-h f") 'ido-describe-function)
 
-(ido-vertical-mode 1)
 (ido-toggle-regexp)
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)

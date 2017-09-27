@@ -73,7 +73,7 @@
 ;; (require 'init-scheme)
 (require 'init-org)
 (require 'init-gtd)
-(require 'init-org-export)
+;; (require 'init-org-export)
 
 ;; (require 'init-org-publish)
 ;; (require 'init-org-page)
@@ -165,7 +165,8 @@
 (require 'init-dumb-jump)
 
 ;;; hydra需要配置，暂时不用
-;; (require 'hydra)
+(require 'hydra)
+(require 'init-hydra)
 ;; (require 'hydra-ox)
 
 ;; (require 'init-ecb)			; 代码浏览起来更加好，但是应该需要更多的资源这个花不了那么多
@@ -198,7 +199,7 @@
 ;; (require 'init-iterm2)
 (require 'init-yaml)
 (require 'init-symbol-overlay)
-(require 'init-keyfreq)
+;; (require 'init-keyfreq)
 (require 'init-occur-mode)
 (require 'init-w3m)
 (require 'init-tern)
@@ -228,7 +229,6 @@
 ;;; define pengpengxp's key bindings, it should in the last
 (require 'init-mouse)
 ;; (require 'init-keys)
-(require 'init-hydra)
 ;; (require 'chm-view)
 
 ;;; require the test file

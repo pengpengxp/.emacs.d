@@ -7,10 +7,21 @@
 ;;; hook
 ;;; ----------------------------------------------------------------------
 
+(global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c l") 'org-store-link)
+
 (defun peng-org-mode ()
   (interactive)
   (require 'evil)
   (require 'org)
+;;; ----------------------------------------------------------------------
+;;;refile in several files,here is in the all org-agenda-files
+;;; ----------------------------------------------------------------------
+  (setq org-refile-targets (quote ((nil :maxlevel . 9)
+                                   (ORG-REFILE-FILES :maxlevel . 9))))
+
+;;; ----------------------------------------------------------------------
 ;;; ----------------------------------------------------------------------
   ;; 设置org-mode中对各种Babel语言支持，这样就可以通过`C-c C-c'执行这些命
   ;; 令了
