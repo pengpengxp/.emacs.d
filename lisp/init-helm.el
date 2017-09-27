@@ -80,18 +80,18 @@
                                  (define-key evil-normal-state-local-map (kbd "q") 'quit-window)
                                  ))
 
-(defun reattach-helm-occur ()
-  (if (get-buffer "*hmoccur*")
-      (switch-to-buffer-other-window "*hmoccur*")
-    ))
+;; (defun reattach-helm-occur ()
+;;   (if (get-buffer "*hmoccur*")
+;;       (switch-to-buffer-other-window "*hmoccur*")
+;;     ))
 
-(defhydra hydra-helm (:exit t
-                         :columns 4)
-  "Ag mode"
-  ("r" (reattach-helm-occur) "reattach helm occur")
-  ("i" helm-semantic-or-imenu "imenu")
-  ("o" helm-occur "helm occur")
-  )
+;; (defhydra hydra-helm (:exit t
+;;                          :columns 4)
+;;   "Ag mode"
+;;   ("r" (reattach-helm-occur) "reattach helm occur")
+;;   ("i" helm-semantic-or-imenu "imenu")
+;;   ("o" helm-occur "helm occur")
+;;   )
 
 
 (provide 'init-helm)

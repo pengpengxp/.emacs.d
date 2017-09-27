@@ -168,8 +168,8 @@
   ("o" swiper "swiper")
   ;; ("O" swiper-all "swiper-all")
   ("O" peng-swiper-current-symbol "peng-swiper-current-symbol")
-  ("a" counsel-ag "counsel-ag")
-  ("A" helm-ag "helm-ag")
+  ("A" counsel-ag "counsel-ag")
+  ("a" counsel-rg "counsel-rg")
   ("j" bookmark-jump "bookmark-jump")
   ;; ("i" ivy-imenu-anywhere "ivy-imenu-anywhere")
   ("i" helm-semantic-or-imenu "imenu")
@@ -178,11 +178,11 @@
   ("q" my-hydra-zoom/body "my-hydra-zoom/body")
   ("c" nil "cancle" :color blue)
   ("<tab>" ivy-switch-buffer "ivy-switch-buffer" :color blue)
-  ("SPC" hydra-evil-normal-state-w-menu/body)
+  ("SPC" hydra-w-menu/body)
   ("M-f" hydra-evil-normal-state-f-menu/body)
-  ("M-w" hydra-evil-normal-state-w-menu/body)
-  ("." hydra-repeat "repeat")
-  ("h" hydra-helm/body "helm")
+  ("M-w" hydra-w-menu/body)
+  ;; ("." hydra-repeat "repeat")
+  ;; ("h" hydra-helm/body "helm")
   )
 
 (defhydra hydra-x-menu (:color pink
@@ -252,8 +252,6 @@
   ("RET" nil "hydra-cancle")
   ("<return>" nil "hydra-cancle")
   ("<backspace>" nil "hydra-cancle")
-  ("M-f" hydra-evil-normal-state-f-menu/body)
-  ("M-w" hydra-evil-normal-state-w-menu/body)
   )
 
 ;;; ;;;;;;;;;;;;;;;; Hydra Occur begin ;;;;;;;;;;;;;;;;
@@ -456,7 +454,7 @@
   ("t" hydra-etags/body "hydra-etags/body")
   )
 
-(defhydra hydra-symbol-overlay (:hint nil
+(defhydra hydra-k-map (:hint nil
                                       :exit t
                                       :columns 4)
   "Symbol Overlay"
@@ -469,6 +467,7 @@
   ("n" symbol-overlay-jump-next "next" :exit nil)
   ("p" symbol-overlay-jump-prev "previours" :exit nil)
   ("u" symbol-overlay-remove "remove")
+  ("r" peng-reload-hydra-keymap "remove")
   ("c" nil "cancel")
   ("RET" nil "cancel")
   ("<return>" nil "cancel")
@@ -702,7 +701,7 @@ Breadcrumb bookmarks:
 (define-key peng-spc-main-map (kbd "y") 'hydra-peng-yank/body)
 (define-key peng-spc-main-map (kbd "d") 'hydra-peng-d-menu/body)
 (define-key peng-spc-main-map (kbd "t") 'hydra-local-bookmark-menu/body)
-(define-key peng-spc-main-map (kbd "k") 'hydra-symbol-overlay/body)
+(define-key peng-spc-main-map (kbd "k") 'hydra-k-map/body)
 (define-key peng-spc-main-map (kbd "a") 'hydra-ag-dwim/body)
 (define-key peng-spc-main-map (kbd "e") 'hydra-e-menu/body)
 (define-key peng-spc-main-map (kbd "h") 'hydra-help/body)
@@ -759,5 +758,11 @@ Breadcrumb bookmarks:
 ;;; on my thinkpad T420s, I don't want to use these keys.
 (global-unset-key (kbd "<XF86Back>"))
 (global-unset-key (kbd "<XF86Forward>"))
+
+(defun peng-reload-hydra-keymap ()
+  (interactive)
+  (load-file (concat
+                 LISP
+                 "/init-hydra.el")))
 
 (provide 'init-hydra)

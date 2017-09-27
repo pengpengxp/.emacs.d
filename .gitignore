@@ -30,3 +30,5 @@ lisp/init-mew.el
 lisp/init-river-security.el
 image-dired
 site-lisp/evil/.depend
+
+elpa/gnupg/.gpg-v21-migrated

@@ -14,6 +14,6 @@
     (setq bookmark-alist (delq latest bookmark-alist))
     (add-to-list 'bookmark-alist latest)))
 
-;; (require 'bookmark+)
+(require 'bookmark+)
 
 (provide 'init-bookmark-bmemu-mode)
