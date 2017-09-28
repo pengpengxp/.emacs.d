@@ -130,8 +130,8 @@
   ("F" peng-cscope-find-curren-files-including-file "peng-cscope-find-curren-files-including-file")
   ("g" cscope-find-global-definition "cscope-find-global-definition")
   ("i" cscope-find-files-including-file "cscope-find-files-including-file")
-  ("n" cscope-next-symbol "cscope-next-symbol")
-  ("p" cscope-prev-symbol "cscope-prev-symbol")
+  ("n" cscope-next-symbol "cscope-next-symbol" :exit nil)
+  ("p" cscope-prev-symbol "cscope-prev-symbol" :exit nil)
   ("s" cscope-find-this-symbol "cscope-find-this-symbol")
   ("t" cscope-find-this-text-string "cscope-find-this-text-string")
   ("u" cscope-pop-mark "cscope-pop-mark")
@@ -162,14 +162,21 @@
   ("f" find-file "find-file")
   ("l" peng-ivy-ls-git "git-find-file")
   ("R" peng-edit-current-file-as-root "peng-edit-current-file-as-root")
-  ("r" counsel-recentf "counsel-recentf")
+
+  ;; ("r" counsel-recentf "counsel-recentf")
+
+  ("R" (counsel-rg (thing-at-point 'symbol)) "counsel-rg-at-point")
+  ("r" counsel-rg "counsel-rg")
+
   ("g" counsel-git-grep "counsel-git-grep")
   ("G" grep "grep")
   ("o" swiper "swiper")
   ;; ("O" swiper-all "swiper-all")
   ("O" peng-swiper-current-symbol "peng-swiper-current-symbol")
-  ("A" counsel-ag "counsel-ag")
-  ("a" counsel-rg "counsel-rg")
+
+  ("A" (counsel-ag (thing-at-point 'symbol)) "counsel-ag-at-point")
+  ("a" counsel-ag "counsel-ag")
+
   ("j" bookmark-jump "bookmark-jump")
   ;; ("i" ivy-imenu-anywhere "ivy-imenu-anywhere")
   ("i" helm-semantic-or-imenu "imenu")
@@ -189,8 +196,7 @@
                                :hint nil
                                :columns 4
                                :exit t)
-  "
-"
+  "X-menu"
   ("f" find-file "find-file" :color blue)
   ("b" ivy-switch-buffer "switch-buffer" :color blue)
   ("B" ibuffer "ibuffer" :color blue)

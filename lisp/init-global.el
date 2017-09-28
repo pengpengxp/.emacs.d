@@ -91,8 +91,8 @@
 
 ;;; open recentf-file-mode
 ;; (recentf-mode 1)
-(setq recentf-max-saved-items 200)
-(setq recentf-max-menu-items 100)
+(setq recentf-max-saved-items 20)
+(setq recentf-max-menu-items 20)
 
 ;;scroll smoothly in emacs
 ;;(setq scroll-conservatively 10000)
