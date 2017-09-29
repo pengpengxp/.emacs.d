@@ -144,7 +144,7 @@ tab on left will act as indent while on the right of character as
   (peng-local-set-key (kbd "M-.") 'counsel-gtags-dwim)
   (peng-local-set-key (kbd "M-SPC") 'counsel-gtags-dwim)
   (peng-local-set-key (kbd "M-f") 'counsel-gtags-find-file)
-  (peng-local-set-key (kbd "C-t") 'counsel-gtags-find-file)
+  (peng-local-set-key (kbd "C-t") 'counsel-gtags-pop)
   (peng-local-set-key (kbd "<XF86Back>") 'counsel-gtags-go-backward)
   (peng-local-set-key (kbd "<XF86Forward>") 'counsel-gtags-go-forward)
   )
