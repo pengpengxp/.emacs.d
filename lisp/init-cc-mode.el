@@ -96,10 +96,6 @@ tab on left will act as indent while on the right of character as
   (peng-local-set-key (kbd "<mouse-3>") 'pop-tag-mark)
   (peng-local-set-key (kbd "<kp-subtract>") 'cscope-find-functions-calling-this-function)
 
-  (define-key evil-normal-state-local-map (kbd "<XF86forward>") 'cscope-find-global-definition-no-prompting)
-  (peng-local-set-key (kbd "<XF86Back>") 'cscope-pop-mark)
-
-
   (dumb-jump-mode 1)
   (peng-setup-cc-mode-for-complete)
 
@@ -114,5 +110,47 @@ tab on left will act as indent while on the right of character as
 (defun my-make-CR-do-indent ()
   (define-key c-mode-base-map "\C-m" 'c-context-line-break))
 (add-hook 'c-initialization-hook 'my-make-CR-do-indent)
+
+
+(require 'semantic)
+(global-semanticdb-minor-mode 1)
+(global-semantic-idle-scheduler-mode 1)
+(global-semantic-stickyfunc-mode 1)
+(semantic-mode 1)
+(defun alexott/cedet-hook ()
+  (local-set-key "\C-c\C-j" 'semantic-ia-fast-jump)
+  (local-set-key "\C-c\C-s" 'semantic-ia-show-summary))
+
+(add-hook 'c-mode-common-hook 'alexott/cedet-hook)
+(add-hook 'c-mode-hook 'alexott/cedet-hook)
+(add-hook 'c++-mode-hook 'alexott/cedet-hook)
+
+
+;;; use `counsel-gtags'
+(add-hook 'c-mode-hook 'counsel-gtags-mode)
+(add-hook 'c++-mode-hook 'counsel-gtags-mode)
+;; (with-eval-after-load 'counsel-gtags
+;;   (define-key counsel-gtags-mode-map (kbd "M-t") 'counsel-gtags-find-definition)
+;;   (define-key counsel-gtags-mode-map (kbd "M-r") 'counsel-gtags-find-reference)
+;;   (define-key counsel-gtags-mode-map (kbd "M-s") 'counsel-gtags-find-symbol)
+;;   (define-key counsel-gtags-mode-map (kbd "M-,") 'counsel-gtags-go-backward)
+;;   )
+
+(defun peng-cc-mode-counsel-gtags-mode ()
+  (interactive)
+  (peng-local-set-key (kbd "M-t") 'counsel-gtags-find-definition)
+  (peng-local-set-key (kbd "M-r") 'counsel-gtags-find-reference)
+  (peng-local-set-key (kbd "M-s") 'counsel-gtags-find-symbol)
+  (peng-local-set-key (kbd "M-.") 'counsel-gtags-dwim)
+  (peng-local-set-key (kbd "M-SPC") 'counsel-gtags-dwim)
+  (peng-local-set-key (kbd "M-f") 'counsel-gtags-find-file)
+  (peng-local-set-key (kbd "C-t") 'counsel-gtags-find-file)
+  (peng-local-set-key (kbd "<XF86Back>") 'counsel-gtags-go-backward)
+  (peng-local-set-key (kbd "<XF86Forward>") 'counsel-gtags-go-forward)
+  )
+
+(add-hook 'c-mode-hook 'peng-cc-mode-counsel-gtags-mode)
+(add-hook 'c++-mode-hook 'peng-cc-mode-counsel-gtags-mode)
+
 
 (provide 'init-cc-mode)

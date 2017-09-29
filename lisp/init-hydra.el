@@ -771,4 +771,19 @@ Breadcrumb bookmarks:
                  LISP
                  "/init-hydra.el")))
 
+
+(defhydra hydra-counsel-gtags (:color pink
+                                      :hint nil
+                                      :columns 3
+                                      :exit t)
+  "Counsel Gnu global"
+  ("L" counsel-gtags-create-tags "create")
+  ("l" counsel-gtags-create-tags "create")
+  ("u" counsel-gtags-update-tags "update")
+  ("d" counsel-gtags-find-definition "define")
+  ("r" counsel-gtags-find-reference "reference")
+  ("b" counsel-gtags-go-backward "backward" :exit nil)
+  ("f" counsel-gtags-go-forward "forward" :exit nil)
+  )
+
 (provide 'init-hydra)

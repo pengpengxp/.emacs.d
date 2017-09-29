@@ -46,7 +46,7 @@
   (autopair-on)
   (peng-local-set-key (kbd "C-c C-v") 'peng-run-current-script)
   (peng-local-set-key (kbd "C-c C-l") 'peng-elpy-shell-send-current-statement)
-  (company-mode -1)
+  (company-mode 1)
   (peng-local-set-key (kbd "<C-right>") 'elpy-nav-forward-indent)
   (peng-local-set-key (kbd "<C-left>") 'elpy-nav-backward-indent)
   (peng-local-set-key (kbd "<C-S-left>") 'elpy-nav-indent-shift-left)

@@ -47,21 +47,21 @@
   (let ((file (ivy-read "Choose recent file: " recentf-list nil t)))
     (when file (find-file file))))
 
-(defun ivy-yank-action (x)
-  (kill-new x))
+;; (defun ivy-yank-action (x)
+;;   (kill-new x))
 
-(defun ivy-copy-to-buffer-action (x)
-  (with-ivy-window
-    (insert x)))
+;; (defun ivy-copy-to-buffer-action (x)
+;;   (with-ivy-window
+;;     (insert x)))
 
-(defun ivy-peng-test (x)
-  (peng-write-file ivy-text))
+;; (defun ivy-peng-test (x)
+;;   (peng-write-file ivy-text))
 
-(ivy-set-actions
- t
- '(("i" ivy-copy-to-buffer-action "insert")
-   ("y" ivy-yank-action "yank")
-   ))
+;; (ivy-set-actions
+;;  t
+;;  '(("i" ivy-copy-to-buffer-action "insert")
+;;    ("y" ivy-yank-action "yank")
+;;    ))
 
 (setq ivy-count-format "(%d/%d) ")
 
@@ -178,5 +178,25 @@
 (defun peng-clear-ivy-views ()
   (interactive)
   (setq ivy-views nil))
+
+(defun ivy-insert-org-entity ()
+  "Insert an org-entity using ivy."
+  (interactive)
+  (ivy-read "Entity: " (loop for element in (append org-entities org-entities-user)
+			     when (not (stringp element))
+			     collect
+			     (cons 
+			      (format "%10s | %s | %s | %s"
+				      (car element) ;name
+				      (nth 1 element) ; latex
+				      (nth 3 element) ; html
+				      (nth 6 element)) ;utf-8
+			      element))
+	    :require-match t
+	    :action '(1
+		      ("u" (lambda (element) (insert (nth 6 (cdr element)))) "utf-8")
+		      ("o" (lambda (element) (insert "\\" (cadr element))) "org-entity")
+		      ("l" (lambda (element) (insert (nth 1 (cdr element)))) "latex")
+		      ("h" (lambda (element) (insert (nth 3 (cdr element)))) "html"))))
 
 (provide 'init-ivy)

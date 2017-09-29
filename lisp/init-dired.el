@@ -1,7 +1,7 @@
+(require 'dired-sort)
+(require 'dired+)
 (defun peng-dired-mode()
   (interactive)
-  (require 'dired-sort)
-  (require 'dired+)
   (setq dired-guess-shell-alist-user                     ;设置文件默认打开的模式
         (list
          ;; 图书
@@ -22,11 +22,11 @@
          (list "\\.rar$" "unrar e -ad")
          (list "\\.tar.bz2$" "tar jxvf")
          (list "\\.gz$" "gzip -d")
-         (list "\\.mkv$" "open")
-         (list "\\.rmvb$" "open")
-         (list "\\.mp4$" "open")
-         (list "\\.avi$" "open")
-         (list "\\.doc$" "open")
+         (list "\\.mkv$" "smplayer")
+         (list "\\.rmvb$" "smplayer")
+         (list "\\.mp4$" "smplayer")
+         (list "\\.avi$" "smplayer")
+         (list "\\.doc$" "xdg-open")
          (list "\\.tex$" "xelatex")
          ;; 其他
          (list "\\.exe$" "wine")))
