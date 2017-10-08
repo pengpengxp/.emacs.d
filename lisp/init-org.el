@@ -277,6 +277,7 @@ file and open the pdf file. also compile the bibliography"
   ;; (helm-mode t)
 
   ;; 在normal是用回车来执行命令，其它还就是`org-return'
+  (peng-local-set-key (kbd "<C-M-return>") 'completion-at-point)
   (peng-local-set-key (kbd "<return>") 'org-return)
   (define-key evil-normal-state-local-map (kbd "RET") 'peng-async-exec-current-line-or-marked-region)
   (define-key evil-normal-state-local-map (kbd "<return>") 'peng-async-exec-current-line-or-marked-region)
