@@ -106,6 +106,10 @@
 ;; 让 spacemacs mode-line 中的 Unicode 图标正确显示。
 ;; (cnfonts-set-spacemacs-fallback-fonts)
 
+(require 'exwm)
+(require 'exwm-config)
+(exwm-config-default)
+
 (provide 'init-test)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
