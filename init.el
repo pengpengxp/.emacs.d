@@ -99,7 +99,7 @@
 (require 'init-auto-insert)
 (require 'init-outline-minor-mode.el)
 (require 'init-color-theme)
-;; (require 'init-ace-jump.el)
+(require 'init-ace-jump.el)
 (require 'init-sr-speedbar)
 ;; (require 'init-tabbar)
 ;; (require 'init-deft)
@@ -221,6 +221,7 @@
 (require 'init-xah-keys)
 (require 'init-misc)
 (require 'init-elfeed)
+(require 'init-mu4e)
 
 ;; (require 'init-cursor)
 ;; (load-file (concat (getenv LISP)
@@ -238,7 +239,6 @@
   (progn
     (require 'init-google-translate)
     (require 'init-yasnippet)
-    (require 'init-mu4e)
     (require 'init-yasnippet)
     ))
 

@@ -17,4 +17,18 @@
 (setq mu4e-mu-binary "/usr/bin/mu")
 (setenv "XAPIAN_CJK_NGRAM" "1")
 
+(setq mu4e-attachment-dir
+  (lambda (fname mtype)
+    (cond
+      ;; zip and rar file go to ~/Downloads
+      ((and fname (string-match "\\.zip$" fname))  "~/Downloads")
+      ((and fname (string-match "\\.rar$" fname))  "~/Downloads")
+
+      ;; document to and rar file go to ~/Documents
+      ((and fname (string-match "\\.pdf$" fname))  "~/Documents")
+      ((and fname (string-match "\\.doc$" fname))  "~/Documents")
+
+      ;; ... other cases  ...
+      (t "/tmp")))) ;; everything else
+
 (provide 'init-mu4e)
