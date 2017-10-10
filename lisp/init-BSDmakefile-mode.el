@@ -10,6 +10,7 @@
 (add-hook 'makefile-mode-hook '(lambda ()
 					 (interactive)
 					 (peng-local-set-key (kbd "C-c C-v") 'compile)
+                                         (hl-line-mode 1)
 					 ))
 ;; (add-hook 'makefile-mode-hook '(lambda ()
 ;; 					 (interactive)
