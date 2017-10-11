@@ -30,7 +30,6 @@
 
 ;; 默认显示图片
 (setq w3m-default-display-inline-images t)
-(setq w3m-default-toggle-inline-images t)
 
 ;;; set `browse-url-chromium' to use `google-chrome' other than
 ;;; `chromium'
@@ -74,6 +73,8 @@
   (peng-local-set-key (kbd "R") 'w3m-reload-all-pages)
   (peng-local-set-key (kbd "f") 'w3m-lnum-follow)
   (peng-local-set-key (kbd "F") 'peng-browse-current-url-by-firefox)
+  (peng-local-set-key (kbd "+") 'w3m-zoom-in-image)
+  (peng-local-set-key (kbd "-") 'w3m-zoom-out-image)
   ;; (peng-local-set-key (kbd "F") 'peng-browse-current-url-by-chrome)
   (peng-local-set-key (kbd "RET") 'w3m-view-this-url)
   (peng-local-set-key (kbd "<return>") 'w3m-view-this-url)
