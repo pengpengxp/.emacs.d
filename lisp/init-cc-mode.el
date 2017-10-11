@@ -88,7 +88,7 @@ tab on left will act as indent while on the right of character as
   (define-key evil-normal-state-local-map (kbd "<C-return>") 'peng-cscope-find-this-symbol-no-prompting)
   (define-key evil-normal-state-local-map (kbd "<kp-delete>") 'peng-cscope-find-this-symbol-no-prompting)
   (define-key evil-normal-state-local-map (kbd "C-]") 'etags-select-find-tag-at-point)
-  (define-key evil-normal-state-map (kbd "M-.") 'find-tag) ; shoule be file local!!
+
   (peng-local-set-key (kbd "M-DEL") 'cscope-pop-mark)
   (peng-local-set-key (kbd "<kp-insert>") 'cscope-pop-mark)
   (peng-local-set-key (kbd "<M-backspace>") 'cscope-pop-mark)
@@ -112,18 +112,17 @@ tab on left will act as indent while on the right of character as
 (add-hook 'c-initialization-hook 'my-make-CR-do-indent)
 
 
-(require 'semantic)
-(global-semanticdb-minor-mode 1)
-(global-semantic-idle-scheduler-mode 1)
-(global-semantic-stickyfunc-mode 1)
-(semantic-mode 1)
-(defun alexott/cedet-hook ()
-  (local-set-key "\C-c\C-j" 'semantic-ia-fast-jump)
-  (local-set-key "\C-c\C-s" 'semantic-ia-show-summary))
-
-(add-hook 'c-mode-common-hook 'alexott/cedet-hook)
-(add-hook 'c-mode-hook 'alexott/cedet-hook)
-(add-hook 'c++-mode-hook 'alexott/cedet-hook)
+;; (require 'semantic)
+;; (global-semanticdb-minor-mode 1)
+;; (global-semantic-idle-scheduler-mode 1)
+;; (global-semantic-stickyfunc-mode 1)
+;; (semantic-mode 1)
+;; (defun alexott/cedet-hook ()
+;;   (local-set-key "\C-c\C-j" 'semantic-ia-fast-jump)
+;;   (local-set-key "\C-c\C-s" 'semantic-ia-show-summary))
+;; (add-hook 'c-mode-common-hook 'alexott/cedet-hook)
+;; (add-hook 'c-mode-hook 'alexott/cedet-hook)
+;; (add-hook 'c++-mode-hook 'alexott/cedet-hook)
 
 
 ;;; use `counsel-gtags'
@@ -148,7 +147,23 @@ tab on left will act as indent while on the right of character as
   (peng-local-set-key (kbd "<S-left>") 'counsel-gtags-go-backward)
   (peng-local-set-key (kbd "<S-right>") 'counsel-gtags-go-forward)
   (peng-local-set-key (kbd "<XF86Forward>") 'counsel-gtags-go-forward)
+
+  (define-key evil-normal-state-local-map (kbd "M-u") #'(lambda ()
+                                                          (interactive)
+                                                          (let (current-prefix-arg)
+                                                            (setq current-prefix-arg '(4))
+                                                            (call-interactively 'counsel-gtags-update-tags)
+                                                            )))
+  (define-key evil-normal-state-local-map (kbd ".") 'counsel-gtags-dwim)
+  (define-key evil-normal-state-local-map (kbd "<return>") 'counsel-gtags-dwim)
+  (define-key evil-normal-state-local-map (kbd "RET") 'counsel-gtags-dwim)
+  (define-key evil-normal-state-local-map (kbd "<") 'counsel-gtags-go-backward)
+  (define-key evil-normal-state-local-map (kbd "<C-backspace>") 'counsel-gtags-go-backward)
+  (define-key evil-normal-state-local-map  (kbd ">") 'counsel-gtags-go-forward)
   )
+
+;;; set to auto update gtags
+(setq counsel-gtags-auto-update t)
 
 (add-hook 'c-mode-hook 'peng-cc-mode-counsel-gtags-mode)
 (add-hook 'c++-mode-hook 'peng-cc-mode-counsel-gtags-mode)

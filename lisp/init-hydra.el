@@ -473,7 +473,7 @@
   ("n" symbol-overlay-jump-next "next" :exit nil)
   ("p" symbol-overlay-jump-prev "previours" :exit nil)
   ("u" symbol-overlay-remove "remove")
-  ("r" peng-reload-hydra-keymap "remove")
+  ("r" peng-reload-hydra-keymap "reload key")
   ("c" nil "cancel")
   ("RET" nil "cancel")
   ("<return>" nil "cancel")

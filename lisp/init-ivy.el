@@ -160,13 +160,14 @@
               :keymap ivy-switch-buffer-map
               :caller 'ivy-switch-buffer)))
 
-;;; hack: save and load `ivy-views'
+;;; ================================================================
+;;; hack: save and load `ivy-views'                            BEGIN
+;;; ================================================================
 (defun peng-save-ivy-views ()
   (interactive)
   (with-temp-file "~/.emacs.d/ivy-views"
     (prin1 ivy-views (current-buffer))
     (message "save ivy-views to ~/.emacs.d/ivy-views")))
-
 (defun peng-load-ivy-views ()
   (interactive)
   (setq ivy-views
@@ -174,10 +175,17 @@
           (insert-file-contents "~/.emacs.d/ivy-views")
           (read (current-buffer))))
   (message "load ivy-views"))
-
 (defun peng-clear-ivy-views ()
   (interactive)
   (setq ivy-views nil))
+;;; add auto save
+(add-hook 'kill-emacs-hook #'(lambda ()
+                               (peng-save-ivy-views)))
+(add-hook 'emacs-startup-hook #'(lambda ()
+                               (peng-load-ivy-views)))
+;;; ================================================================
+;;; hack: save and load `ivy-views'                              End
+;;; ================================================================
 
 (defun ivy-insert-org-entity ()
   "Insert an org-entity using ivy."

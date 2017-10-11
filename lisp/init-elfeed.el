@@ -21,6 +21,8 @@
         ("http://rss.cnn.com/rss/edition_asia.rss") ;cnn Asia
 
         ("http://www.chinagfw.org/feeds/posts/default")
+
+        ;; ("http://www.sfw.com.cn/?feed=rss2") ;科幻世界
         ))
 
 ;; (define-key elfeed-search-mode-map (kbd "RET") 'elfeed-search-show-entry)
