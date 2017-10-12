@@ -222,6 +222,7 @@
 (require 'init-misc)
 (require 'init-elfeed)
 (require 'init-mu4e)
+(require 'init-google-translate)
 
 ;; (require 'init-cursor)
 ;; (load-file (concat (getenv LISP)
@@ -237,7 +238,6 @@
 (defun peng-require-other-package ()
   (interactive)
   (progn
-    (require 'init-google-translate)
     (require 'init-yasnippet)
     (require 'init-yasnippet)
     ))

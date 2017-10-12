@@ -157,9 +157,12 @@ tab on left will act as indent while on the right of character as
   (define-key evil-normal-state-local-map (kbd ".") 'counsel-gtags-dwim)
   (define-key evil-normal-state-local-map (kbd "<return>") 'counsel-gtags-dwim)
   (define-key evil-normal-state-local-map (kbd "RET") 'counsel-gtags-dwim)
-  (define-key evil-normal-state-local-map (kbd "<") 'counsel-gtags-go-backward)
   (define-key evil-normal-state-local-map (kbd "<C-backspace>") 'counsel-gtags-go-backward)
+  (define-key evil-normal-state-local-map (kbd "<") 'counsel-gtags-go-backward)
   (define-key evil-normal-state-local-map  (kbd ">") 'counsel-gtags-go-forward)
+
+  (define-key evil-normal-state-local-map (kbd "<f1>") 'counsel-gtags-go-backward)
+  (define-key evil-normal-state-local-map  (kbd "<f2>") 'counsel-gtags-go-forward)
   )
 
 ;;; set to auto update gtags

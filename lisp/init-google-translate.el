@@ -149,9 +149,9 @@
           (setq from "zh-CN" to "en")
         (setq from "en" to "zh-CN"))
       ;; URL 格式：比如需要搜索 "example" (en => zh-Cn), URL `https://translate.google.cn/#en/zh-CN/example'
-      (browse-url (concat "https://translate.google.cn/#"
-                          from "/" to "/"
-                          (url-hexify-string no-newline-work))))))
+      (browse-url-firefox (concat "https://translate.google.cn/#"
+                                  from "/" to "/"
+                                  (url-hexify-string no-newline-work))))))
 
 :autoload
 (defun search-and-replace ()
@@ -177,10 +177,9 @@
          Google Translate:
 "
   ("w" google-translate-chinese-open-word-with-web-2 "google-translate-open-word-with-web-2")
-  ("p" peng-google-traslate-current-paragraph "peng-google-traslate-current-paragraph")
   )
 
-(peng-global-set-key (kbd "C-c d") 'hydra-google-translate/body)
+(peng-global-set-key (kbd "C-c d") 'google-translate-chinese-open-word-with-web-2)
 
 
 (provide 'init-google-translate)
