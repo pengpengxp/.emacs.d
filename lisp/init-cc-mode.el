@@ -139,7 +139,7 @@ tab on left will act as indent while on the right of character as
   (interactive)
   (peng-local-set-key (kbd "M-t") 'counsel-gtags-find-definition)
   (peng-local-set-key (kbd "M-r") 'counsel-gtags-find-reference)
-  (peng-local-set-key (kbd "M-s") 'counsel-gtags-find-symbol)
+  (peng-local-set-key (kbd "M-S") 'counsel-gtags-find-symbol)
   (peng-local-set-key (kbd "M-.") 'counsel-gtags-dwim)
   (peng-local-set-key (kbd "M-SPC") 'counsel-gtags-dwim)
   (peng-local-set-key (kbd "M-f") 'counsel-gtags-find-file)

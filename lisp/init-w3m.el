@@ -174,5 +174,7 @@
   (let ((url (peng-ivy-get-bookmarks)))
     (w3m-goto-url-new-session url)))
 
+;;; to use w3m by `proxychains /usr/bin/w3m "$@"'
+(setq w3m-command "~/.emacs.d/w3m.sh")
 
 (provide 'init-w3m)

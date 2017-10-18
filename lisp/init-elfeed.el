@@ -21,6 +21,7 @@
         ("http://rss.cnn.com/rss/edition_asia.rss") ;cnn Asia
 
         ("http://www.chinagfw.org/feeds/posts/default")
+        ("http://zhangwuchang.blog.caixin.com/feed")  ;张五常财新博客
 
         ;; ("http://www.sfw.com.cn/?feed=rss2") ;科幻世界
         ))
@@ -56,5 +57,10 @@ If EXTERNAL, browse the URL using `shr-external-browser'."
       (if external
 	  (funcall shr-external-browser url)
 	(w3m-goto-url-new-session url))))))
+
+;;; set proxy, I guess elfeed use cURL to fetch info, and this extra
+;;; arguments can pass to cURL so that elfeed can use my proxy to
+;;; fetch some sensitive info.
+ (setf elfeed-curl-extra-arguments '("--socks5-hostname" "localhost:1080"))
 
 (provide 'init-elfeed)
