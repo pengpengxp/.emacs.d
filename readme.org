@@ -16,11 +16,11 @@
 #+STARTUP: hideblocks
 #+STARTUP: content
 
-I'm pengpengxp, working in River Security in Chendu, China.I like use
-emacs.
+I'm pengpengxp, working in Chendu, China. I like use Emacs.
 
-I put my emacs configuration here
+I put my Emacs configuration here
 
-Email: paul_xie@riversecurity.com
+Email: pengpengxppri@sina.com
 
+Site: pengpengxp.github.io
 
