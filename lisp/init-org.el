@@ -344,6 +344,11 @@ file and open the pdf file. also compile the bibliography"
       (local-set-key (kbd "<s-return>") 'org-insert-subheading)))
 
 
+;;; 默认情况下，org会把src block中的tab都转换成space。这样makefile文件
+;;; tangle后不能使用。可以设置变量 `org-src-preserve-indentation' 为t
+;;; 表示不把tab转化为space。
+(setq org-src-preserve-indentation t)
+
 (use-package org
   :defer t
   :init

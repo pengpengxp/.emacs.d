@@ -85,6 +85,14 @@
   (ibuffer)
   )
 
+(setq peng-ibuffer-filter-map (make-sparse-keymap))
+(define-key peng-ibuffer-filter-map (kbd "o") 'peng-ibuffer-filter-org-mode)
+(define-key peng-ibuffer-filter-map (kbd "c") 'peng-ibuffer-filter-c-mode)
+(define-key peng-ibuffer-filter-map (kbd "e") 'peng-ibuffer-filter-emacs-lisp-mode)
+(define-key peng-ibuffer-filter-map (kbd "s") 'peng-ibuffer-filter-sql-mode)
+(define-key peng-ibuffer-filter-map (kbd "d") 'peng-ibuffer-filter-dired-mode)
+(define-key peng-ibuffer-filter-map (kbd "p") 'peng-ibuffer-filter-c++-mode)
+
 ;;; ibuffer mode
 (defun peng-ibuffer-mode ()
   (hl-line-mode 1)
@@ -102,7 +110,9 @@
   (define-key evil-normal-state-local-map (kbd "<C-return>") 'ibuffer-visit-buffer-other-window-noselect)
   (define-key evil-normal-state-local-map (kbd "M-s") 'other-window)
   (peng-local-set-key (kbd "<down-mouse-1>") 'ibuffer-visit-buffer)
+  (peng-local-set-key (kbd "v") peng-ibuffer-filter-map)
   )
+
 (add-hook 'ibuffer-mode-hook 'peng-ibuffer-mode)
 
 

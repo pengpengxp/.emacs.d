@@ -219,12 +219,11 @@ Version 2015-11-30"
     )))
 
 
-
 (defun peng-create-tags (dir-name)
   "Create tags file. Use my own ctags which build from source"
   (interactive "DDirectory: ")
   (async-shell-command
-   (format "/usr/local/bin/ctags -e -R %s" (directory-file-name dir-name)))
+   (format "/usr/local/ctags/bin/ctags -e -R %s" (directory-file-name dir-name)))
   )
 
 

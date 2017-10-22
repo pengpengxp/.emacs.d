@@ -535,9 +535,22 @@
   ("d" mark-defun)
   )
 
+(defhydra hydra-ibuffer-filters (:hint nil
+                                       :exit t
+                                       :columns 4)
+  "Buffers"
+  ("q" nil "cancle")
+  ("o" peng-ibuffer-filter-org-mode "org")
+  ("c" peng-ibuffer-filter-c-mode "c")
+  ("e" peng-ibuffer-filter-emacs-lisp-mode "elisp")
+  ("s" peng-ibuffer-filter-sql-mode "sql")
+  ("d" peng-ibuffer-filter-dired-mode "dired")
+  ("p" peng-ibuffer-filter-c++-mode "c++")
+  )
+
 (defhydra hydra-buffer-and-bookmark (:hint nil
-                           :exit t
-                           :columns 4)
+                                           :exit t
+                                           :columns 4)
   "Buffers"
   ("n" xah-next-user-buffer "xah-next-user-buffer" :exit nil)
   ("p" xah-next-user-buffer  "xah-next-user-buffer" :exit nil)
@@ -545,6 +558,7 @@
   ("l" bookmark-bmenu-list "bookmark list")
   ("m" bookmark-set "bookmark-set")
   ("b" ibuffer "ibuffer")
+  ("g" hydra-ibuffer-filters/body "buffer filter")
   )
 
 
@@ -768,8 +782,8 @@ Breadcrumb bookmarks:
 (defun peng-reload-hydra-keymap ()
   (interactive)
   (load-file (concat
-                 LISP
-                 "/init-hydra.el")))
+              LISP
+              "/init-hydra.el")))
 
 
 (defhydra hydra-counsel-gtags (:color pink
