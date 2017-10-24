@@ -25,7 +25,7 @@ tab on left will act as indent while on the right of character as
 `completion-at-point'
 "
   (interactive)
-  (setq c-tab-always-indent 'nil)
+  (setq c-tab-always-indent t)
   ;; (setq c-insert-tab-function #'completion-at-point)
   (setq c-insert-tab-function #'company-complete)
   )
@@ -51,7 +51,6 @@ tab on left will act as indent while on the right of character as
 
 (defun pengpengxp-c-common-mode ()
   (which-function-mode)
-  (setq indent-tabs-mode nil)
   ;; (peng-local-set-key (kbd "C-c C-v") 'compile)
   (peng-local-set-key (kbd "C-c C-v") 'peng-compile-current-c-or-cpp-file)
   (yas-minor-mode 1)
@@ -75,8 +74,13 @@ tab on left will act as indent while on the right of character as
 				   (list-tags (buffer-file-name))))
   (hs-minor-mode)
   (local-set-key (kbd "C-c t") 'hs-toggle-hiding)
-  (c-set-style "k&r")
-  (setq c-basic-offset 4)		;`c-set-style'中会设置这个值，所以一定要在其之后
+
+  ;; set for cdyq code style
+  (c-set-style "linux")
+  (setq indent-tabs-mode t)
+  (setq c-basic-offset 8)		;`c-set-style'中会设置这个值，所以一定要在其之后
+  (setq tab-width 8)
+
   (hl-line-mode 1)
   (autopair-on)
   ;; (evil-close-folds)			;每次打开文件都是折叠的
