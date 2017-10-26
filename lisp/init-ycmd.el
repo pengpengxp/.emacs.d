@@ -1,7 +1,8 @@
 (require 'ycmd)
 ;;; 这个设置编译出来的ycmd目录。注意这里的ycmd不是一个可执行文件，而是一个目录
-(set-variable 'ycmd-server-command '("/usr/bin/python" "/home/pengpengxp/github/ycmd/ycmd"))
-(set-variable 'ycmd-global-config "/home/pengpengxp/.emacs.d/site-lisp/.ycm_extra_global_conf.py")
+;; (set-variable 'ycmd-server-command '("/usr/bin/python" "/home/pengpengxp/github/ycmd/ycmd"))
+(set-variable 'ycmd-server-command '("/usr/bin/python3" "/home/pengpengxp/github/ycmd/ycmd"))
+(set-variable 'ycmd-global-config "/home/pengpengxp/.data/.frr_ycmd_extra_conf.py")
 
 ;;; 设置等待server的时间，默认是3s
 (setq ycmd-startup-timeout 5)

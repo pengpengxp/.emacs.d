@@ -29,7 +29,7 @@
 (setq w3m-use-title-buffer-name 1)	;use the title as buffer-name
 
 ;; 默认显示图片
-(setq w3m-default-display-inline-images t)
+(setq w3m-default-display-inline-images nil)
 
 ;;; set `browse-url-chromium' to use `google-chrome' other than
 ;;; `chromium'
