@@ -105,6 +105,9 @@ tab on left will act as indent while on the right of character as
 
   (peng-setup-ycmd)
   (company-mode 1)
+  ;; (setq company-backends '(company-ycmd company-dabbrev-code company-dabbrev company-keywords))
+  (setq company-backends '(company-dabbrev-code company-dabbrev company-keywords))
+  (peng-local-set-key (kbd "M-d") 'company-ycmd)
 
   )
 (add-hook 'c-mode-hook 'pengpengxp-c-common-mode)
@@ -151,6 +154,8 @@ tab on left will act as indent while on the right of character as
   (peng-local-set-key (kbd "<S-left>") 'counsel-gtags-go-backward)
   (peng-local-set-key (kbd "<S-right>") 'counsel-gtags-go-forward)
   (peng-local-set-key (kbd "<XF86Forward>") 'counsel-gtags-go-forward)
+  (peng-local-set-key (kbd "<f1>") 'counsel-gtags-go-backward)
+  ( peng-local-set-key  (kbd "<f2>") 'counsel-gtags-go-forward)
 
   (define-key evil-normal-state-local-map (kbd "M-u") #'(lambda ()
                                                           (interactive)
@@ -165,8 +170,10 @@ tab on left will act as indent while on the right of character as
   (define-key evil-normal-state-local-map (kbd "<") 'counsel-gtags-go-backward)
   (define-key evil-normal-state-local-map  (kbd ">") 'counsel-gtags-go-forward)
 
-  (define-key evil-normal-state-local-map (kbd "<f1>") 'counsel-gtags-go-backward)
-  (define-key evil-normal-state-local-map  (kbd "<f2>") 'counsel-gtags-go-forward)
+  (define-key evil-insert-state-local-map  (kbd "M-RET") 'counsel-gtags-dwim)
+  (define-key evil-insert-state-local-map  (kbd "<M-return>") 'counsel-gtags-dwim)
+  (define-key evil-insert-state-local-map  (kbd "<C-return>") 'counsel-gtags-find-reference)
+
   )
 
 ;;; set to auto update gtags
