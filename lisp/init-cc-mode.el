@@ -106,9 +106,10 @@ tab on left will act as indent while on the right of character as
   (peng-setup-ycmd)
   (company-mode 1)
   ;; (setq company-backends '(company-ycmd company-dabbrev-code company-dabbrev company-keywords))
-  (setq company-backends '(company-dabbrev-code company-dabbrev company-keywords))
-  (peng-local-set-key (kbd "M-d") 'company-ycmd)
-
+  (setq company-backends '(company-dabbrev-code
+                           (company-dabbrev-code company-dabbrev company-keywords)
+                           company-ycmd company-gtags))
+  (peng-local-set-key (kbd "M-d") 'company-other-backend)
   )
 (add-hook 'c-mode-hook 'pengpengxp-c-common-mode)
 (add-hook 'c++-mode-hook 'pengpengxp-c-common-mode)
