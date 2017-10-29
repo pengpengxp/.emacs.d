@@ -235,12 +235,7 @@
 
 ;;; require the test file
 (require 'init-test)
-(defun peng-require-other-package ()
-  (interactive)
-  (progn
-    (require 'init-yasnippet)
-    (require 'init-yasnippet)
-    ))
+(require 'init-yasnippet)
 
 
 (provide 'init)
