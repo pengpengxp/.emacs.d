@@ -706,7 +706,7 @@ Breadcrumb bookmarks:
 ;; (peng-global-set-key (kbd "C-o") 'peng-asp-engine-project-and-ivy-ls)
 ;; (peng-global-set-key (kbd "C-S-O") 'peng-asp-engine-project-and-ivy-grep)
 (peng-global-set-key (kbd "C-o") 'counsel-find-file)
-(peng-global-set-key (kbd "C-S-O") 'peng-asp-engine-project-and-ivy-ls)
+(peng-global-set-key (kbd "C-S-O") 'peng-ivy-ls-git)
 (peng-global-set-key (kbd "M-e") 'forward-sentence)
 (peng-global-set-key (kbd "C-j") 'ivy-switch-buffer)
 (peng-global-set-key (kbd "C-S-j") 'peng-ivy-switch-buffer-to-views)
