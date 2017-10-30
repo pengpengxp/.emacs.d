@@ -105,10 +105,17 @@ tab on left will act as indent while on the right of character as
 
   (peng-setup-ycmd)
   (company-mode 1)
-  ;; (setq company-backends '(company-ycmd company-dabbrev-code company-dabbrev company-keywords))
+
+  ;; begin ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; make this company-backends as local viriable for cc-mode
+  (make-local-variable 'company-backends)
+  (setq company-backends (copy-tree company-backends))
   (setq company-backends '(company-dabbrev-code
                            (company-dabbrev-code company-dabbrev company-keywords)
                            company-ycmd company-gtags))
+  ;;  end ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+  
   (peng-local-set-key (kbd "M-d") 'company-other-backend)
   )
 (add-hook 'c-mode-hook 'pengpengxp-c-common-mode)

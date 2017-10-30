@@ -658,5 +658,18 @@
 	      (mapcar #'expand-file-name (eshell-flatten-list (reverse args))))))
   )
 
+(defun peng-eshell-to-remote ()
+  "eshell to remote host"
+  (interactive)
+  (let* (
+         (host (ivy-read "Select Host :" '(
+                                           "cdyq-pc-p"
+                                           )))
+
+         (default-directory (concat "/ssh:"
+                                    host
+                                    ":~/"))
+         )
+    (eshell)))
 
 (provide 'init-eshell)
