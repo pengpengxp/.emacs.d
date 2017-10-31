@@ -66,34 +66,23 @@
                                :columns 3
                                :exit t)
   "Gnu global"
-  ("d" ggtags-find-definition "ggtags-find-definition")
-  ("D" ggtags-show-definition "ggtags-show-definition")
-  ("t" ggtags-find-tag "ggtags-find-tag")
-  ("g" ggtags-grep "ggtags-grep")
-  ("h" ggtags-view-tag-history "ggtags-view-tag-history")
-  ("H" ggtags-view-search-history "ggtags-view-search-history")
-  ("I" ggtags-create-tags "ggtags-create-tags")
-  ("." ggtags-find-tag-dwim "ggtags-find-tag-dwim")
-  ("r" ggtags-find-reference "ggtags-find-reference")
-  ("R" ggtags-find-tag-regexp "ggtags-find-tag-regexp")
-  ("s" ggtags-save-to-register "ggtags-save-to-register")
-  ("q" ggtags-query-replace "ggtags-query-replace")
-  ("b" ggtags-browse-file-as-hypertext "ggtags-browse-file-as-hypertext")
-  ("f" ggtags-find-file "ggtags-find-file")
-  ("?" ggtags-idutils-query "ggtags-idutils-query")
-  ("P" ggtags-visit-project-root "ggtags-visit-project-root")
-  ("k" ggtags-kill-file-buffers "ggtags-kill-file-buffers")
-  ("n" ggtags-next-mark "ggtags-next-mark")
-  ("o" ggtags-find-other-symbol "ggtags-find-other-symbol")
-  ("p" ggtags-prev-mark "ggtags-prev-mark")
-  ("C" ggtags-delete-tags "ggtags-delete-tags")
+  ("t" counsel-gtags-find-definition "def")
+  ("d" counsel-gtags-find-definition "def")
+  ("RET" counsel-gtags-dwim "find ref or def")
+  ("<return>" counsel-gtags-dwim "find ref or def")
+  ("g" counsel-gtags-dwim "find ref or def")
+  ("r" counsel-gtags-find-reference "find ref or def")
+  ("s" counsel-gtags-find-symbol "symbole")
+  ("<" counsel-gtags-go-backward "back" :exit nil)
+  (">" counsel-gtags-go-forward "forward" :exit nil)
+  ("f" ggtags-find-file "forward" :exit nil)
   ("c" nil "calcel")
   )
 
 (defhydra hydra-cc-mode (:color pink
-                               :hint nil
-                               :columns 3
-                               :exit t)
+                                :hint nil
+                                :columns 3
+                                :exit t)
   "CC Mode"
   ("c" peng-compile-current-c-or-cpp-file "compile-current-c-file")
   ("g" dumb-jump-go "dumb-jump-go")
@@ -141,9 +130,9 @@
   )
 
 (defhydra hydra-etags (:color pink
-                               :hint nil
-                               :columns 3
-                               :exit t)
+                              :hint nil
+                              :columns 3
+                              :exit t)
   "Gnu global"
   ("l" peng-create-tags "peng-create-tags")
   ("L" peng-create-tags "peng-create-tags")
@@ -324,7 +313,7 @@
   )
 
 (defhydra hydra-ag-dwim (:exit t
-                         :columns 4)
+                               :columns 4)
   "Ag mode"
   ("g" peng-ag-current-directory "Start Ag in current directory")
   ("o" counsel-ag "counsel-ag")
@@ -384,7 +373,7 @@
   ("t" peng-switch-to-temp-buffer "peng-switch-to-temp-buffer")
   ;; ("w" peng-w3m-goto-chrome-current-tab-url "peng-w3m-goto-chrome-current-tab-url")
   ("w" hydra-w3m/body "hydra-w3m/body")
-  ("r" hydra-river/body "hydra-river/body")
+  ("r" hydra-cdyq/body "hydra-river/body")
   ("q" my-hydra-zoom/body "my-hydra-zoom")
   ("s" view-stardict-in-buffer "view-stardict-in-buffer")
   )
@@ -398,12 +387,9 @@
 
 
 
-(defhydra hydra-river (:exit t :columns 3)
-  "Riversec Mode"
-  ("O" peng-openstack-find-file "find_openstack_controller_file")
-  ("A" peng-asp-engine-project-and-helm-grep "helm_ag_asp_project")
-  ("a" peng-asp-engine-project-and-ivy-grep "ivy_ag_asp_project")
-  ("o" peng-asp-engine-project-and-ivy-ls "find_asp_files")
+(defhydra hydra-cdyq (:exit t :columns 3)
+  "Cdyq Mode"
+  ("r" (async-shell-command "/home/pengpengxp/bin/pctags") "recreate cdyq-tags")
   )
 
 (defhydra hydra-open (:exit t :columns 4)
@@ -452,7 +438,7 @@
   )
 
 (defhydra hydra-e-menu (:exit t
-                                    :columns 4)
+                              :columns 4)
   "Edit control"
   ("c" hydra-case-control/body "hydra-case-control/body")
   ("y" peng-replace-current-symbol-with-kill-ring "replace current symbol of kill ring")
@@ -461,8 +447,8 @@
   )
 
 (defhydra hydra-k-map (:hint nil
-                                      :exit t
-                                      :columns 4)
+                             :exit t
+                             :columns 4)
   "Symbol Overlay"
 
   ("SPC" symbol-overlay-rename "rename")
@@ -492,8 +478,8 @@
   )
 
 (defhydra hydra-insert (:hint nil
-                           :exit t
-                           :columns 3)
+                              :exit t
+                              :columns 3)
   "Insert"
   ("f" my-insert-file-name "my-insert-file-name")
   ("b" xah-insert-black-lenticular-bracket【】 "【】")
@@ -521,8 +507,8 @@
   )
 
 (defhydra hydra-select (:hint nil
-                           :exit t
-                           :columns 3)
+                              :exit t
+                              :columns 3)
   "Select"
   ("l" xah-select-current-line "current line")
   ("L" xah-select-line "line")
@@ -585,6 +571,7 @@
   ("a"   projectile-ag "projectile-ag")
   ("b"   my-projectile-switch-to-buffer "my-projectile-switch-to-buffer")
   ("c"   projectile-invalidate-cache "projectile-invalidate-cache")
+  ;; ("d"   projectile-find-dir "projectile-find-dir")
   ("d"   projectile-find-dir "projectile-find-dir")
   ("s-f" projectile-find-file-dwim "projectile-find-file-dwim")
   ("F" projectile-find-file-dwim "projectile-find-file-dwim")
@@ -733,7 +720,8 @@ Breadcrumb bookmarks:
 (define-key peng-spc-main-map (kbd "b") 'hydra-buffer-and-bookmark/body)
 (define-key peng-spc-main-map (kbd "u") 'universal-argument)
 (define-key peng-spc-main-map (kbd "s") 'save-buffer)
-(define-key peng-spc-main-map (kbd "l") 'hydra-select/body)
+;; (define-key peng-spc-main-map (kbd "l") 'hydra-select/body)
+(define-key peng-spc-main-map (kbd "l") 'hydra-global/body)
 (define-key peng-spc-main-map (kbd "p") 'hydra-peng-p-menu/body)
 (define-key peng-spc-main-map (kbd ";") 'counsel-M-x)
 (define-key peng-spc-main-map (kbd ".") 'hydra-redo)

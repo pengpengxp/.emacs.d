@@ -270,7 +270,6 @@
 (define-key peng-space-p-map (kbd  "J")  'peng-js-project)
 ;; (define-key peng-space-p-map (kbd  "s")  'peng-set-river-root-project)
 
-;; (define-key peng-space-p-map (kbd  "g")  'peng-asp-engine-project-and-helm-grep)
 (define-key peng-space-p-map (kbd  "g")  'peng-asp-engine-project-and-ivy-grep)
 (define-key peng-space-p-map (kbd  "f")  'peng-asp-engine-project-and-ivy-ls)
 (define-key peng-evil-normal-map (kbd "p") peng-space-p-map)

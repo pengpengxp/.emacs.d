@@ -152,12 +152,13 @@ tab on left will act as indent while on the right of character as
 
 (defun peng-cc-mode-counsel-gtags-mode ()
   (interactive)
+  (ggtags-mode 1)
   (peng-local-set-key (kbd "M-t") 'counsel-gtags-find-definition)
   (peng-local-set-key (kbd "M-r") 'counsel-gtags-find-reference)
   (peng-local-set-key (kbd "M-S") 'counsel-gtags-find-symbol)
   (peng-local-set-key (kbd "M-.") 'counsel-gtags-dwim)
   (peng-local-set-key (kbd "M-SPC") 'counsel-gtags-dwim)
-  (peng-local-set-key (kbd "M-f") 'counsel-gtags-find-file)
+  (peng-local-set-key (kbd "M-f") 'ggtags-find-file)
   (peng-local-set-key (kbd "<XF86Back>") 'counsel-gtags-go-backward)
   (peng-local-set-key (kbd "<S-left>") 'counsel-gtags-go-backward)
   (peng-local-set-key (kbd "<S-right>") 'counsel-gtags-go-forward)
@@ -181,14 +182,11 @@ tab on left will act as indent while on the right of character as
   (define-key evil-insert-state-local-map  (kbd "M-RET") 'counsel-gtags-dwim)
   (define-key evil-insert-state-local-map  (kbd "<M-return>") 'counsel-gtags-dwim)
   (define-key evil-insert-state-local-map  (kbd "<C-return>") 'counsel-gtags-find-reference)
-
   )
 
 ;;; set to auto update gtags
 (setq counsel-gtags-auto-update nil)
-
 (add-hook 'c-mode-hook 'peng-cc-mode-counsel-gtags-mode)
 (add-hook 'c++-mode-hook 'peng-cc-mode-counsel-gtags-mode)
-
 
 (provide 'init-cc-mode)

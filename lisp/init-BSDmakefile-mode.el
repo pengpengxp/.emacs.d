@@ -21,4 +21,14 @@
 ;; 					 (define-key evil-normal-state-local-map (kbd "SPC m") 'peng-makefile-mode-make)
 ;; 					 ))
 
+(add-to-list 'auto-mode-alist
+	     '("make.rule" . makefile-bsdmake-mode))
+
+(add-to-list 'auto-mode-alist
+	     '("make.subdirs" . makefile-bsdmake-mode))
+
+(add-to-list 'auto-mode-alist
+	     '("make.param" . makefile-bsdmake-mode))
+
+
 (provide 'init-BSDmakefile-mode)
