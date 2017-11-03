@@ -155,7 +155,7 @@
   ;; ("r" counsel-recentf "counsel-recentf")
 
   ("R" (counsel-rg (thing-at-point 'symbol)) "counsel-rg-at-point")
-  ("r" counsel-rg "counsel-rg")
+  ("r" peng-literal-rg "rg")
 
   ("g" counsel-git-grep "counsel-git-grep")
   ("G" grep "grep")

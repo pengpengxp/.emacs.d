@@ -968,4 +968,10 @@ Version 2015-08-22"
       (async-shell-command "/usr/local/electronic-wechat-linux-x64/electronic-wechat &"))
   )
 
+(defun peng-literal-rg ()
+  (interactive)
+  (let ((text (read-from-minibuffer "Please input text to search: "))
+        (root-dir (shell-command-to-string "git rev-parse --show-toplevel")))
+    (rg-literal text "everything" root-dir)))
+
 (provide 'init-peng-prifun)
