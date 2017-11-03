@@ -781,7 +781,11 @@
 ;;; 
 ;;;-------------------------------------------------------------------
 (peng-global-set-key (kbd "<delete>") 'view-stardict-in-buffer)
-(peng-global-set-key (kbd "C-c m") 'magit-status)
+(peng-global-set-key (kbd "C-c m") #'(lambda ()
+                                       (interactive)
+                                      (progn
+                                        (magit-status)
+                                        (delete-other-windows))))
 
 ;;; MISC
 (peng-global-set-key (kbd "C-M-0") 'delete-window)

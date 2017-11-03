@@ -548,19 +548,46 @@ absolute path."
   (with-current-buffer buffer-or-string
     major-mode))
 (defun peng-real-buffer (&optional buffer)
-  (cond ((buffer-file-name buffer)
-         t)
-        ((equal (peng-get-buffer-mode buffer) 'dired-mode)
-         t)
-        (t
-         nil)))
+  (let ((m-mode (peng-get-buffer-mode buffer)))
+    (cond ((buffer-file-name buffer)
+           t)
+          ((equal m-mode 'dired-mode)
+           t)
+          ((equal m-mode 'help-mode)
+           t)
+          ((equal m-mode 'w3m-mode)
+           t)
+          ((equal m-mode 'Man-mode)
+           t)
+          ((equal m-mode 'lisp-interaction-mode)
+           t)
+          ((equal
+            (string-match "*magit" (with-current-buffer buffer
+                                     (buffer-name))) 0)
+           t)
+          ((equal
+            (string-match "*tramp" (with-current-buffer buffer
+                                     (buffer-name))) 0)
+           t)
+          ((equal
+            (string-match "*cscope-indexin" (with-current-buffer buffer
+                                     (buffer-name))) 0)
+           t)
+          ((equal
+            (string-match "*Compile-Log*" (with-current-buffer buffer
+                                     (buffer-name))) 0)
+           t)
+          (t
+           nil))))
 (defun peng-kill-all-file-relative-buffers ()
   "Kill all other buffers."
   (interactive)
   (mapc 'kill-buffer 
         (remove-if-not 'peng-real-buffer (buffer-list))
         )
-  (message "All buffer killed"))
+  (switch-to-buffer "*GNU Emacs*")
+  (message "All buffer killed")
+  )
 ;;; kill all buffers end
 
 (defun peng-copy-current-line-position-to-clipboard ()

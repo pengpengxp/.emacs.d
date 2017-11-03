@@ -166,12 +166,12 @@ tab on left will act as indent while on the right of character as
   (peng-local-set-key (kbd "<f1>") 'counsel-gtags-go-backward)
   ( peng-local-set-key  (kbd "<f2>") 'counsel-gtags-go-forward)
 
-  (define-key evil-normal-state-local-map (kbd "M-u") #'(lambda ()
-                                                          (interactive)
-                                                          (let (current-prefix-arg)
-                                                            (setq current-prefix-arg '(4))
-                                                            (call-interactively 'counsel-gtags-update-tags)
-                                                            )))
+  ;; (define-key evil-normal-state-local-map (kbd "M-u") #'(lambda ()
+  ;;                                                         (interactive)
+  ;;                                                         (let (current-prefix-arg)
+  ;;                                                           (setq current-prefix-arg '(4))
+  ;;                                                           (call-interactively 'counsel-gtags-update-tags)
+  ;;                                                           )))
   (define-key evil-normal-state-local-map (kbd ".") 'counsel-gtags-dwim)
   (define-key evil-normal-state-local-map (kbd "<return>") 'counsel-gtags-dwim)
   (define-key evil-normal-state-local-map (kbd "RET") 'counsel-gtags-dwim)
@@ -185,7 +185,7 @@ tab on left will act as indent while on the right of character as
   )
 
 ;;; set to auto update gtags
-(setq counsel-gtags-auto-update nil)
+(setq counsel-gtags-auto-update t)
 (add-hook 'c-mode-hook 'peng-cc-mode-counsel-gtags-mode)
 (add-hook 'c++-mode-hook 'peng-cc-mode-counsel-gtags-mode)
 

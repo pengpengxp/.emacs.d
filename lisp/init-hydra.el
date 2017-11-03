@@ -389,7 +389,10 @@
 
 (defhydra hydra-cdyq (:exit t :columns 3)
   "Cdyq Mode"
-  ("r" (async-shell-command "/home/pengpengxp/bin/pctags") "recreate cdyq-tags")
+  ("r" (async-shell-command "/home/pengpengxp/bin/pctags default") "recreate cdyq-tags")
+  ("R" (async-shell-command (concat "/home/pengpengxp/bin/pctags "
+                                    (shell-command-to-string
+                                     "git rev-parse --show-toplevel"))) "recreate current tags")
   )
 
 (defhydra hydra-open (:exit t :columns 4)
@@ -748,6 +751,11 @@ Breadcrumb bookmarks:
 ;;                                             (ibuffer-update t)
 ;;                                           (ibuffer-update nil)))))
 (peng-global-set-key (kbd "<f5>") 'mu4e)
+(peng-global-set-key (kbd "<f10>") #'(lambda ()
+                                       (interactive)
+                                       (progn
+                                         (magit-status)
+                                         (delete-other-windows))))
 
 ;;; for windows configure
 ;; ;;; origin

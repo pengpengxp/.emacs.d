@@ -175,6 +175,13 @@
     (w3m-goto-url-new-session url)))
 
 ;;; to use w3m by `proxychains /usr/bin/w3m "$@"'
-(setq w3m-command "~/.emacs.d/w3m.sh")
+
+(defun peng-w3m-use-proxy ()
+  (interactive)
+  (setq w3m-command "~/.emacs.d/w3m.sh"))
+
+(defun peng-w3m-nouse-proxy ()
+  (interactive)
+  (setq w3m-command "/usr/bin/w3m"))
 
 (provide 'init-w3m)
