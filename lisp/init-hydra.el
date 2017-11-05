@@ -40,7 +40,7 @@
     ("v" (w3m-goto-url-new-session w3m-bookmark-file) "w3m-bookmark-view")
     ("h" helm-w3m-bookmarks "helm-w3m-bookmark")
 
-    ("c" peng-grab-firefox-tab-to-org-todo-file "grab-firefox-link")
+    ("c" peng-grab-firefox-tab-to-w3m-todo-file "grab-firefox-link")
 
     ("a" w3m-bookmark-add-current-url "w3m-bookmark-add-current-url")
     ("t" w3m-bookmark-add-this-url "w3m-bookmark-add-this-url")

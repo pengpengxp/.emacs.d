@@ -256,7 +256,8 @@ file and open the pdf file. also compile the bibliography"
 
 ;;; grab firefox link to w3m bookmarkd
   (require 'grab-x-link)
-  (defun peng-grab-firefox-tab-to-org-todo-file ()
+
+  (defun peng-grab-firefox-tab-to-w3m-todo-file ()
     "save firefox tab url and title to w3m bookmarks"
     (interactive)
     (let* (
@@ -267,6 +268,20 @@ file and open the pdf file. also compile the bibliography"
            (w3m-bookmark-default-section "todo")
            )
       (w3m-bookmark-add url title)))
+
+  (defun peng-grab-firefox-tab-to-org-todo-file ()
+    "save firefox tab url and title to org bookmarks"
+    (interactive)
+    (let ((file-name "/home/pengpengxp/github/pengpengxp.github.io/source/2017-06-29-my-saved-website.org"))
+      (with-temp-buffer (progn
+                          (insert-file file-name)
+                          (goto-char (point-max))
+                          (insert "* ")
+                          (goto-char (point-max))
+                          (grab-x-link-firefox-insert-org-link)
+                          (write-file file-name)))
+      (find-file file-name)
+      (goto-char (point-max))))
 
   (hi-lock-mode 1)
   (peng-highlight)
