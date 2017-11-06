@@ -179,6 +179,7 @@
 (defun peng-w3m-use-proxy ()
   (interactive)
   (setq w3m-command "~/.emacs.d/w3m.sh"))
+(peng-w3m-use-proxy)
 
 (defun peng-w3m-nouse-proxy ()
   (interactive)

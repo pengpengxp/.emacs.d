@@ -158,7 +158,7 @@
 
   ("g" counsel-git-grep "counsel-git-grep")
   ("G" grep "grep")
-  ("o" swiper "swiper")
+  ("o" counsel-grep-or-swiper "grep-or-swiper")
   ;; ("O" swiper-all "swiper-all")
   ("O" peng-swiper-current-symbol "peng-swiper-current-symbol")
 
