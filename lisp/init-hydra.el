@@ -154,7 +154,7 @@
   ;; ("r" counsel-recentf "counsel-recentf")
 
   ("r" (progn (rg-dwim) (switch-to-buffer-other-window "*rg*")) "rg-dwim")
-  ("R" peng-literal-rg "peng-rg")
+  ("R" peng-custumize-rg "peng-rg")
 
   ("g" counsel-git-grep "counsel-git-grep")
   ("G" grep "grep")
