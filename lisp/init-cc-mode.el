@@ -54,11 +54,11 @@ tab on left will act as indent while on the right of character as
   ;; (peng-local-set-key (kbd "C-c C-v") 'compile)
   (peng-local-set-key (kbd "C-c C-v") 'peng-compile-current-c-or-cpp-file)
   (yas-minor-mode 1)
-  (linum-mode 1)			;show the line number
+  (nlinum-mode 1)			;show the line number, nlinum-mode is faster
   (local-set-key (kbd "C-j") 'view-stardict-in-buffer)
   ;; for the #if #else #endif
   ;; (define-key evil-normal-state-map (kbd "M-.") 'peng-helm-etags-select) ; shoule be file local!!
-  (local-set-key (kbd "C-c C-u") 'c-up-conditional-with-else)
+  (local-set-key (kbd "C-c C-p") 'c-up-conditional-with-else)
   (local-set-key (kbd "C-c C-n") 'c-down-conditional-with-else)
   (local-set-key (kbd "<f5> c") #'peng-compile-current-c-or-cpp-file)
   (local-set-key (kbd "<f7>") 'peng-c-gnome-terminal-make-and-run)

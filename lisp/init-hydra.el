@@ -150,12 +150,11 @@
   "F-menu"
   ("f" find-file "find-file")
   ("l" peng-ivy-ls-git "git-find-file")
-  ("R" peng-edit-current-file-as-root "peng-edit-current-file-as-root")
-
+  ;; ("R" peng-edit-current-file-as-root "peng-edit-current-file-as-root")
   ;; ("r" counsel-recentf "counsel-recentf")
 
-  ("R" (counsel-rg (thing-at-point 'symbol)) "counsel-rg-at-point")
-  ("r" peng-literal-rg "rg")
+  ("r" (progn (rg-dwim) (switch-to-buffer-other-window "*rg*")) "rg-dwim")
+  ("R" peng-literal-rg "peng-rg")
 
   ("g" counsel-git-grep "counsel-git-grep")
   ("G" grep "grep")
@@ -751,6 +750,7 @@ Breadcrumb bookmarks:
 ;;                                             (ibuffer-update t)
 ;;                                           (ibuffer-update nil)))))
 (peng-global-set-key (kbd "<f5>") 'mu4e)
+(peng-global-set-key (kbd "<f11>") rg-global-map)
 (peng-global-set-key (kbd "<f10>") #'(lambda ()
                                        (interactive)
                                        (progn

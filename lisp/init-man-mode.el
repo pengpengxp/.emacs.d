@@ -1,0 +1,5 @@
+(add-hook 'Man-mode-hook #'(lambda ()
+                             (interactive)
+                             (peng-local-set-key (kbd "q") 'quit-window)
+                             ))
+(provide 'init-man-mode)
