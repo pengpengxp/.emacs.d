@@ -112,7 +112,7 @@
          (progn
            (cscope-display-buffer)
            (delete-other-windows))) "cscope-display-buffer-only")
-  ("c" cscope-find-functions-calling-this-function "cscope-find-functions-calling-this-function")
+  ("c" peng-cscope-find-functions-calling-this-function "cscope-find-functions-calling-this-function")
   ("d" cscope-find-global-definition "cscope-find-global-definition")
   ("e" cscope-find-egrep-pattern "cscope-find-egrep-pattern")
   ("f" cscope-find-this-file "cscope-find-this-file")

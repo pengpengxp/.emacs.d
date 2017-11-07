@@ -17,7 +17,17 @@
 (defun peng-cscope-find-this-symbol-no-prompting ()
   (interactive)
   (let ((symbol (thing-at-point 'symbol)))
+    (deactivate-mark)
+    (ring-insert find-tag-marker-ring (point-marker))
     (cscope-find-this-symbol symbol)))
+
+(defun peng-cscope-find-global-definition-no-prompting ()
+  (interactive)
+    (deactivate-mark)
+    (ring-insert find-tag-marker-ring (point-marker))
+    (cscope-find-global-definition-no-prompting))
+
+
 
 (defun peng-setup-cc-mode-for-complete ()
   "use tab to indent and complete.
@@ -87,8 +97,8 @@ tab on left will act as indent while on the right of character as
   (define-key evil-normal-state-local-map (kbd "zi") 'hide-ifdefs)
   (define-key evil-normal-state-local-map (kbd "SPC v") 'hydra-cscope/body)
   (define-key evil-normal-state-local-map (kbd "SPC m") 'hydra-cc-mode/body)
-  (define-key evil-normal-state-local-map (kbd "<M-return>") 'cscope-find-global-definition-no-prompting)
-  (define-key evil-normal-state-local-map (kbd "<kp-enter>") 'cscope-find-global-definition-no-prompting)
+  (define-key evil-normal-state-local-map (kbd "<M-return>") 'peng-cscope-find-global-definition-no-prompting)
+  (define-key evil-normal-state-local-map (kbd "<kp-enter>") 'peng-cscope-find-global-definition-no-prompting)
   (define-key evil-normal-state-local-map (kbd "<C-return>") 'peng-cscope-find-this-symbol-no-prompting)
   (define-key evil-normal-state-local-map (kbd "<kp-delete>") 'peng-cscope-find-this-symbol-no-prompting)
   (define-key evil-normal-state-local-map (kbd "C-]") 'etags-select-find-tag-at-point)
@@ -157,8 +167,8 @@ tab on left will act as indent while on the right of character as
   (peng-local-set-key (kbd "M-t") 'counsel-gtags-find-definition)
   (peng-local-set-key (kbd "M-r") 'counsel-gtags-find-reference)
   (peng-local-set-key (kbd "M-S") 'counsel-gtags-find-symbol)
-  (peng-local-set-key (kbd "M-.") 'counsel-gtags-dwim)
-  (peng-local-set-key (kbd "M-SPC") 'counsel-gtags-dwim)
+  ;; (peng-local-set-key (kbd "M-.") 'peng-counsel-gtags-dwim)
+  ;; (peng-local-set-key (kbd "M-SPC") 'peng-counsel-gtags-dwim)
   (peng-local-set-key (kbd "M-f") 'ggtags-find-file)
   (peng-local-set-key (kbd "<XF86Back>") 'counsel-gtags-go-backward)
   (peng-local-set-key (kbd "<S-left>") 'counsel-gtags-go-backward)
@@ -173,21 +183,45 @@ tab on left will act as indent while on the right of character as
   ;;                                                           (setq current-prefix-arg '(4))
   ;;                                                           (call-interactively 'counsel-gtags-update-tags)
   ;;                                                           )))
-  (define-key evil-normal-state-local-map (kbd ".") 'counsel-gtags-dwim)
-  (define-key evil-normal-state-local-map (kbd "<return>") 'counsel-gtags-dwim)
-  (define-key evil-normal-state-local-map (kbd "RET") 'counsel-gtags-dwim)
+  (define-key evil-normal-state-local-map (kbd ".") 'peng-find-definition)
+  (define-key evil-normal-state-local-map (kbd "<return>") 'peng-find-definition)
+  (define-key evil-normal-state-local-map (kbd "<S-return>") 'peng-counsel-gtags-dwim)
+  (define-key evil-normal-state-local-map (kbd "RET") 'peng-find-definition)
   (define-key evil-normal-state-local-map (kbd "<C-backspace>") 'counsel-gtags-go-backward)
   (define-key evil-normal-state-local-map (kbd "<") 'counsel-gtags-go-backward)
   (define-key evil-normal-state-local-map  (kbd ">") 'counsel-gtags-go-forward)
 
 
-  (define-key evil-insert-state-local-map  (kbd "M-RET") 'counsel-gtags-dwim)
-  (define-key evil-insert-state-local-map  (kbd "<M-return>") 'counsel-gtags-dwim)
+  (define-key evil-insert-state-local-map  (kbd "M-RET") 'peng-counsel-gtags-dwim)
+  (define-key evil-insert-state-local-map  (kbd "<M-return>") 'peng-counsel-gtags-dwim)
   (define-key evil-insert-state-local-map  (kbd "<C-return>") 'counsel-gtags-find-reference)
 
   (require 'init-rtags)
-  (define-key evil-normal-state-local-map  (kbd "M-SPC") 'hydra-rtags/body)
+  (define-key evil-normal-state-local-map  (kbd "<f12>") 'hydra-rtags/body)
+  (peng-local-set-key (kbd "M-SPC") 'abo-abo-ciao-goto-symbol)
   )
+
+(defun peng-find-definition ()
+  "wrap rtags, gtags and cscope to one function"
+  (interactive)
+  (deactivate-mark)
+  (ring-insert find-tag-marker-ring (point-marker))
+  (cond ((not (equal (condition-case nil
+                         (rtags-find-symbol-at-point)
+                       (error "ERROR"))
+                     "ERROR"))
+         (message "rtags find symbol"))
+        ((not (equal (condition-case nil
+                         (peng-counsel-gtags-dwim)
+                       (error "ERROR"))
+                     "ERROR"))
+         (message "gtags find symbol"))
+        ((not (equal (condition-case nil
+                         (cscope-find-this-symbol (thing-at-point 'symbol))
+                       (error "ERROR"))
+                     "ERROR"))
+         (message "cscope find symbol"))
+        ))
 
 ;;; set to auto update gtags
 (setq counsel-gtags-auto-update t)

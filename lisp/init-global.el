@@ -164,4 +164,12 @@
 (add-hook 'html-mode-hook #'(lambda ()
                               (hl-line-mode)))
 
+(defun peng-counsel-gtags-dwim ()
+  "save mark to `find-tag-marker-ring' when use gtags to jump to
+definition"
+  (interactive)
+  (deactivate-mark)
+  (ring-insert find-tag-marker-ring (point-marker))
+  (counsel-gtags-dwim))
+
 (provide 'init-global)

@@ -93,4 +93,10 @@
       (switch-to-buffer buffer)
       (goto-char position))))
 
+(defun peng-cscope-find-functions-calling-this-function ()
+  (interactive)
+  (deactivate-mark)
+  (ring-insert find-tag-marker-ring (point-marker))
+  (cscope-find-functions-calling-this-function (thing-at-point 'symbol)))
+
 (provide 'init-xcscope)

@@ -34,5 +34,16 @@
                                                         (peng-local-set-key (kbd "<return>") 'rtags-select-other-window)
                                                         (peng-local-set-key (kbd "q") 'quit-window)
                                                         ))
+(defun abo-abo-ciao-goto-symbol ()
+  "abo-abo's wrap for `rtags-find-symbol-at-point'"
+  (interactive)
+  (deactivate-mark)
+  (ring-insert find-tag-marker-ring (point-marker))
+  (or (and (require 'rtags nil t)
+           (rtags-find-symbol-at-point))
+      (and (require 'semantic/ia)
+           (condition-case nil
+               (semantic-ia-fast-jump (point))
+             (error nil)))))
 
 (provide 'init-rtags)
