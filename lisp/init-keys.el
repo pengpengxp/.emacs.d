@@ -504,13 +504,13 @@
 ;;; f12-map
 ;;; 
 ;;; ----------------------------------------------------------------------
-(setq peng-f12-map (make-sparse-keymap))
-(define-key peng-f12-map (kbd  "<f12>") 'highlight-symbol-at-point)
-(define-key peng-f12-map (kbd  "<f11>") 'unhighlight-regexp)
-(define-key peng-f12-map (kbd  "u") 'unhighlight-regexp)
-(define-key peng-f12-map (kbd  "<f10>") 'peng-unhighlight-all)
-(define-key peng-f12-map (kbd  "<f9>") 'highlight-regexp)
-(peng-global-set-key (kbd "<f12>") peng-f12-map)
+;; (setq peng-f12-map (make-sparse-keymap))
+;; (define-key peng-f12-map (kbd  "<f12>") 'highlight-symbol-at-point)
+;; (define-key peng-f12-map (kbd  "<f11>") 'unhighlight-regexp)
+;; (define-key peng-f12-map (kbd  "u") 'unhighlight-regexp)
+;; (define-key peng-f12-map (kbd  "<f10>") 'peng-unhighlight-all)
+;; (define-key peng-f12-map (kbd  "<f9>") 'highlight-regexp)
+;; (peng-global-set-key (kbd "<f12>") peng-f12-map)
 
 ;;; ----------------------------------------------------------------------
 ;;; 

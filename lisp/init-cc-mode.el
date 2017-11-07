@@ -108,10 +108,11 @@ tab on left will act as indent while on the right of character as
 
   ;; begin ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; make this company-backends as local viriable for cc-mode
+  (require 'company-rtags)
   (make-local-variable 'company-backends)
   (setq company-backends (copy-tree company-backends))
   (setq company-backends '(company-dabbrev-code
-                           (company-dabbrev-code company-dabbrev company-keywords)
+                           (company-dabbrev-code company-dabbrev company-keywords company-rtags)
                            company-ycmd company-gtags))
   ;;  end ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -179,9 +180,13 @@ tab on left will act as indent while on the right of character as
   (define-key evil-normal-state-local-map (kbd "<") 'counsel-gtags-go-backward)
   (define-key evil-normal-state-local-map  (kbd ">") 'counsel-gtags-go-forward)
 
+
   (define-key evil-insert-state-local-map  (kbd "M-RET") 'counsel-gtags-dwim)
   (define-key evil-insert-state-local-map  (kbd "<M-return>") 'counsel-gtags-dwim)
   (define-key evil-insert-state-local-map  (kbd "<C-return>") 'counsel-gtags-find-reference)
+
+  (require 'init-rtags)
+  (define-key evil-normal-state-local-map  (kbd "M-SPC") 'hydra-rtags/body)
   )
 
 ;;; set to auto update gtags
