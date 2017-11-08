@@ -122,8 +122,10 @@ tab on left will act as indent while on the right of character as
   (make-local-variable 'company-backends)
   (setq company-backends (copy-tree company-backends))
   (setq company-backends '(company-dabbrev-code
-                           (company-dabbrev-code company-dabbrev company-keywords company-rtags)
-                           company-ycmd company-gtags))
+                           (company-dabbrev-code company-dabbrev company-keywords)
+                           company-rtags
+                           company-ycmd
+                           company-gtags))
   ;;  end ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   
@@ -184,6 +186,8 @@ tab on left will act as indent while on the right of character as
   ;;                                                           (call-interactively 'counsel-gtags-update-tags)
   ;;                                                           )))
   (define-key evil-normal-state-local-map (kbd ".") 'peng-find-definition)
+  (define-key evil-normal-state-local-map (kbd "`") 'pop-tag-mark)
+  (define-key evil-normal-state-local-map (kbd "\\") 'pop-tag-mark)
   (define-key evil-normal-state-local-map (kbd "<return>") 'peng-find-definition)
   (define-key evil-normal-state-local-map (kbd "<S-return>") 'peng-counsel-gtags-dwim)
   (define-key evil-normal-state-local-map (kbd "RET") 'peng-find-definition)
@@ -202,26 +206,30 @@ tab on left will act as indent while on the right of character as
   )
 
 (defun peng-find-definition ()
-  "wrap rtags, gtags and cscope to one function"
+  "wrap rtags, gtags and cscope to one function test"
   (interactive)
-  (deactivate-mark)
-  (ring-insert find-tag-marker-ring (point-marker))
-  (cond ((not (equal (condition-case nil
-                         (rtags-find-symbol-at-point)
-                       (error "ERROR"))
-                     "ERROR"))
-         (message "rtags find symbol"))
-        ((not (equal (condition-case nil
-                         (peng-counsel-gtags-dwim)
-                       (error "ERROR"))
-                     "ERROR"))
-         (message "gtags find symbol"))
-        ((not (equal (condition-case nil
-                         (cscope-find-this-symbol (thing-at-point 'symbol))
-                       (error "ERROR"))
-                     "ERROR"))
-         (message "cscope find symbol"))
-        ))
+  (let ((original-point (point-marker)))
+    (deactivate-mark)
+    (ring-insert find-tag-marker-ring original-point)
+
+    (cond ((not (equal (condition-case nil
+                               (rtags-find-symbol-at-point)
+                             (error "ERROR"))
+                           "ERROR"))
+           (message "rtags find symbol"))
+
+          ((not (equal (condition-case nil
+                               (peng-counsel-gtags-dwim)
+                             (error "ERROR"))
+                           "ERROR"))
+           (message "gtags find symbol"))
+
+          ((not (equal (condition-case nil
+                               (cscope-find-this-symbol (thing-at-point 'symbol))
+                             (error "ERROR"))
+                           "ERROR"))
+           (message "cscope find symbol"))
+          )))
 
 ;;; set to auto update gtags
 (setq counsel-gtags-auto-update t)

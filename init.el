@@ -239,7 +239,7 @@
 ;; (require 'chm-view)
 
 ;;; require the test file
-(require 'init-test)
+;; (require 'init-test)
 (require 'init-yasnippet)
 
 

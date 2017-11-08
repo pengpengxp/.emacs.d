@@ -207,4 +207,8 @@
 		      ("l" (lambda (element) (insert (nth 1 (cdr element)))) "latex")
 		      ("h" (lambda (element) (insert (nth 3 (cdr element)))) "html"))))
 
+;;; set `counsel-grep-or-swiper' to use `rg' to do grep
+(setq counsel-grep-base-command
+ "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
+
 (provide 'init-ivy)
