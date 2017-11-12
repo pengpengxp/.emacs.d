@@ -231,8 +231,6 @@ tab on left will act as indent while on the right of character as
            (message "cscope find symbol"))
           )))
 
-;;; set to auto update gtags
-(setq counsel-gtags-auto-update t)
 (add-hook 'c-mode-hook 'peng-cc-mode-counsel-gtags-mode)
 (add-hook 'c++-mode-hook 'peng-cc-mode-counsel-gtags-mode)
 

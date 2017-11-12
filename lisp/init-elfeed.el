@@ -23,6 +23,8 @@
         ("http://www.chinagfw.org/feeds/posts/default")
         ("http://zhangwuchang.blog.caixin.com/feed")  ;张五常财新博客
 
+        ("https://www.calleerlandsson.com/feed.xml")
+
         ;; ("http://www.sfw.com.cn/?feed=rss2") ;科幻世界
         ))
 
