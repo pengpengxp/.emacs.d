@@ -108,7 +108,7 @@
   ;; (peng-ibuffer-show-all-buffer)
   (peng-ibuffer-filter-fun)
   (define-key evil-normal-state-local-map (kbd "<C-return>") 'ibuffer-visit-buffer-other-window-noselect)
-  (define-key evil-normal-state-local-map (kbd "M-s") 'other-window)
+  (define-key evil-normal-state-local-map (kbd "M-s") 'ace-window)
   (peng-local-set-key (kbd "<down-mouse-1>") 'ibuffer-visit-buffer)
   (peng-local-set-key (kbd "v") peng-ibuffer-filter-map)
   )

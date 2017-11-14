@@ -882,7 +882,7 @@
 ;;; global keys
 ;;; 
 ;;;-------------------------------------------------------------------
-(peng-global-set-key (kbd "M-s") 'other-window)
+(peng-global-set-key (kbd "M-s") 'ace-window)
 ;; (peng-global-set-key (kbd "C-c <C-tab>") 'helm-multi-files)
 (peng-global-set-key (kbd "C-c <C-tab>") 'ivy-switch-buffer)
 (peng-global-set-key (kbd "<kp-decimal>") 'peng-etags-select)

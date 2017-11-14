@@ -66,7 +66,7 @@
 
   (define-key evil-normal-state-local-map (kbd "M-c") peng-M-c-map)
   (define-key evil-normal-state-local-map (kbd "<C-up>") 'dired-up-directory)
-  (peng-local-set-key (kbd "M-s") 'other-window)
+  (peng-local-set-key (kbd "M-s") 'ace-window)
   (peng-local-set-key (kbd "C-o") 'counsel-find-file)
   (peng-local-set-key (kbd "E") 'ora-ediff-files)
   (peng-local-set-key (kbd "_") 'xah-dired-rename-space-to-underscore)

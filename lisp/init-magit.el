@@ -42,4 +42,9 @@
                                      (define-key evil-normal-state-local-map (kbd "M-w") 'magit-blame-copy-hash)
                                      ))
 
+;;; magit-utils add this device, Maybe for gitman info or something
+;;; else. But this will make Info-follow-nearest not work, I remove it
+;;; manually.
+(advice-remove 'Info-follow-nearest-node 'Info-follow-nearest-node--magit-gitman)
+
 (provide 'init-magit)
