@@ -1,0 +1,32 @@
+# -*- word-wrap: nil; -*-
+#+OPTIONS: ^:{}
+#+STARTUP: align
+#+STARTUP: showall
+#+OPTIONS: toc:nil 
+
+* pdf-tools
+  进化版的pdf阅读器，我理解的应该还是把pdf转成了图片。简单试用了一下，
+  它可以使用isearch来进行搜索。
+
+* 安装
+  Ubuntu上需要装一些依赖软件：
+  #+BEGIN_SRC sh
+sudo apt install libpng-dev zlib1g-dev
+sudo apt install libpoppler-glib-dev
+sudo apt install libpoppler-private-dev 
+sudo apt install imagemagick
+  #+END_SRC
+  安装好后，调用 =pdf-tools-install= 来编译出一个叫 =epdfinfo= 的程序，
+  默认就在 =pdf-tools= 的安装目录下啦。使用 =pdf-info-check-epdfinfo=
+  来查看是否安装成功。
+
+  安装成功后试了一下可以直接使用了。
+
+* 配置
+
+  #+BEGIN_SRC emacs-lisp :tangle init-pdf-tools.el
+(require 'pdf-tools)
+(pdf-tools-install)
+
+(provide 'init-pdf-tools)
+  #+END_SRC

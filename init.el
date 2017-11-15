@@ -222,6 +222,10 @@
 ;;; load my macro
 (require 'init-macro)
 
+(org-babel-load-file
+ (expand-file-name "init-pdf-tools.org" LISP))
+
+
 ;;; global settings need to put at last,since It may use some function provided above
 (require 'init-font)
 (require 'init-global)
@@ -254,7 +258,7 @@
  '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
  '(package-selected-packages
    (quote
-    (toc-org company-rtags ivy-rtags rtags nlinum grab-x-link rg ivy-hydra helm-gtags helm-company xmlgen xah-lookup xah-get-thing workgroups2 with-editor which-key wgrep-ag undo-tree tern-auto-complete symbol-overlay smex simple-httpd showkey shadchen rw-ispell pylint protobuf-mode projectile-ripgrep persistent-soft page-break-lines ox-pandoc ox-ioslide ox-html5slide outline-magic org-tree-slide org-screenshot org-pomodoro org-mac-link org-mac-iCal org-jekyll org-blog noflet names mwim multiple-cursors mark-tools make-it-so keyfreq inf-ruby iedit idomenu ido-vertical-mode ido-ubiquitous ido-hacks ido-better-flex icicles hydra highlight-indent-guides helm-swoop helm-pages helm-bm ggtags flycheck-ycmd flx eyebrowse esup eshell-manual elpy elfeed dumb-jump doom-themes dired-sort-menu+ dired-sort dired-details+ dired+ dash-at-point darkroom ctags counsel-projectile counsel-osx-app counsel-gtags counsel-dash company-ycmd company-c-headers command-log-mode color-theme-solarized color-theme-monokai cnfonts clang-format chm-view chinese-word-at-point chinese-pyim bibtex-utils benchmark-init applescript-mode ag ace-window ace-pinyin ace-jump-zap ace-jump-buffer 2048-game))))
+    (pdf-tools toc-org company-rtags ivy-rtags rtags nlinum grab-x-link rg ivy-hydra helm-gtags helm-company xmlgen xah-lookup xah-get-thing workgroups2 with-editor which-key wgrep-ag undo-tree tern-auto-complete symbol-overlay smex simple-httpd showkey shadchen rw-ispell pylint protobuf-mode projectile-ripgrep persistent-soft page-break-lines ox-pandoc ox-ioslide ox-html5slide outline-magic org-tree-slide org-screenshot org-pomodoro org-mac-link org-mac-iCal org-jekyll org-blog noflet names mwim multiple-cursors mark-tools make-it-so keyfreq inf-ruby iedit idomenu ido-vertical-mode ido-ubiquitous ido-hacks ido-better-flex icicles hydra highlight-indent-guides helm-swoop helm-pages helm-bm ggtags flycheck-ycmd flx eyebrowse esup eshell-manual elpy elfeed dumb-jump doom-themes dired-sort-menu+ dired-sort dired-details+ dired+ dash-at-point darkroom ctags counsel-projectile counsel-osx-app counsel-gtags counsel-dash company-ycmd company-c-headers command-log-mode color-theme-solarized color-theme-monokai cnfonts clang-format chm-view chinese-word-at-point chinese-pyim bibtex-utils benchmark-init applescript-mode ag ace-window ace-pinyin ace-jump-zap ace-jump-buffer 2048-game))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
