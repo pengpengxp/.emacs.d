@@ -1,8 +1,4 @@
 ;;pengpengxp's org-mode
-;;;use the newly org-mode
-;; (add-to-list 'load-path (concat SITE-LISP "org-8.2.7c/lisp"))
-;; (add-to-list 'load-path (concat SITE-LISP "org-8.2.7c/contrib/lisp"))
-
 ;;; ----------------------------------------------------------------------
 ;;; hook
 ;;; ----------------------------------------------------------------------
@@ -369,52 +365,10 @@ file and open the pdf file. also compile the bibliography"
   :init
   (add-hook 'org-mode-hook 'peng-org-mode)
   )
-;; ;;; ----------------------------------------------------------------------
-;; ;;; 如果yas-expand失败后，tab作用就是之前的，一般是org-cycle。对于这个
-;; ;;; [tab]还不是很理解。
-;; ;;; ----------------------------------------------------------------------
-;; (add-hook 'org-mode-hook
-;;           (let ((original-command (lookup-key org-mode-map [tab])))
-;;             `(lambda ()
-;;                (setq yas-fallback-behavior
-;;                      '(apply ,original-command))
-;;                (local-set-key [tab] 'yas-expand))))
-;; ;;; ----------------------------------------------------------------------
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; convert all marked org files to pdf. I copied from internet
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; (require 'dired+)
-;; ;; (defun peng-dired-org-to-pdf ()
-;; ;;   (interactive)
-;; ;;   (mapc
-;; ;;    (lambda (f)
-;; ;;      (with-current-buffer
-;; ;;          (find-file-noselect f)
-;; ;;        (org-latex-export-to-pdf)))
-;; ;;    (dired-get-marked-files)))
-;; (defun peng-dired-org-to-pdf ()
-;;   "convert the marked org files to pdf in dired-mode.
-;; otherwise,you need to input a directory name. this function will
-;; try to convert all of the org files in the directory you just
-;; type to pdf automatically"
-;;   (interactive)
-;;   (let ((files
-;;          (if (eq major-mode 'dired-mode)
-;;              (dired-get-marked-files)
-;;            (let ((default-directory (read-directory-name "dir: ")))
-;;              (mapcar #'expand-file-name 
-;;                      (file-expand-wildcards "*.org"))))))
-;;     ;; (message "%s" files)
-;;     (mapc
-;;      (lambda (f)
-;;        (with-current-buffer
-;;            (find-file-noselect f)
-;;          (org-latex-export-to-pdf)))
-;;      files)
-;;     ))
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+;;; add toc-org to generate toc automatically
+(if (require 'toc-org nil t)
+    (add-hook 'org-mode-hook 'toc-org-enable)
+  (warn "toc-org not found"))
 
 (provide 'init-org)
