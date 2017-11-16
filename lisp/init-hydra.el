@@ -153,8 +153,8 @@
   ;; ("R" peng-edit-current-file-as-root "peng-edit-current-file-as-root")
   ;; ("r" counsel-recentf "counsel-recentf")
 
-  ("r" (progn (rg-dwim) (switch-to-buffer-other-window "*rg*")) "rg-dwim")
-  ("R" peng-custumize-rg "peng-rg")
+  ("R" (progn (rg-dwim) (switch-to-buffer-other-window "*rg*")) "rg-dwim")
+  ("r" peng-custumize-rg "peng-rg")
 
   ("g" counsel-git-grep "counsel-git-grep")
   ("G" grep "grep")
@@ -756,6 +756,8 @@ Breadcrumb bookmarks:
                                        (progn
                                          (magit-status)
                                          (delete-other-windows))))
+(peng-global-set-key (kbd "<delete>") 'peng-custumize-rg)
+(peng-global-set-key (kbd "M-i") 'counsel-grep-or-swiper)
 
 ;;; for windows configure
 ;; ;;; origin

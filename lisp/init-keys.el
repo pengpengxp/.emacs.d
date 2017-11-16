@@ -780,7 +780,6 @@
 ;; global-key settings
 ;;; 
 ;;;-------------------------------------------------------------------
-(peng-global-set-key (kbd "<delete>") 'view-stardict-in-buffer)
 (peng-global-set-key (kbd "C-c m") #'(lambda ()
                                        (interactive)
                                       (progn

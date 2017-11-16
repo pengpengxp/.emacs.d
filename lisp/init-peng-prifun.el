@@ -157,7 +157,7 @@ bind in global map and all evil map to make sure it works as I want
 绑定所有map。这才是是我需要的global-set-key
 usage: (peng... \"keys-you-want-to-bind\" 'function-you-want-to-bind  "
   (define-key evil-normal-state-map keys function)
-  (define-key evil-emacs-state-map keys function)
+  ;; (define-key evil-emacs-state-map keys function)
   (define-key evil-insert-state-map keys function)
   (define-key evil-motion-state-map keys function)
   (define-key evil-visual-state-map keys function)
