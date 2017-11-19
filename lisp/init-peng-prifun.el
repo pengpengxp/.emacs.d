@@ -968,4 +968,50 @@ Version 2015-08-22"
       (async-shell-command "/usr/local/electronic-wechat-linux-x64/electronic-wechat &"))
   )
 
+(require 'init-evil)
+(defun peng-search-binding ()
+  (interactive)
+  ;; lots of search command begin
+  (define-key evil-normal-state-local-map "1" 'peng-custumize-rg)
+  (define-key evil-motion-state-local-map "1" 'peng-custumize-rg)
+
+  (define-key evil-normal-state-local-map "!" #'(lambda ()
+                                            (interactive)
+                                            (progn
+                                              (rg-dwim)
+                                              (switch-to-buffer-other-window "*rg*"))))
+  (define-key evil-motion-state-local-map "!" #'(lambda ()
+                                            (interactive)
+                                            (progn
+                                              (rg-dwim)
+                                              (switch-to-buffer-other-window "*rg*"))))
+
+
+  (define-key evil-normal-state-local-map "2" 'counsel-ag)
+  (define-key evil-motion-state-local-map "2" 'counsel-ag)
+  (define-key evil-normal-state-local-map "@" #'(lambda ()
+                                            (interactive)
+                                            (progn
+                                              (counsel-ag (thing-at-point 'symbol)))))
+  (define-key evil-motion-state-local-map "@" #'(lambda ()
+                                            (interactive)
+                                            (progn
+                                              (counsel-ag (thing-at-point 'symbol)))))
+
+  (define-key evil-normal-state-local-map "3" 'counsel-grep-or-swiper)
+  (define-key evil-motion-state-local-map "3" 'counsel-grep-or-swiper)
+  (define-key evil-normal-state-local-map "#" 'peng-swiper-current-symbol)
+  (define-key evil-motion-state-local-map "#" 'peng-swiper-current-symbol)
+
+  (define-key evil-normal-state-local-map "4" 'helm-semantic-or-imenu)
+  (define-key evil-motion-state-local-map "4" 'helm-semantic-or-imenu)
+
+  (define-key evil-normal-state-local-map "0" 'dumb-jump-go)
+  (define-key evil-motion-state-local-map "0" 'dumb-jump-go)
+
+  (define-key evil-normal-state-local-map "5" 'peng-custumize-ag-regexp)
+  (define-key evil-motion-state-local-map "5" 'peng-custumize-ag-regexp)
+  ;; lots of search command end
+  )
+
 (provide 'init-peng-prifun)

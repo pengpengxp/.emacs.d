@@ -11,6 +11,7 @@
                            (define-key evil-normal-state-local-map (kbd "r") 'rg-rerun-change-regexp)
                            (define-key evil-normal-state-local-map (kbd "L") 'rg-list-searches)
                            (define-key evil-normal-state-local-map (kbd "g") 'rg-recompile)
+                           (peng-search-binding)
                            ))
 
 ;; (defun peng-literal-rg (arg)

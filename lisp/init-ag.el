@@ -4,6 +4,9 @@
                             (define-key evil-normal-state-local-map (kbd "j") 'evil-next-line)
                             (define-key evil-normal-state-local-map (kbd "h") 'evil-backward-char)
                             (define-key evil-normal-state-local-map (kbd "l") 'evil-forward-char)
+
+                            (peng-search-binding)
+
                             ))
 
 (setq ag-reuse-window 't)

@@ -70,7 +70,11 @@
   (peng-local-set-key (kbd "C-o") 'counsel-find-file)
   (peng-local-set-key (kbd "E") 'ora-ediff-files)
   (peng-local-set-key (kbd "_") 'xah-dired-rename-space-to-underscore)
-  (peng-local-set-key (kbd "-") 'xah-dired-rename-space-to-hyphen))
+  (peng-local-set-key (kbd "-") 'xah-dired-rename-space-to-hyphen)
+
+  (peng-search-binding)
+  )
+
 
 
 (use-package dire-mode
