@@ -9,4 +9,21 @@
 (setq ag-reuse-window 't)
 (setq ag-reuse-buffers 't)
 
+(defun peng-custumize-ag-regexp ()
+  "Ag can do multiline search, use this only for multiline search
+."
+  (interactive)
+  (let* ((things (format "%s" (thing-at-point 'symbol)))
+         (input (read-from-minibuffer (concat "Input something Default("
+                                               things
+                                               ")")))
+         (string (if (equal input "")
+                     things
+                   input))
+         )
+
+    (ag-project-regexp string)
+    (switch-to-buffer-other-window "*ag search*")
+    ))
+
 (provide 'init-ag)

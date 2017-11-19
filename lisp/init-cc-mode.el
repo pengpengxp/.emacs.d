@@ -109,6 +109,8 @@ tab on left will act as indent while on the right of character as
   (peng-local-set-key (kbd "<C-down-mouse-1>") 'etags-select-find-tag-at-point)
   (peng-local-set-key (kbd "<mouse-3>") 'pop-tag-mark)
   (peng-local-set-key (kbd "<kp-subtract>") 'cscope-find-functions-calling-this-function)
+  (peng-local-set-key (kbd "<tab>") 'c-indent-line-or-region)
+  (peng-local-set-key (kbd "TAB") 'c-indent-line-or-region)
 
   (dumb-jump-mode 1)
   (peng-setup-cc-mode-for-complete)
@@ -171,13 +173,12 @@ tab on left will act as indent while on the right of character as
   (peng-local-set-key (kbd "M-S") 'counsel-gtags-find-symbol)
   ;; (peng-local-set-key (kbd "M-.") 'peng-counsel-gtags-dwim)
   ;; (peng-local-set-key (kbd "M-SPC") 'peng-counsel-gtags-dwim)
-  (peng-local-set-key (kbd "M-f") 'ggtags-find-file)
-  (peng-local-set-key (kbd "<XF86Back>") 'counsel-gtags-go-backward)
   (peng-local-set-key (kbd "<S-left>") 'counsel-gtags-go-backward)
   (peng-local-set-key (kbd "<S-right>") 'counsel-gtags-go-forward)
-  (peng-local-set-key (kbd "<XF86Forward>") 'counsel-gtags-go-forward)
   (peng-local-set-key (kbd "<f1>") 'counsel-gtags-go-backward)
-  ( peng-local-set-key  (kbd "<f2>") 'counsel-gtags-go-forward)
+  (peng-local-set-key  (kbd "<f2>") 'counsel-gtags-go-forward)
+  (peng-local-set-key (kbd "<XF86Back>") 'symbol-overlay-remove-all)
+  (peng-local-set-key (kbd "<XF86Forward>") 'symbol-overlay-put)
 
   ;; (define-key evil-normal-state-local-map (kbd "M-u") #'(lambda ()
   ;;                                                         (interactive)
@@ -194,6 +195,10 @@ tab on left will act as indent while on the right of character as
   (define-key evil-normal-state-local-map (kbd "<C-backspace>") 'counsel-gtags-go-backward)
   (define-key evil-normal-state-local-map (kbd "<") 'counsel-gtags-go-backward)
   (define-key evil-normal-state-local-map  (kbd ">") 'counsel-gtags-go-forward)
+
+  (define-key evil-normal-state-local-map  (kbd "1") 'peng-custumize-rg)
+  (define-key evil-normal-state-local-map  (kbd "2") 'counsel-ag)
+  (define-key evil-normal-state-local-map  (kbd "3") 'counsel-grep-or-swiper)
 
 
   (define-key evil-insert-state-local-map  (kbd "M-RET") 'peng-counsel-gtags-dwim)

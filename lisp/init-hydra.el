@@ -758,6 +758,13 @@ Breadcrumb bookmarks:
                                          (delete-other-windows))))
 (peng-global-set-key (kbd "<delete>") 'peng-custumize-rg)
 (peng-global-set-key (kbd "M-i") 'counsel-grep-or-swiper)
+(peng-global-set-key (kbd "M-I") 'peng-swiper-current-symbol)
+(peng-global-set-key (kbd "<f6>") #'(lambda ()
+                                      (interactive)
+                                      (progn
+                                        (recompile)
+                                        (switch-to-buffer-other-window "*compilation*"))))
+
 
 ;;; for windows configure
 ;; ;;; origin
@@ -772,6 +779,46 @@ Breadcrumb bookmarks:
 (define-key evil-motion-state-map "M" 'ivy-pop-view)
 (define-key evil-normal-state-map "'" 'peng-ivy-switch-buffer-to-views)
 (define-key evil-motion-state-map "'" 'peng-ivy-switch-buffer-to-views)
+
+(define-key evil-normal-state-map "1" 'peng-custumize-rg)
+(define-key evil-motion-state-map "1" 'peng-custumize-rg)
+
+(define-key evil-normal-state-map "!" #'(lambda ()
+                                          (interactive)
+                                          (progn
+                                            (rg-dwim)
+                                            (switch-to-buffer-other-window "*rg*"))))
+(define-key evil-motion-state-map "!" #'(lambda ()
+                                          (interactive)
+                                          (progn
+                                            (rg-dwim)
+                                            (switch-to-buffer-other-window "*rg*"))))
+
+
+(define-key evil-normal-state-map "2" 'counsel-ag)
+(define-key evil-motion-state-map "2" 'counsel-ag)
+(define-key evil-normal-state-map "@" #'(lambda ()
+                                          (interactive)
+                                          (progn
+                                            (counsel-ag (thing-at-point 'symbol)))))
+(define-key evil-motion-state-map "@" #'(lambda ()
+                                          (interactive)
+                                          (progn
+                                            (counsel-ag (thing-at-point 'symbol)))))
+
+(define-key evil-normal-state-map "3" 'counsel-grep-or-swiper)
+(define-key evil-motion-state-map "3" 'counsel-grep-or-swiper)
+(define-key evil-normal-state-map "#" 'peng-swiper-current-symbol)
+(define-key evil-motion-state-map "#" 'peng-swiper-current-symbol)
+
+(define-key evil-normal-state-map "4" 'helm-semantic-or-imenu)
+(define-key evil-motion-state-map "4" 'helm-semantic-or-imenu)
+
+(define-key evil-normal-state-map "0" 'dumb-jump-go)
+(define-key evil-motion-state-map "0" 'dumb-jump-go)
+
+(define-key evil-normal-state-map "5" 'peng-custumize-ag-regexp)
+(define-key evil-motion-state-map "5" 'peng-custumize-ag-regexp)
 
 ;;; on my thinkpad T420s, I don't want to use these keys.
 (global-unset-key (kbd "<XF86Back>"))

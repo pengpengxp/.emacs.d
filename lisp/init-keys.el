@@ -773,8 +773,6 @@
 ;; 									 " "
 ;; 									 default-directory
 ;; 									 " &"))))
-(peng-global-set-key (kbd "<f6>") 'recompile)
-
 ;;;-------------------------------------------------------------------
 ;;; 
 ;; global-key settings
