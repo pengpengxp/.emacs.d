@@ -1,3 +1,16 @@
+# -*- word-wrap: nil; -*-
+#+OPTIONS: ^:{}
+#+STARTUP: align
+#+STARTUP: showall
+#+OPTIONS: toc:nil 
+
+* irony-mode
+  :PROPERTIES:
+  :header-args: :tangle init-irony-mode.el
+  :END:
+
+  就直接按照官网上配置了一下。
+  #+BEGIN_SRC emacs-lisp
 (require 'irony)
 
 (add-hook 'c++-mode-hook 'irony-mode)
@@ -8,3 +21,4 @@
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)  
 
 (provide 'init-irony-mode)
+  #+END_SRC

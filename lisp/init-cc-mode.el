@@ -127,9 +127,11 @@ tab on left will act as indent while on the right of character as
   ;; begin ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; make this company-backends as local viriable for cc-mode
   (require 'company-rtags)
+  (require 'company-irony)
   (make-local-variable 'company-backends)
   (setq company-backends (copy-tree company-backends))
-  (setq company-backends '(company-dabbrev-code
+  (setq company-backends '(company-irony
+                           company-dabbrev-code
                            (company-dabbrev-code company-dabbrev company-keywords)
                            company-rtags
                            company-ycmd
