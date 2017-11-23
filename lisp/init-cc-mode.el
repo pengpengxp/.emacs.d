@@ -102,6 +102,12 @@ tab on left will act as indent while on the right of character as
   (define-key evil-normal-state-local-map (kbd "<C-return>") 'peng-cscope-find-this-symbol-no-prompting)
   (define-key evil-normal-state-local-map (kbd "<kp-delete>") 'peng-cscope-find-this-symbol-no-prompting)
   (define-key evil-normal-state-local-map (kbd "C-]") 'etags-select-find-tag-at-point)
+  (define-key evil-normal-state-local-map (kbd "\\") #'(lambda ()
+                                                         (interactive)
+                                                         (let ((original-point (point-marker)))
+                                                           (deactivate-mark)
+                                                           (ring-insert find-tag-marker-ring original-point)
+                                                           (helm-imenu))))
 
   (peng-local-set-key (kbd "M-DEL") 'cscope-pop-mark)
   (peng-local-set-key (kbd "<kp-insert>") 'cscope-pop-mark)

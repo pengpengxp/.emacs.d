@@ -1,0 +1,32 @@
+# -*- word-wrap: nil; -*-
+#+OPTIONS: ^:{}
+#+STARTUP: align
+#+STARTUP: showall
+#+OPTIONS: toc:nil 
+
+* dumb-jump-mode
+  :PROPERTIES:
+  :header-args: :tangle init-dumb-jump.el
+  :END:
+
+  使用 =ivy= 来选择侯选词：
+  #+BEGIN_SRC emacs-lisp
+(require 'dumb-jump)
+(setq dumb-jump-selector 'ivy)
+  #+END_SRC
+  
+  分别设置 =rg= 和 =ag= ：
+  #+BEGIN_SRC emacs-lisp
+(setq dumb-jump-ag-cmd "/usr/local/bin/ag")
+(setq dumb-jump-rg-cmd "/home/pengpengxp/bin/rg")  
+  #+END_SRC
+  
+  优先使用 =rg= 来搜索：
+  #+BEGIN_SRC emacs-lisp
+(setq dumb-jump-prefer-searcher 'rg)
+(setq dumb-jump-force-searcher 'rg)
+  #+END_SRC
+
+  #+BEGIN_SRC emacs-lisp
+(provide 'init-dumb-jump)
+  #+END_SRC

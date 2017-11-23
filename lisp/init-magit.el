@@ -47,4 +47,7 @@
 ;;; manually.
 (advice-remove 'Info-follow-nearest-node 'Info-follow-nearest-node--magit-gitman)
 
+;;; for use of `magit-list-repositories'
+(setq magit-repository-directories `("/home/pengpengxp/.emacs.d", "/home/pengpengxp/src/fhos"))
+
 (provide 'init-magit)

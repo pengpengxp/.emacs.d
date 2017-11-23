@@ -211,4 +211,12 @@
 (setq counsel-grep-base-command
  "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
 
+(add-hook 'ivy-occur-grep-mode-hook #'(lambda ()
+                                        (interactive)
+                                        (peng-local-set-key (kbd "RET") 'ivy-occur-press-and-switch)
+                                        (peng-local-set-key (kbd "<return>") 'ivy-occur-press-and-switch)
+                                        (peng-local-set-key (kbd "q") 'quit-window)
+                                        (peng-local-set-key (kbd "g") 'ivy-occur-revert-buffer)
+                                        ))
+
 (provide 'init-ivy)

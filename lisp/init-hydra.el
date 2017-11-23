@@ -820,6 +820,9 @@ Breadcrumb bookmarks:
 (define-key evil-normal-state-map "5" 'peng-custumize-ag-regexp)
 (define-key evil-motion-state-map "5" 'peng-custumize-ag-regexp)
 
+(define-key evil-normal-state-map "6" 'helm-semantic-or-imenu)
+(define-key evil-motion-state-map "6" 'helm-semantic-or-imenu)
+
 ;;; on my thinkpad T420s, I don't want to use these keys.
 (global-unset-key (kbd "<XF86Back>"))
 (global-unset-key (kbd "<XF86Forward>"))

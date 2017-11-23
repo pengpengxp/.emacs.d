@@ -168,7 +168,6 @@
 ;; (require 'init-tramp)
 ;; (require 'init-docker)
 (require 'init-projectile)
-(require 'init-dumb-jump)
 (require 'init-rg)
 
 ;;; hydra需要配置，暂时不用
@@ -222,8 +221,11 @@
 ;;; load my macro
 (require 'init-macro)
 
-(org-babel-load-file
- (expand-file-name "init-pdf-tools.org" LISP))
+(let ((FILES (list
+              (expand-file-name "init-pdf-tools.org" LISP)
+              (expand-file-name "init-dumb-jump.org" LISP)
+              )))
+  (mapc 'org-babel-load-file FILES))
 
 
 ;;; global settings need to put at last,since It may use some function provided above

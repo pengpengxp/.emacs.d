@@ -189,7 +189,7 @@ map to make sure it works as I want
 usage: (peng... \"keys-you-want-to-bind\"
 'function-you-want-to-bind "
   (define-key evil-normal-state-local-map keys function)
-  (define-key evil-emacs-state-local-map keys function)
+  ;; (define-key evil-emacs-state-local-map keys function)
   (define-key evil-insert-state-local-map keys function)
   (define-key evil-motion-state-local-map keys function)
   (define-key evil-visual-state-local-map keys function)
@@ -1011,6 +1011,9 @@ Version 2015-08-22"
 
   (define-key evil-normal-state-local-map "5" 'peng-custumize-ag-regexp)
   (define-key evil-motion-state-local-map "5" 'peng-custumize-ag-regexp)
+
+  (define-key evil-normal-state-local-map "6" 'helm-semantic-or-imenu)
+  (define-key evil-motion-state-local-map "6" 'helm-semantic-or-imenu)
   ;; lots of search command end
   )
 
