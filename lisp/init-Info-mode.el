@@ -20,4 +20,6 @@
 			     (define-key evil-normal-state-local-map (kbd "i") 'Info-menu)
 			     ))
 
+(add-to-list 'Info-default-directory-list "~/share/info")
+
 (provide 'init-Info-mode)

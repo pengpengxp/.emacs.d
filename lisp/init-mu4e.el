@@ -14,7 +14,7 @@
       smtpmail-smtp-server  "smtp.sina.com"
       smtpmail-stream-type  'ssl
       smtpmail-smtp-service 465)
-(setq mu4e-mu-binary "/usr/bin/mu")
+(setq mu4e-mu-binary "/usr/local/bin/mu")
 (setenv "XAPIAN_CJK_NGRAM" "1")
 
 (setq mu4e-attachment-dir

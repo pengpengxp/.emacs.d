@@ -153,7 +153,7 @@
   ;; ("R" peng-edit-current-file-as-root "peng-edit-current-file-as-root")
   ;; ("r" counsel-recentf "counsel-recentf")
 
-  ("R" (progn (rg-dwim) (switch-to-buffer-other-window "*rg*")) "rg-dwim")
+  ("R" peng-custumize-rg-dwim "rg-dwim")
   ("r" peng-custumize-rg "peng-rg")
 
   ("g" counsel-git-grep "counsel-git-grep")
@@ -750,7 +750,7 @@ Breadcrumb bookmarks:
 ;;                                             (ibuffer-update t)
 ;;                                           (ibuffer-update nil)))))
 (peng-global-set-key (kbd "<f5>") 'mu4e)
-(peng-global-set-key (kbd "<f11>") rg-global-map)
+(peng-global-set-key (kbd "<f11>") 'peng-bookmarks-w3m)
 (peng-global-set-key (kbd "<f10>") #'(lambda ()
                                        (interactive)
                                        (progn
@@ -783,17 +783,8 @@ Breadcrumb bookmarks:
 (define-key evil-normal-state-map "1" 'peng-custumize-rg)
 (define-key evil-motion-state-map "1" 'peng-custumize-rg)
 
-(define-key evil-normal-state-map "!" #'(lambda ()
-                                          (interactive)
-                                          (progn
-                                            (rg-dwim)
-                                            (switch-to-buffer-other-window "*rg*"))))
-(define-key evil-motion-state-map "!" #'(lambda ()
-                                          (interactive)
-                                          (progn
-                                            (rg-dwim)
-                                            (switch-to-buffer-other-window "*rg*"))))
-
+(define-key evil-normal-state-map "!" 'peng-custumize-rg-dwim)
+(define-key evil-motion-state-map "!" 'peng-custumize-rg-dwim)
 
 (define-key evil-normal-state-map "2" 'counsel-ag)
 (define-key evil-motion-state-map "2" 'counsel-ag)

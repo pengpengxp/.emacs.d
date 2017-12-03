@@ -87,9 +87,9 @@ tab on left will act as indent while on the right of character as
 
   ;; set for cdyq code style
   (c-set-style "linux")
-  (setq indent-tabs-mode t)
-  (setq c-basic-offset 8)		;`c-set-style'中会设置这个值，所以一定要在其之后
-  (setq tab-width 8)
+  (setq indent-tabs-mode nil)
+  (setq c-basic-offset 4)		;`c-set-style'中会设置这个值，所以一定要在其之后
+  (setq tab-width 4)
 
   (hl-line-mode 1)
   (autopair-on)
@@ -102,12 +102,15 @@ tab on left will act as indent while on the right of character as
   (define-key evil-normal-state-local-map (kbd "<C-return>") 'peng-cscope-find-this-symbol-no-prompting)
   (define-key evil-normal-state-local-map (kbd "<kp-delete>") 'peng-cscope-find-this-symbol-no-prompting)
   (define-key evil-normal-state-local-map (kbd "C-]") 'etags-select-find-tag-at-point)
+  (define-key evil-normal-state-local-map (kbd "SPC SPC") 'align-entire)
   (define-key evil-normal-state-local-map (kbd "\\") #'(lambda ()
                                                          (interactive)
                                                          (let ((original-point (point-marker)))
                                                            (deactivate-mark)
                                                            (ring-insert find-tag-marker-ring original-point)
-                                                           (helm-imenu))))
+                                                           ;; (helm-imenu)
+                                                           (rtags-imenu)
+                                                           )))
 
   (peng-local-set-key (kbd "M-DEL") 'cscope-pop-mark)
   (peng-local-set-key (kbd "<kp-insert>") 'cscope-pop-mark)
@@ -130,8 +133,8 @@ tab on left will act as indent while on the right of character as
   (require 'company-irony)
   (make-local-variable 'company-backends)
   (setq company-backends (copy-tree company-backends))
-  (setq company-backends '(company-irony
-                           company-dabbrev-code
+  (setq company-backends '((company-irony company-dabbrev-code)
+                           
                            (company-dabbrev-code company-dabbrev company-keywords)
                            company-rtags
                            company-ycmd

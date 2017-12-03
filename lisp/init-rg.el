@@ -37,6 +37,19 @@
          (root-dir (replace-regexp-in-string "\n" "" root-dir-origin))
          )
 
+    ;; save current point for jump back
+    (deactivate-mark)
+    (ring-insert find-tag-marker-ring (point-marker))
+
     (rg string "everything" root-dir)
     (switch-to-buffer-other-window "*rg*")))
+
+(defun peng-custumize-rg-dwim ()
+  (interactive)
+  (deactivate-mark)
+  (ring-insert find-tag-marker-ring (point-marker))
+  (rg-dwim)
+  (switch-to-buffer-other-window "*rg*"))
+
+
 (provide 'init-rg)

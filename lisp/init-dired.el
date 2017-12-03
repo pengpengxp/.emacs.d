@@ -21,6 +21,8 @@
          ;; 压缩包
          (list "\\.rar$" "unrar e -ad")
          (list "\\.tar.bz2$" "tar jxvf")
+         (list "\\.tar.gz$" "tar jxvf")
+         (list "\\.zip$" "7z x")
          (list "\\.gz$" "gzip -d")
          (list "\\.mkv$" "smplayer")
          (list "\\.rmvb$" "smplayer")
