@@ -219,4 +219,14 @@
                                         (peng-local-set-key (kbd "g") 'ivy-occur-revert-buffer)
                                         ))
 
+;; After this, your current input becomes selectable as a candidate.
+;; Press C-p when you're on the first candidate to select your input
+;; instead.
+
+;; This solves the long standing issue of e.g. creating a file or a
+;; directory foo when a file foobar already exists. Previously, the only
+;; solution was to use C-M-j. It's still available, but now you can also
+;; select your input with C-p and press RET.
+(setq ivy-use-selectable-prompt t)
+
 (provide 'init-ivy)

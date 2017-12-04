@@ -629,8 +629,11 @@ absolute path."
         (mapc
          (lambda (fPath) (shell-command (format "open -R \"%s\"" fPath)))  ξfile-list))
        ((string-equal system-type "gnu/linux")
+        ;; (mapc
+        ;;  (lambda (fPath) (let ((process-connection-type nil)) (start-process "" nil "xdg-open" fPath))) ξfile-list)
         (mapc
-         (lambda (fPath) (let ((process-connection-type nil)) (start-process "" nil "xdg-open" fPath))) ξfile-list))))))
+         (lambda (fPath) (let ((process-connection-type nil)) (start-process "" nil "nautilus" fPath))) ξfile-list)
+        )))))
 
 
 ;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
