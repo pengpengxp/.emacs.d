@@ -25,6 +25,8 @@
 
         ("https://www.calleerlandsson.com/feed.xml")
 
+        ("https://chriszheng.science/atom.xml") ;M-x Chris-An-Emacser
+
         ;; ("http://www.sfw.com.cn/?feed=rss2") ;科幻世界
         ))
 
