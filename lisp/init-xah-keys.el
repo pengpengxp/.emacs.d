@@ -1,4 +1,5 @@
 
+
 (defun xah-pop-local-mark-ring ()
   "Move cursor to last mark position of current buffer.
 Call this repeatedly will cycle all positions in `mark-ring'.
@@ -2004,7 +2005,7 @@ Version 2015-11-30"
           (openFileProgram (if (file-exists-p "/usr/bin/gvfs-open")
                                "/usr/bin/gvfs-open"
                              "/usr/bin/xdg-open")))
-      (start-process "" nil openFileProgram "."))
+      (start-process "" nil "/usr/bin/nautilus" "."))
     ;; (shell-command "xdg-open .") ;; 2013-02-10 this sometimes froze emacs till the folder is closed. eg with nautilus
     )))
 

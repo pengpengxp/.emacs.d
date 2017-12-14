@@ -228,6 +228,7 @@
 
 ;;; load my macro
 (require 'init-macro)
+(require 'init-snmp-mode)
 
 (let ((FILES (list
               (expand-file-name "init-pdf-tools.org" LISP)
