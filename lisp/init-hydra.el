@@ -765,6 +765,8 @@ Breadcrumb bookmarks:
                                         (recompile)
                                         (switch-to-buffer-other-window "*compilation*"))))
 
+(peng-global-set-key (kbd "<S-f6>") 'compile)
+
 
 ;;; for windows configure
 ;; ;;; origin
