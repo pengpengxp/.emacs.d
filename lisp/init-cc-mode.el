@@ -213,6 +213,8 @@ tab on left will act as indent while on the right of character as
   (define-key evil-normal-state-local-map  (kbd "1") 'peng-custumize-rg)
   (define-key evil-normal-state-local-map  (kbd "2") 'counsel-ag)
   (define-key evil-normal-state-local-map  (kbd "3") 'counsel-grep-or-swiper)
+  (define-key evil-normal-state-local-map  (kbd "7") 'bm-show)
+  (define-key evil-normal-state-local-map  (kbd "8") 'bm-show-all)
 
 
   (define-key evil-insert-state-local-map  (kbd "M-RET") 'peng-counsel-gtags-dwim)

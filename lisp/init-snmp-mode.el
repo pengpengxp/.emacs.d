@@ -10,8 +10,21 @@
                                      (peng-local-set-key (kbd "<C-right>") 'tempo-forward-mark)
                                      (peng-local-set-key (kbd "<C-up>") 'tempo-backward-mark)
                                      (peng-local-set-key (kbd "<C-left>") 'tempo-backward-mark)
+                                     (peng-local-set-key (kbd "<XF86Back>") 'symbol-overlay-remove-all)
+                                     (peng-local-set-key (kbd "<XF86Forward>") 'symbol-overlay-put)
+                                     (hl-line-mode 1)
+                                     (define-key evil-normal-state-local-map (kbd "\\") #'(lambda ()
+                                                                                            (interactive)
+                                                                                            (let ((original-point (point-marker)))
+                                                                                              (deactivate-mark)
+                                                                                              (ring-insert find-tag-marker-ring original-point)
+                                                                                              (helm-imenu)
+                                                                                              ;; (rtags-imenu)
+                                                                                              )))
+                                     (define-key evil-normal-state-local-map (kbd "`") 'pop-tag-mark)
 
                                      ))
+
 (add-to-list 'auto-mode-alist '("\\.mib\\'" . snmpv2-mode))
 
 (provide 'init-snmp-mode)

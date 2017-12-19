@@ -1,0 +1,25 @@
+# -*- word-wrap: nil; -*-
+#+OPTIONS: ^:{}
+#+STARTUP: align
+#+STARTUP: showall
+#+OPTIONS: toc:nil
+ 
+* fcitx.el 
+  :PROPERTIES:
+  :header-args: :tangle init-fcitx.el
+  :END:
+  
+  这个插件可以和系统的fcitx通信，使用evil的时候默认就关闭中文输入法。
+  很方便的。
+  
+  有 =fcitx-default-setup= 和 =fcitx-aggressive-setup= 两种配置，我当
+  前使用默认的。
+
+    #+BEGIN_SRC emacs-lisp
+(require 'fcitx)
+
+(fcitx-default-setup)
+
+(provide 'init-fcitx)
+    #+END_SRC
+
