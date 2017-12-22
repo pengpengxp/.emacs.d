@@ -766,6 +766,8 @@ Breadcrumb bookmarks:
                                         (switch-to-buffer-other-window "*compilation*"))))
 
 (peng-global-set-key (kbd "<S-f6>") 'compile)
+(peng-global-set-key (kbd "<pause>") 'symbol-overlay-put)
+(peng-global-set-key (kbd "<Scroll_Lock>") 'symbol-overlay-remove-all)
 
 
 ;;; for windows configure
