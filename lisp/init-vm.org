@@ -1,0 +1,30 @@
+# -*- word-wrap: nil; -*-
+#+OPTIONS: ^:{}
+#+STARTUP: align
+#+STARTUP: showall
+#+OPTIONS: toc:nil 
+
+
+* vm(view-mail mode)
+  :PROPERTIES:
+  :header-args: :tangle init-vm.el
+  :END:
+
+  据说可以用来读thunderbird的邮件。还没有配置成功。
+  #+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path
+             (expand-file-name "~/.emacs.d/vm/lisp"))
+(add-to-list 'Info-default-directory-list
+             (expand-file-name "~/.emacs.d/vm/info"))
+(require 'vm-autoloads)
+  #+END_SRC
+
+  设置这个变量可以防止vm修改thundirbird中的文件。
+  #+BEGIN_SRC emacs-lisp
+(setq vm-sync-thunderbird-status 'read-only)
+(provide 'init-vm)
+  #+END_SRC
+
+  #+BEGIN_SRC emacs-lisp
+(provide 'init-vm)
+  #+END_SRC
