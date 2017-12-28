@@ -146,6 +146,13 @@ tab on left will act as indent while on the right of character as
 
   
   (peng-local-set-key (kbd "M-d") 'company-other-backend)
+
+  ;; ;; save buffer when enter normal state
+  ;; (define-key evil-insert-state-local-map (kbd "<escape>") #'(lambda ()
+  ;;                                                              (interactive)
+  ;;                                                              (evil-normal-state)
+  ;;                                                              (save-buffer)))
+
   )
 (add-hook 'c-mode-hook 'pengpengxp-c-common-mode)
 (add-hook 'c++-mode-hook 'pengpengxp-c-common-mode)

@@ -83,6 +83,7 @@
   (peng-local-set-key (kbd "<S-left>") 'w3m-previous-buffer)
   (peng-local-set-key (kbd "<S-right>") 'w3m-next-buffer)
   (define-key evil-normal-state-local-map (kbd "SPC m") 'hydra-google-translate/body)
+  (hl-line-mode 1)
   )
 (add-hook 'w3m-mode-hook 'pengpengxp-w3m-mode)
 
