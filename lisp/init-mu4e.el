@@ -6,8 +6,8 @@
         (:human-date . 20)
         (:flags . 6)
         (:mailing-list . 10)
-        (:from . 30)
-        (:to . 30)
+        (:from-or-to . 30)
+        ;; (:to . 30)
         (:thread-subject))))
 
 (setq mu4e-mu-version "0.9.19")
@@ -84,6 +84,7 @@
   (peng-local-set-key (kbd "q") 'mu4e~view-quit-buffer)
   (peng-local-set-key (kbd "<C-down>") 'mu4e-view-headers-next)
   (peng-local-set-key (kbd "<C-up>") 'mu4e-view-headers-prev)
+  (peng-local-set-key (kbd "a") 'mu4e-view-action)
 
   (peng-mu4e-key-binding)
   )
@@ -112,5 +113,10 @@
   )
 
 (add-hook 'mu4e-headers-mode-hook 'peng-mu4e-header-mode)
+
+
+;; View html message in firefox (type aV)
+(add-to-list 'mu4e-view-actions
+'("ViewInBrowser" . mu4e-action-view-in-browser) t)
 
 (provide 'init-mu4e)

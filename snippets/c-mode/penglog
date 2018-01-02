@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: penglog
+# key: penglog
+# --
+zlog_info("[pengtest] $0");

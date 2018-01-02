@@ -115,6 +115,7 @@ tab on left will act as indent while on the right of character as
                                                            ;; (rtags-imenu)
                                                            )))
 
+  (peng-local-set-key (kbd "M-i") 'yas-ivy-expand)
   (peng-local-set-key (kbd "M-DEL") 'cscope-pop-mark)
   (peng-local-set-key (kbd "<kp-insert>") 'cscope-pop-mark)
   (peng-local-set-key (kbd "<M-backspace>") 'cscope-pop-mark)
