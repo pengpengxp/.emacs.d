@@ -28,6 +28,23 @@
         ("https://chriszheng.science/atom.xml") ;M-x Chris-An-Emacser
 
         ;; ("http://www.sfw.com.cn/?feed=rss2") ;科幻世界
+
+        ("http://huo360.com/feed")      ; 影视:火星360
+
+        ("http://www.nhzy.org/?feed=rss2")  ;健康:nhzy资讯
+        ;; ("http://www.zhihu.com/rss")    ;知乎每日精选
+        ("http://songshuhui.net/feed")  ;科学松鼠会
+
+        ("http://cnpolitics.org/feed/")  ;政见
+
+
+        ("http://www.dffy.com/dffy.xml") ;法律：东方法眼（全站更新）
+        ("http://www.rssmaker.cc/rss/tag/58c644ad0cf2105154adee06.xml")  ;rss法律聚合订阅
+
+        ("http://www.lawtime.cn/rss/falvfagui/gjfg.xml")  ;法律快车（法律法规）
+        ("http://rss.xinhuanet.com/rss/legal.xml")  ;新华网（法治新闻）
+        ("https://cn.reuters.com/rssFeed/transportationNews/")  ;路透: 汽车交通
+        ("http://cn.reuters.com/rssFeed/fundsNews/")  ;路透: 基金
         ))
 
 ;; (define-key elfeed-search-mode-map (kbd "RET") 'elfeed-search-show-entry)

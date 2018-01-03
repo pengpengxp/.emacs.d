@@ -66,7 +66,6 @@
                                     (interactive)
                                     (progn
                                     (async-shell-command "/home/pengpengxp/bin/p_get_mail.sh" "*offlineimap mu4e*"))))
-  (peng-local-set-key (kbd "J") 'mu4e~headers-jump-to-maildir)
   (peng-local-set-key (kbd "q") 'mu4e-quit)
   (peng-mu4e-key-binding)
   )
@@ -84,7 +83,9 @@
   (peng-local-set-key (kbd "q") 'mu4e~view-quit-buffer)
   (peng-local-set-key (kbd "<C-down>") 'mu4e-view-headers-next)
   (peng-local-set-key (kbd "<C-up>") 'mu4e-view-headers-prev)
+
   (peng-local-set-key (kbd "a") 'mu4e-view-action)
+  (peng-local-set-key (kbd "A") 'mu4e-view-attachment-action)
 
   (peng-mu4e-key-binding)
   )
@@ -110,6 +111,7 @@
   (interactive)
   (peng-local-set-key (kbd "s") 'mu4e-headers-search)
   (peng-local-set-key (kbd "b") 'mu4e-headers-search-bookmark)
+  (peng-local-set-key (kbd "J") 'mu4e~headers-jump-to-maildir)
   )
 
 (add-hook 'mu4e-headers-mode-hook 'peng-mu4e-header-mode)
