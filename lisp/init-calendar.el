@@ -16,13 +16,13 @@
         (holiday-float 6 0 3 "父亲节")  ;6月第二个星期天
         (holiday-fixed 10 1 "国庆节")
         (holiday-fixed 8 21 "小谢生日")
-        ;; (holiday-fixed 6 1 "儿童节")
-        ;; (holiday-fixed 9 10 "教师节")
-        ;; (holiday-fixed 3 8 "妇女节")
+        (holiday-fixed 6 1 "儿童节")
+        (holiday-fixed 9 10 "教师节")
+        (holiday-fixed 3 8 "妇女节")
         ;; (holiday-fixed 3 14 "白色情人节")
-        ;; (holiday-fixed 4 1 "愚人节")
-        ;; (holiday-fixed 5 1 "劳动节")
-        ;; (holiday-fixed 12 25 "圣诞节")
+        (holiday-fixed 4 1 "愚人节")
+        (holiday-fixed 5 1 "劳动节")
+        (holiday-fixed 12 25 "圣诞节")
 
         
         ;; 农历节日
@@ -33,10 +33,9 @@
         (holiday-lunar 6 24 "青青农历生日" 0)
         (holiday-lunar 2 19 "妈妈生日" 0)
         (holiday-lunar 3 17 "老谢生日" 0)
-        ;; (holiday-lunar 1 15 "元宵节" 0)
-        ;; (holiday-lunar 1 1 "春节" 0)
-        ;; (holiday-lunar 1 2 "春节" 0)
-        ;; (holiday-lunar 1 3 "春节" 0)
+        (holiday-lunar 1 15 "元宵节" 0)
+        (holiday-lunar 12 30 "除夕" 0)
+        (holiday-lunar 1 1 "春节" 0)
         ))
 
 ;; 只显示我定制的节日
@@ -45,5 +44,22 @@
 (setq christian-holidays nil) ;; 不显示基督教的节日
 (setq hebrew-holidays nil)    ;; 不显示希伯来人的节日
 (setq islamic-holidays nil)   ;; 不显示伊斯兰教的节日
+
+(defun peng-calendar-mode ()
+  (interactive)
+  (local-set-key (kbd "<S-right>")'calendar-forward-month)
+  (local-set-key (kbd "<S-left>")'calendar-backward-month)
+  (local-set-key (kbd "<C-right>")'calendar-forward-year)
+  (local-set-key (kbd "<C-left>")'calendar-backward-year)
+  (local-set-key (kbd "l")'calendar-forward-day)
+  (local-set-key (kbd "h")'calendar-backward-day)
+
+  (local-set-key (kbd "j")'calendar-forward-week)
+  (local-set-key (kbd "k")'calendar-backward-week)
+
+  (setq calendar-mark-holidays-flag t)
+  )
+
+(add-hook 'calendar-mode-hook 'peng-calendar-mode)
 
 (provide 'init-calendar)
