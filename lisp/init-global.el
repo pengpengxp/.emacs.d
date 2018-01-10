@@ -14,7 +14,7 @@
 
 ;; my personal information
 (setq user-full-name "pengpengxp")
-(setq user-mail-address "pengpengxppri@gmail.com")
+(setq user-mail-address "pengpengxppri@sina.com")
 
 ;;; 开始不需要使用menu-bar，scroll-bar这些
 (menu-bar-mode -1)

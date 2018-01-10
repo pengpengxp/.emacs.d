@@ -71,6 +71,8 @@
   (peng-local-set-key (kbd "N") 'w3m-view-next-page)
   (peng-local-set-key (kbd "r") 'w3m-reload-this-page)
   (peng-local-set-key (kbd "R") 'w3m-reload-all-pages)
+  (peng-local-set-key (kbd "t") 'w3m-toggle-inline-image)
+  (peng-local-set-key (kbd "T") 'w3m-toggle-inline-images)
   (peng-local-set-key (kbd "f") 'w3m-lnum-follow)
   (peng-local-set-key (kbd "F") 'peng-browse-current-url-by-firefox)
   (peng-local-set-key (kbd "+") 'w3m-zoom-in-image)

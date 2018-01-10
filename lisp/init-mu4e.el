@@ -6,9 +6,10 @@
         (:human-date . 20)
         (:flags . 6)
         (:mailing-list . 10)
-        (:from-or-to . 30)
-        ;; (:to . 30)
-        (:thread-subject))))
+        (:from . 30)
+        (:to . 30)
+        (:thread-subject)
+        )))
 
 (setq mu4e-mu-version "0.9.19")
 ;;; set the rich-text color
@@ -22,8 +23,13 @@
 
 ;; default
 (setq mu4e-maildir (expand-file-name "~/mutt_mail"))
+
+
 ;; (setq mu4e-get-mail-command "offlineimap")
-(setq mu4e-get-mail-command "proxychains offlineimap")
+;;; usr my own script to fetch mail
+(setq mu4e-get-mail-command "/home/pengpengxp/bin/p_get_mail.sh")
+;; Fetch mail in 600 sec interval
+(setq mu4e-update-interval 600)
 
 ;;; use w3m to render rich-text message
 (setq mu4e-html2text-command "w3m -dump -T text/html -o display_link_number=1")
@@ -67,6 +73,7 @@
                                     (progn
                                     (async-shell-command "/home/pengpengxp/bin/p_get_mail.sh" "*offlineimap mu4e*"))))
   (peng-local-set-key (kbd "q") 'mu4e-quit)
+  (peng-local-set-key (kbd "C") 'mu4e-compose-new)
   (peng-mu4e-key-binding)
   )
 
@@ -103,7 +110,8 @@
   (peng-local-set-key (kbd "u") 'mu4e-headers-mark-for-unmark)
   (peng-local-set-key (kbd "U") 'mu4e-mark-unmark-all)
   (peng-local-set-key (kbd "x") 'mu4e-mark-execute-all)
-
+  (peng-local-set-key (kbd "g") 'mu4e-headers-rerun-search)
+  
   (peng-mu4e-key-binding)
   )
 
