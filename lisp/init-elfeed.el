@@ -29,7 +29,7 @@
 
         ;; ("http://www.sfw.com.cn/?feed=rss2") ;科幻世界
 
-        ("http://huo360.com/feed")      ; 影视:火星360
+        ;; ("http://huo360.com/feed")      ; 影视:火星360
 
         ("http://www.nhzy.org/?feed=rss2")  ;健康:nhzy资讯
         ;; ("http://www.zhihu.com/rss")    ;知乎每日精选

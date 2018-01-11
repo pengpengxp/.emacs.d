@@ -77,7 +77,7 @@
   (peng-local-set-key (kbd "F") 'peng-browse-current-url-by-firefox)
   (peng-local-set-key (kbd "+") 'w3m-zoom-in-image)
   (peng-local-set-key (kbd "-") 'w3m-zoom-out-image)
-  ;; (peng-local-set-key (kbd "F") 'peng-browse-current-url-by-chrome)
+  (peng-local-set-key (kbd "P") 'peng-browse-current-url-by-chrome)
   (peng-local-set-key (kbd "RET") 'w3m-view-this-url)
   (peng-local-set-key (kbd "<return>") 'w3m-view-this-url)
   (peng-local-set-key (kbd "<C-return>") 'w3m-view-this-url-new-session)

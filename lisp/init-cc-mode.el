@@ -76,6 +76,7 @@ tab on left will act as indent while on the right of character as
   (local-set-key (kbd "<f5> c") #'peng-compile-current-c-or-cpp-file)
   (local-set-key (kbd "<f7>") 'peng-c-gnome-terminal-make-and-run)
   (define-key evil-normal-state-local-map (kbd "C-;") #'peng-add-end-semicolon)
+  (define-key evil-normal-state-local-map (kbd "^") 'forward-sexp)
   (define-key evil-normal-state-local-map (kbd "M-;") 'comment-dwim)
   (local-set-key (kbd "M-;") 'comment-dwim)
   (local-set-key (kbd "<f5> o") #'peng-compile-current-c-or-cpp-file)

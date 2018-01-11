@@ -778,46 +778,42 @@ Breadcrumb bookmarks:
 ;; (define-key evil-normal-state-map "'" 'jump-to-register)
 ;; (define-key evil-motion-state-map "'" 'jump-to-register)
 ;;; now
-(define-key evil-normal-state-map "m" 'ivy-push-view)
-(define-key evil-motion-state-map "m" 'ivy-push-view)
-(define-key evil-normal-state-map "M" 'ivy-pop-view)
-(define-key evil-motion-state-map "M" 'ivy-pop-view)
-(define-key evil-normal-state-map "'" 'peng-ivy-switch-buffer-to-views)
-(define-key evil-motion-state-map "'" 'peng-ivy-switch-buffer-to-views)
+(define-key evil-normal-state-map (kbd "m") 'ivy-push-view)
+(define-key evil-motion-state-map (kbd "m") 'ivy-push-view)
+(define-key evil-normal-state-map (kbd "M") 'ivy-pop-view)
+(define-key evil-motion-state-map (kbd "M") 'ivy-pop-view)
+(define-key evil-normal-state-map (kbd "'") 'peng-ivy-switch-buffer-to-views)
+(define-key evil-motion-state-map (kbd "'") 'peng-ivy-switch-buffer-to-views)
 
-(define-key evil-normal-state-map "1" 'peng-custumize-rg)
-(define-key evil-motion-state-map "1" 'peng-custumize-rg)
+(define-key evil-normal-state-map (kbd "1") 'peng-custumize-rg)
+(define-key evil-motion-state-map (kbd "1") 'peng-custumize-rg)
 
-(define-key evil-normal-state-map "!" 'peng-custumize-rg-dwim)
-(define-key evil-motion-state-map "!" 'peng-custumize-rg-dwim)
+(define-key evil-normal-state-map (kbd "!") 'peng-custumize-rg-dwim)
+(define-key evil-motion-state-map (kbd "!") 'peng-custumize-rg-dwim)
 
-(define-key evil-normal-state-map "2" 'counsel-ag)
-(define-key evil-motion-state-map "2" 'counsel-ag)
-(define-key evil-normal-state-map "@" #'(lambda ()
-                                          (interactive)
-                                          (progn
-                                            (counsel-ag (thing-at-point 'symbol)))))
-(define-key evil-motion-state-map "@" #'(lambda ()
-                                          (interactive)
-                                          (progn
-                                            (counsel-ag (thing-at-point 'symbol)))))
+(define-key evil-normal-state-map (kbd "2") 'counsel-ag)
+(define-key evil-motion-state-map (kbd "2") 'counsel-ag)
+(define-key evil-normal-state-map (kbd "@") #'(lambda ()
+                                                (interactive)
+                                                (progn
+                                                  (counsel-ag (thing-at-point 'symbol)))))
+(define-key evil-motion-state-map (kbd "@") #'(lambda ()
+                                                (interactive)
+                                                (progn
+                                                  (counsel-ag (thing-at-point 'symbol)))))
 
-(define-key evil-normal-state-map "3" 'counsel-grep-or-swiper)
-(define-key evil-motion-state-map "3" 'counsel-grep-or-swiper)
-(define-key evil-normal-state-map "#" 'peng-swiper-current-symbol)
-(define-key evil-motion-state-map "#" 'peng-swiper-current-symbol)
-
-(define-key evil-normal-state-map "4" 'helm-semantic-or-imenu)
-(define-key evil-motion-state-map "4" 'helm-semantic-or-imenu)
-
-(define-key evil-normal-state-map "0" 'dumb-jump-go)
-(define-key evil-motion-state-map "0" 'dumb-jump-go)
-
-(define-key evil-normal-state-map "5" 'peng-custumize-ag-regexp)
-(define-key evil-motion-state-map "5" 'peng-custumize-ag-regexp)
-
-(define-key evil-normal-state-map "6" 'helm-semantic-or-imenu)
-(define-key evil-motion-state-map "6" 'helm-semantic-or-imenu)
+(define-key evil-normal-state-map (kbd "3") 'counsel-grep-or-swiper)
+(define-key evil-motion-state-map (kbd "3") 'counsel-grep-or-swiper)
+(define-key evil-normal-state-map (kbd "#") 'peng-swiper-current-symbol)
+(define-key evil-motion-state-map (kbd "#") 'peng-swiper-current-symbol)
+(define-key evil-normal-state-map (kbd "4") 'helm-semantic-or-imenu)
+(define-key evil-motion-state-map (kbd "4") 'helm-semantic-or-imenu)
+(define-key evil-normal-state-map (kbd "0") 'dumb-jump-go)
+(define-key evil-motion-state-map (kbd "0") 'dumb-jump-go)
+(define-key evil-normal-state-map (kbd "5") 'peng-custumize-ag-regexp)
+(define-key evil-motion-state-map (kbd "5") 'peng-custumize-ag-regexp)
+(define-key evil-normal-state-map (kbd "6") 'helm-semantic-or-imenu)
+(define-key evil-motion-state-map (kbd "6") 'helm-semantic-or-imenu)
 
 ;;; on my thinkpad T420s, I don't want to use these keys.
 (global-unset-key (kbd "<XF86Back>"))

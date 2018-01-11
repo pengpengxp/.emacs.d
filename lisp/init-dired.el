@@ -1,5 +1,7 @@
 (require 'dired-sort)
 (require 'dired+)
+
+
 (defun peng-dired-mode()
   (interactive)
   (setq dired-guess-shell-alist-user                     ;设置文件默认打开的模式
@@ -58,6 +60,8 @@
   (define-key evil-normal-state-local-map (kbd "gg") #'evil-goto-first-line)
   (define-key evil-normal-state-local-map (kbd "<M-up>") #'dired-up-directory)
 
+  
+
   ;; 方便地进行排序
   (define-key evil-normal-state-local-map (kbd "s t") #'dired-sort-time)
   (define-key evil-normal-state-local-map (kbd "s x") #'dired-sort-extension)
@@ -75,9 +79,13 @@
   (peng-local-set-key (kbd "-") 'xah-dired-rename-space-to-hyphen)
 
   (peng-search-binding)
+
+  ;; bind `!' back
+  (peng-local-set-key (kbd "!") 'dired-do-shell-command)
+
+  ;; sort by time default
+  (dired-sort-time)
   )
-
-
 
 (use-package dire-mode
   :defer t

@@ -34,6 +34,7 @@
   (peng-local-set-key (kbd "q") 'delete-window)
   (peng-local-set-key (kbd "<M-backspace>") 'cscope-pop-mark)
   (peng-local-set-key (kbd "<kp-enter>") 'cscope-select-entry-other-window)
+  (hl-line-mode 1)
   )
 
 (add-hook 'cscope-list-entry-hook 'pengpengxp-cscope-common-mode)
