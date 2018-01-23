@@ -46,4 +46,9 @@
                (semantic-ia-fast-jump (point))
              (error nil)))))
 
+(defun peng-use-specified-rtags-socket ()
+  (interactive)
+  (setq rtags-socket-file "~/.rtags/rdm_socket"))
+
+
 (provide 'init-rtags)

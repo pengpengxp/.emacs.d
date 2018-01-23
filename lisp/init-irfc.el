@@ -10,8 +10,7 @@
   (peng-local-set-key (kbd "<backtab>")'irfc-rfc-link-prev)
   (peng-local-set-key (kbd "<tab>")'irfc-rfc-link-next)
 
-  (peng-local-set-key (kbd "<return>") 'irfc-table-jump)
-  (peng-local-set-key (kbd "RET") 'irfc-table-jump)
+  (peng-local-set-key (kbd "<C-return>") 'irfc-table-jump)
 
   (peng-local-set-key (kbd "L") 'irfc-head-prev)
   (peng-local-set-key (kbd "H") 'irfc-head-next)
@@ -29,6 +28,8 @@
   (peng-local-set-key (kbd "r") 'irfc-reference-goto)
   (peng-local-set-key (kbd "v") 'irfc-visit)
   (peng-local-set-key (kbd "o") 'irfc-follow)
+  (peng-local-set-key (kbd "RET") 'irfc-follow)
+  (peng-local-set-key (kbd "<return>") 'irfc-head-goto)
   ;; (peng-local-set-key (kbd "q") 'irfc-quit)
   ;; (peng-local-set-key (kbd "") 'irfc-render-toggle)
   (hl-line-mode 1)

@@ -234,7 +234,9 @@
               (expand-file-name "init-irfc.org" LISP)
               (expand-file-name "init-pdf-tools.org" LISP)
               (expand-file-name "init-dumb-jump.org" LISP)
-              (expand-file-name "init-irony-mode.org" LISP)
+
+              ;; (expand-file-name "init-irony-mode.org" LISP)
+
               (expand-file-name "init-fcitx.org" LISP)
               ;; (expand-file-name "init-vm.org" LISP)
               )))
@@ -249,6 +251,7 @@
 (require 'init-elfeed)
 (require 'init-mu4e)
 (require 'init-google-translate)
+(require 'init-proto)
 
 ;; (require 'init-cursor)
 ;; (load-file (concat (getenv LISP)

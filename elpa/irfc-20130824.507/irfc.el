@@ -770,7 +770,7 @@ found."
 
 (defun irfc-read-heading-name ()
   "Read heading name as a string."
-  (completing-read "Heading name: " irfc-heading-names-list nil t))
+  (completing-read "Heading name: " (nreverse (copy-list irfc-heading-names-list)) nil t))
 
 (defun irfc-read-heading-number ()
   "Read heading number as a string using a heading number found
@@ -778,7 +778,7 @@ at point as default."
   (let ((default (irfc-heading-number-at-point)))
     (completing-read
      (concat "Heading number" (if (eq default nil) "" (format " (default %s)" default)) ": ")
-     irfc-heading-numbers-list nil t nil nil default nil)))
+     (nreverse (copy-list irfc-heading-numbers-list)) nil t nil nil default nil)))
 
 (defun irfc-heading-number-at-point ()
   "Returns heading number at point as a string or nil if one is

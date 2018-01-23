@@ -202,11 +202,14 @@
                                      nil
                                      input)))))
   ;; (linum-mode 1)
-  (peng-local-set-key (kbd "C-r") 'peng-ivy-eshell-history)
-  (peng-local-set-key (kbd "C-a") 'eshell-bol)
-  (peng-local-set-key (kbd "C-e") 'move-end-of-line)
-  (peng-local-set-key (kbd "<up>") 'previous-line)
-  (peng-local-set-key (kbd "<down>") 'next-line)
+  (define-key evil-emacs-state-local-map (kbd "C-r") 'peng-ivy-eshell-history)
+  (define-key evil-emacs-state-local-map (kbd "C-a") 'eshell-bol)
+  (define-key evil-emacs-state-local-map (kbd "C-e") 'move-end-of-line)
+  (define-key evil-emacs-state-local-map (kbd "<up>") 'previous-line)
+  (define-key evil-emacs-state-local-map (kbd "<down>") 'next-line)
+
+
+  
   (setq eshell-last-dir-ring-size 200)	;记录200个目录
 
   ;; `eshell'中打开`company-mode'后只想开`company-files'这一个backend

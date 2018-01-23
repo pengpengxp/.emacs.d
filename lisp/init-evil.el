@@ -51,7 +51,7 @@
 (evil-set-initial-state 'calendar-mode 'emacs)
 (evil-set-initial-state 'gnus-group-mode 'emacs)
 (evil-set-initial-state 'inferior-scheme-mode 'emacs)
-(evil-set-initial-state 'eshell-mode 'insert)
+(evil-set-initial-state 'eshell-mode 'emacs)
 (evil-set-initial-state 'cfw:details-mode 'emacs)
 (evil-set-initial-state 'mark-list-mode 'emacs)
 (evil-set-initial-state '2048-mode 'emacs)

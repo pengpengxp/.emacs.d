@@ -93,6 +93,9 @@
 
   (peng-local-set-key (kbd "a") 'mu4e-view-action)
   (peng-local-set-key (kbd "A") 'mu4e-view-attachment-action)
+  (peng-local-set-key (kbd "<C-return>") 'mu4e-view-open-attachment)
+  (peng-local-set-key (kbd "<M-return>") 'mu4e-view-attachment-action)
+
 
   (peng-mu4e-key-binding)
   )

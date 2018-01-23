@@ -36,7 +36,7 @@
   (peng-local-set-key (kbd "v") 'irfc-visit)
   (peng-local-set-key (kbd "o") 'irfc-follow)
   (peng-local-set-key (kbd "RET") 'irfc-follow)
-  (peng-local-set-key (kbd "<return>") 'irfc-follow)
+  (peng-local-set-key (kbd "<return>") 'irfc-head-goto)
   ;; (peng-local-set-key (kbd "q") 'irfc-quit)
   ;; (peng-local-set-key (kbd "") 'irfc-render-toggle)
   (hl-line-mode 1)

@@ -49,7 +49,7 @@
 (define-key peng-M-c-map (kbd "M-m") 'peng-mark-back-to-indentation)
 (define-key peng-M-c-map (kbd "M-w") 'peng-mark-current-word)
 
-(define-key peng-M-c-map (kbd "M-f") 'find-file)
+(define-key peng-M-c-map (kbd "M-f") 'w3m-find-file)
 (define-key peng-M-c-map (kbd "M-s") 'swiper)
 (define-key peng-M-c-map (kbd "M-j") 'ido-bookmark-jump)
 (define-key peng-M-c-map (kbd "M-b") 'wg-switch-to-workgroup)
