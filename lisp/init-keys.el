@@ -887,7 +887,7 @@
 
 ;;; for eshell
 (peng-global-set-key (kbd "C-M-'") 'shell-switcher-new-shell)
-(peng-global-set-key (kbd "C-'") 'shell-switcher-switch-buffer)
+(peng-global-set-key (kbd "C-c '") 'shell-switcher-switch-buffer)
 
 
 (provide 'init-keys)

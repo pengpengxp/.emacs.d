@@ -108,7 +108,7 @@
 ;;(require 'init-header2)
 (require 'init-auto-insert)
 (require 'init-outline-minor-mode.el)
-(require 'init-color-theme)
+;; (require 'init-color-theme)
 (require 'init-ace-jump.el)
 (require 'init-sr-speedbar)
 ;; (require 'init-tabbar)
@@ -232,7 +232,7 @@
 
 (let ((FILES (list
               (expand-file-name "init-irfc.org" LISP)
-              (expand-file-name "init-pdf-tools.org" LISP)
+              ;; (expand-file-name "init-pdf-tools.org" LISP)
               (expand-file-name "init-dumb-jump.org" LISP)
 
               ;; (expand-file-name "init-irony-mode.org" LISP)
@@ -244,7 +244,7 @@
 
 
 ;;; global settings need to put at last,since It may use some function provided above
-(require 'init-font)
+;;(require 'init-font)
 (require 'init-global)
 (require 'init-xah-keys)
 (require 'init-misc)
