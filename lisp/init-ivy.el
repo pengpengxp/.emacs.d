@@ -229,4 +229,8 @@
 ;; select your input with C-p and press RET.
 (setq ivy-use-selectable-prompt t)
 
+
+;;; use `M-SPC' to resstrict in `emacs -nw'
+(define-key ivy-minibuffer-map (kbd "M-SPC") 'ivy-restrict-to-matches)
+
 (provide 'init-ivy)

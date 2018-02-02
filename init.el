@@ -108,7 +108,7 @@
 ;;(require 'init-header2)
 (require 'init-auto-insert)
 (require 'init-outline-minor-mode.el)
-;; (require 'init-color-theme)
+(require 'init-color-theme)
 (require 'init-ace-jump.el)
 (require 'init-sr-speedbar)
 ;; (require 'init-tabbar)
@@ -282,4 +282,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(bm-face ((t (:background "dark green" :underline t))) nil "pengpengxp's bm-toggle-face"))
+ '(bm-face ((t (:background "dark green" :underline t))) nil "pengpengxp's bm-toggle-face")
+ '(hl-line ((t (:underline t)))))

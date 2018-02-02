@@ -730,6 +730,7 @@ Breadcrumb bookmarks:
 (define-key peng-spc-main-map (kbd ".") 'hydra-redo)
 (define-key peng-spc-main-map (kbd "v") 'hydra-cscope/body)
 (define-key peng-spc-main-map (kbd "<backspace>") 'delete-other-windows)
+(define-key peng-spc-main-map (kbd "DEL") 'delete-other-windows)
 (define-key peng-spc-main-map (kbd "RET") 'counsel-M-x)
 (define-key peng-spc-main-map (kbd "<return>") 'counsel-M-x)
 

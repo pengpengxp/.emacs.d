@@ -60,13 +60,13 @@
 
 ;; 我还是喜欢dark
 ;; (moe-light)
-(moe-dark)
+;; (moe-dark)
 ;; (color-theme-taming-mr-arneson)
 
 ;;; ====================moe theme==================== 
 
 ;; (color-theme-standard)
-;; (color-theme-gnome2)
+(color-theme-gnome2)
 
 ;; (color-theme-charcoal-black)
 

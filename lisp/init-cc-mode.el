@@ -103,6 +103,8 @@ tab on left will act as indent while on the right of character as
   (define-key evil-normal-state-local-map (kbd "SPC v") 'hydra-cscope/body)
   (define-key evil-normal-state-local-map (kbd "SPC m") 'hydra-cc-mode/body)
   (define-key evil-normal-state-local-map (kbd "<M-return>") 'peng-cscope-find-global-definition-no-prompting)
+  (define-key evil-normal-state-local-map (kbd "C-M-j") 'peng-cscope-find-global-definition-no-prompting)
+  (define-key evil-normal-state-local-map (kbd "M-RET") 'peng-cscope-find-global-definition-no-prompting)
   (define-key evil-normal-state-local-map (kbd "<kp-enter>") 'peng-cscope-find-global-definition-no-prompting)
   (define-key evil-normal-state-local-map (kbd "<C-return>") 'peng-cscope-find-this-symbol-no-prompting)
   (define-key evil-normal-state-local-map (kbd "<kp-delete>") 'peng-cscope-find-this-symbol-no-prompting)
@@ -193,7 +195,7 @@ tab on left will act as indent while on the right of character as
   (interactive)
   (ggtags-mode 1)
   (peng-local-set-key (kbd "M-t") 'counsel-gtags-find-definition)
-  (peng-local-set-key (kbd "M-r") 'counsel-gtags-find-reference)
+  (peng-local-set-key (kbd "M-r") 'peng-counsel-gtags-dwim)
   (peng-local-set-key (kbd "M-S") 'counsel-gtags-find-symbol)
   ;; (peng-local-set-key (kbd "M-.") 'peng-counsel-gtags-dwim)
   ;; (peng-local-set-key (kbd "M-SPC") 'peng-counsel-gtags-dwim)
@@ -229,6 +231,7 @@ tab on left will act as indent while on the right of character as
 
   (define-key evil-insert-state-local-map  (kbd "M-RET") 'peng-counsel-gtags-dwim)
   (define-key evil-insert-state-local-map  (kbd "<M-return>") 'peng-counsel-gtags-dwim)
+  (define-key evil-insert-state-local-map  (kbd "M-RET") 'peng-counsel-gtags-dwim)
   (define-key evil-insert-state-local-map  (kbd "<C-return>") 'counsel-gtags-find-reference)
 
   (require 'init-rtags)
