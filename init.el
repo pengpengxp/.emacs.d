@@ -81,7 +81,7 @@
 ;; (require 'init-scheme)
 (require 'init-org)
 (require 'init-gtd)
-;; (require 'init-org-export)
+(require 'init-org-export)
 
 ;; (require 'init-org-publish)
 ;; (require 'init-org-page)
