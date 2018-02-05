@@ -1,0 +1,33 @@
+# -*- word-wrap: nil; -*-
+#+OPTIONS: ^:{}
+#+STARTUP: align
+#+STARTUP: showall
+#+OPTIONS: toc:nil 
+
+* server mode
+  :PROPERTIES:
+  :header-args: :tangle init-server.el
+  :END:
+
+  #+BEGIN_SRC emacs-lisp
+;; Only start server mode if I'm not root
+(unless (string-equal "root" (getenv "USER"))
+  (require 'server)
+  (unless (server-running-p) (server-start)))
+  #+END_SRC
+
+  在调用 `emaceclient' 时，使用wmctrl把emacs移到当前的桌面来。这个需要
+  依赖于 =wmctrl= 这个软件。
+  #+BEGIN_SRC emacs-lisp
+;; move to current desktop 
+(add-hook 'server-switch-hook
+  (lambda ()
+    (call-process
+      "wmctrl" nil nil nil "-i" "-R"
+      (frame-parameter (selected-frame) 'outer-window-id))))
+  #+END_SRC
+
+  #+BEGIN_SRC emacs-lisp
+(provide 'init-server)
+  
+  #+END_SRC

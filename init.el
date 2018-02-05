@@ -238,6 +238,7 @@
               ;; (expand-file-name "init-irony-mode.org" LISP)
 
               (expand-file-name "init-fcitx.org" LISP)
+              (expand-file-name "init-server.org" LISP)
               ;; (expand-file-name "init-vm.org" LISP)
               )))
   (mapc 'org-babel-load-file FILES))

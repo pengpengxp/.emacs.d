@@ -25,11 +25,6 @@
 (if (display-graphic-p)
     (scroll-bar-mode -1))
 
-;; Only start server mode if I'm not root
-(unless (string-equal "root" (getenv "USER"))
-  (require 'server)
-  (unless (server-running-p) (server-start)))
-
 ;;; 关闭process的时候不需要询问。
 (setq kill-buffer-query-functions
       (remq 'process-kill-buffer-query-function
