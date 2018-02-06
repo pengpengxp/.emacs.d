@@ -32,3 +32,4 @@ image-dired
 site-lisp/evil/.depend
 
 elpa/gnupg/.gpg-v21-migrated
+elpa/pdf-tools-20171012.2226/epdfinfo
