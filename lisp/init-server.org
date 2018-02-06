@@ -49,7 +49,7 @@ wmctrl -d | grep '*' | cut -d ' ' -f1
   #+BEGIN_SRC sh
 alias ei="emacsclient --no-wait -s '/tmp/emacs-desktop-`wmctrl -d | grep '*' | cut -d ' ' -f1`'/server"
   #+END_SRC
-  
+
   对应的tig也需要设置一下：
   #+BEGIN_SRC sh
 alias tig="GIT_EDITOR=\"emacsclient --no-wait -s '/tmp/emacs-desktop-`wmctrl -d | grep '*' | cut -d ' ' -f1`/server'\" tig"
