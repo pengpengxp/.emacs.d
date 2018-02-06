@@ -20,7 +20,9 @@ wmctrl -d | grep '*' | cut -d ' ' -f1
   #+END_SRC
 
   所以原理就是emacs在开启server的时候不同的工作区使用不同的socket文件。
-  下面这段elisp就是干这个事情：
+  下面这段elisp就是干这个事情。本来我是没有设置 =server-socket-dir= 这
+  个环境变量的，直接在 =let= 里面局部设置然后开启server就行了。但是，
+  magit在提交的时候需要使用这个变量，所以直接全局设置了。
   #+BEGIN_SRC emacs-lisp
 (let* ((current-desktop (replace-regexp-in-string "\n$" ""
                                                     (shell-command-to-string
@@ -37,16 +39,6 @@ wmctrl -d | grep '*' | cut -d ' ' -f1
         (server-running-p)
       (server-start))))
 
-;; (defun peng-start-server ()
-;;   (interactive)
-;;   (let* ((current-desktop (replace-regexp-in-string "\n$" ""
-;;                                                     (shell-command-to-string
-;;                                                      "wmctrl -d | grep '*' | cut -d ' ' -f1")))
-;;          (server-socket-dir (concat "/tmp/emacs-desktop-"
-;;                                     current-desktop)))
-;;     (peng-server-start)
-;;     ))
-
 (peng-server-start)
 
 (provide 'init-server)
@@ -56,6 +48,11 @@ wmctrl -d | grep '*' | cut -d ' ' -f1
   就可以了。我直接定义一个alias就更好用了：
   #+BEGIN_SRC sh
 alias ei="emacsclient --no-wait -s '/tmp/emacs-desktop-`wmctrl -d | grep '*' | cut -d ' ' -f1`'/server"
+  #+END_SRC
+  
+  对应的tig也需要设置一下：
+  #+BEGIN_SRC sh
+alias tig="GIT_EDITOR=\"emacsclient --no-wait -s '/tmp/emacs-desktop-`wmctrl -d | grep '*' | cut -d ' ' -f1`/server'\" tig"
   #+END_SRC
 
   #+BEGIN_SRC emacs-lisp
