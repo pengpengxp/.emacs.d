@@ -2,32 +2,76 @@
 #+OPTIONS: ^:{}
 #+STARTUP: align
 #+STARTUP: showall
-#+OPTIONS: toc:nil 
+#+OPTIONS: toc:nil
 
 * server mode
   :PROPERTIES:
   :header-args: :tangle init-server.el
   :END:
 
-  #+BEGIN_SRC emacs-lisp
-;; Only start server mode if I'm not root
-(unless (string-equal "root" (getenv "USER"))
-  (require 'server)
-  (unless (server-running-p) (server-start)))
+  我常使用四个工作区。每个工作区都开一个emacs，现在设置是每个工作区的
+  server对应的socket文件不同，在每个工作区用`emacsclient' 打开文件时，
+  都只是连接到对应工作区的emacs server。这样每个工作区都可以干不同的事
+  情了。
+
+  使用 =wmctrl= 这个软件可以区分当前是哪个工作区：
+  #+BEGIN_SRC sh
+wmctrl -d | grep '*' | cut -d ' ' -f1
   #+END_SRC
 
-  在调用 `emaceclient' 时，使用wmctrl把emacs移到当前的桌面来。这个需要
-  依赖于 =wmctrl= 这个软件。
+  所以原理就是emacs在开启server的时候不同的工作区使用不同的socket文件。
+  下面这段elisp就是干这个事情：
   #+BEGIN_SRC emacs-lisp
-;; move to current desktop 
-(add-hook 'server-switch-hook
-  (lambda ()
-    (call-process
-      "wmctrl" nil nil nil "-i" "-R"
-      (frame-parameter (selected-frame) 'outer-window-id))))
+(let* ((current-desktop (replace-regexp-in-string "\n$" ""
+                                                    (shell-command-to-string
+                                                     "wmctrl -d | grep '*' | cut -d ' ' -f1")))
+         (my-server-socket-dir (concat "/tmp/emacs-desktop-"
+                                    current-desktop)))
+    (setq server-socket-dir my-server-socket-dir))
+
+(defun peng-server-start ()
+  ;; Only start server mode if I'm not root
+  (unless (string-equal "root" (getenv "USER"))
+    (require 'server)
+    (unless
+        (server-running-p)
+      (server-start))))
+
+;; (defun peng-start-server ()
+;;   (interactive)
+;;   (let* ((current-desktop (replace-regexp-in-string "\n$" ""
+;;                                                     (shell-command-to-string
+;;                                                      "wmctrl -d | grep '*' | cut -d ' ' -f1")))
+;;          (server-socket-dir (concat "/tmp/emacs-desktop-"
+;;                                     current-desktop)))
+;;     (peng-server-start)
+;;     ))
+
+(peng-server-start)
+
+(provide 'init-server)
+  #+END_SRC
+
+  然后在使用 `emacsclient' 的时候使用 =-s= 选项不指定对应的socket文件
+  就可以了。我直接定义一个alias就更好用了：
+  #+BEGIN_SRC sh
+alias ei="emacsclient --no-wait -s '/tmp/emacs-desktop-`wmctrl -d | grep '*' | cut -d ' ' -f1`'/server"
   #+END_SRC
 
   #+BEGIN_SRC emacs-lisp
 (provide 'init-server)
-  
   #+END_SRC
+
+* COMMENT 当前未使用
+
+  在调用 `emaceclient' 时，使用wmctrl把emacs移到当前的桌面来。这个需要
+  依赖于 =wmctrl= 这个软件。现在先没使用。
+  #+BEGIN_SRC emacs-lisp
+;; move to current desktop
+;; (add-hook 'server-switch-hook
+;;   (lambda ()
+;;     (call-process
+;;       "wmctrl" nil nil nil "-i" "-R"
+;;       (frame-parameter (selected-frame) 'outer-window-id))))
+  #+END_SRC
+
