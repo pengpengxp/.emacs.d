@@ -50,5 +50,6 @@
   (interactive)
   (setq rtags-socket-file "~/.rtags/rdm_socket"))
 
+(setq rtags-display-result-backend 'ivy)
 
 (provide 'init-rtags)
