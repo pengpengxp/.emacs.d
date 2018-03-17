@@ -1011,4 +1011,19 @@ Version 2015-08-22"
   ;; lots of search command end
   )
 
+
+(defun peng-recent-cc-buffer ()
+  "todo: I need a function to cycle with cc mode and makefile
+mode"
+  (interactive)
+  (let* ((all-buffer-list (remove nil (mapcar '(lambda (buf)
+                                              (with-current-buffer buf
+                                                (if (or (eq major-mode 'c-mode)
+                                                        (eq major-mode 'makefile-gmake-mode))
+                                                    (message "%s" (buffer-name)))))
+                                              (buffer-list))))
+         ;; remove current buffer name
+         (my-buffer-list (remove (buffer-name) all-buffer-list)))
+    (switch-to-buffer (car my-buffer-list))))
+
 (provide 'init-peng-prifun)

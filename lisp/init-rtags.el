@@ -6,9 +6,9 @@
                                :exit t)
   "Narrow"
   ("D" rtags-find-symbol "symbo")
-  ("d" rtags-find-symbol-at-point "symbol at point" :exit nil)
-  ("RET" rtags-find-symbol-at-point "symbol at point")
-  ("<return>" rtags-find-symbol-at-point "symbol at point")
+  ("s" rtags-find-symbol-at-point "symbol at point" :exit nil)
+  ("RET" rtags-find-symbol "find symbol")
+  ("<return>" rtags-find-symbol "find symbol")
   ("R" rtags-find-references "Reference")
   ("r" rtags-find-references-at-point "Reference at point" :exit nil)
   ("C" rtags-find-references-current-dir "Reference current dirctory")

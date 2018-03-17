@@ -10,6 +10,14 @@
 
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
+(setq ivy-ignore-buffers '("\\` " "\\`\\*"))
+
+
+(defun my-ivy-switch-buffer ()
+  (interactive)
+  (let* ((ivy-ignore-buffers '("\\` " "\\`\\*"))
+         (ivy-use-virtual-buffers nil))
+    (ivy-switch-buffer)))
 
 ;; (global-set-key "\C-s" 'swiper)
 ;; (global-set-key "\C-r" 'swiper)

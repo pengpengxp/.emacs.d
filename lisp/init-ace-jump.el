@@ -51,6 +51,12 @@
   (with-current-buffer buffer
     (not (eq major-mode 'org-mode))))
 
+;;; 这样就可以产生一个`ace-jump-cc-buffers'
+(make-ace-jump-buffer-function "cc"
+  (with-current-buffer buffer
+    (not (or (eq major-mode 'c-mode)
+             (eq major-mode 'makefile-gmake-mode)))))
+
 (peng-global-set-key (kbd "C-c C-b") 'ace-jump-buffer-with-configuration)
 ;;; ======================================================================
 

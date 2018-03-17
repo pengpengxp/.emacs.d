@@ -178,6 +178,10 @@
 (require 'init-projectile)
 (require 'init-rg)
 
+
+(require 'init-cdyq)
+
+
 ;;; hydra需要配置，暂时不用
 (require 'hydra)
 (require 'init-hydra)

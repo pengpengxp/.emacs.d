@@ -751,7 +751,7 @@ Breadcrumb bookmarks:
 ;;                                             (ibuffer-update t)
 ;;                                           (ibuffer-update nil)))))
 (peng-global-set-key (kbd "<f5>") 'mu4e)
-(peng-global-set-key (kbd "<f11>") 'peng-bookmarks-w3m)
+(peng-global-set-key (kbd "<f11>") 'peng-cdyq-compile-funciton)
 (peng-global-set-key (kbd "<f10>") #'(lambda ()
                                        (interactive)
                                        (progn
@@ -767,8 +767,13 @@ Breadcrumb bookmarks:
                                         (switch-to-buffer-other-window "*compilation*"))))
 
 (peng-global-set-key (kbd "<S-f6>") 'compile)
+
 (peng-global-set-key (kbd "<pause>") 'symbol-overlay-put)
 (peng-global-set-key (kbd "<Scroll_Lock>") 'symbol-overlay-remove-all)
+
+(peng-global-set-key (kbd "<S-left>") 'peng-recent-cc-buffer)
+(peng-global-set-key (kbd "<S-right>") 'peng-recent-cc-buffer)
+
 
 
 ;;; for windows configure
@@ -778,6 +783,7 @@ Breadcrumb bookmarks:
 ;; (define-key evil-normal-state-map "'" 'jump-to-register)
 ;; (define-key evil-motion-state-map "'" 'jump-to-register)
 ;;; now
+(define-key evil-normal-state-map (kbd "F") 'my-ivy-switch-buffer)
 (define-key evil-normal-state-map (kbd "m") 'ivy-push-view)
 (define-key evil-motion-state-map (kbd "m") 'ivy-push-view)
 (define-key evil-normal-state-map (kbd "M") 'ivy-pop-view)
