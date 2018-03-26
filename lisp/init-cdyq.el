@@ -3,11 +3,12 @@
 
   (let* (
          (project-dir "/home/pengpengxp/src/fhos")
-         (arm-env (concat "source " project-dir "/fsl_env"))
+         (arm-env (concat "source " project-dir "/env/fsl_env"))
          (sai-dir (concat project-dir "/sai"))
          (rpc-dir (concat project-dir "/rpc"))
          (l2-dir (concat project-dir "/l2"))
          (l2d-dir (concat project-dir "/l2/l2d"))
+         (bcm-dir (concat project-dir "/hal/switch/bcm"))
          (igmpd-dir (concat project-dir "/l2/igmpd"))
          (fhos-common-dir (concat project-dir "/common"))
          (arm-build-dir (concat project-dir "/build/freescale/arm"))
@@ -17,15 +18,16 @@
 
          (arch (if (not x)
                    "arm"
-                 (ivy-read "Arch: " (list "arm" "x86"))))
+                 "x86"))
          
          (my-action (ivy-read "Action: " (list
-                                          "l2d"
                                           "igmpd"
+                                          "l2d"
                                           "l2"
                                           "sai"
                                           "rpc"
                                           "fhos-common"
+                                          "bcm"
                                           )))
 
          (default-directory
@@ -33,9 +35,10 @@
            ((equal my-action "l2d") l2d-dir)
            ((equal my-action "igmpd") igmpd-dir)
            ((equal my-action "l2") l2-dir)
-           ((equal my-action "sai") l2d-dir)
+           ((equal my-action "sai") sai-dir)
            ((equal my-action "rpc") rpc-dir)
            ((equal my-action "fhos-common") fhos-common-dir)
+           ((equal my-action "bcm") bcm-dir)
            ))
          )
     (let ((my-command (if (equal "arm" arch)

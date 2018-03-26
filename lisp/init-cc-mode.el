@@ -129,21 +129,18 @@ tab on left will act as indent while on the right of character as
   (dumb-jump-mode 1)
   (peng-setup-cc-mode-for-complete)
 
-  (peng-setup-ycmd)
+  ;; (peng-setup-ycmd)
   (company-mode 1)
 
   ;; begin ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; make this company-backends as local viriable for cc-mode
   (require 'company-rtags)
-  (require 'company-irony)
+  ;; (require 'company-irony)
   (make-local-variable 'company-backends)
   (setq company-backends (copy-tree company-backends))
-  (setq company-backends '((company-irony company-dabbrev-code)
-                           
-                           (company-dabbrev-code company-dabbrev company-keywords)
-                           company-rtags
-                           company-ycmd
-                           company-gtags))
+  (setq company-backends '((company-dabbrev-code company-dabbrev company-keywords)
+                           ;; company-gtags
+                           ))
   ;;  end ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   
