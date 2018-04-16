@@ -168,7 +168,7 @@
 (require 'init-term-mode)
 ;; (require 'init-ispell)
 ;; (require 'init-golden-ratio.el)
-;; (require 'init-avy)
+(require 'init-avy)
 
 (require 'init-web-mode.el)
 ;; (require 'init-workgroups2)
@@ -241,7 +241,7 @@
 
               ;; (expand-file-name "init-irony-mode.org" LISP)
 
-              (expand-file-name "init-fcitx.org" LISP)
+              ;; (expand-file-name "init-fcitx.org" LISP)
               (expand-file-name "init-server.org" LISP)
               ;; (expand-file-name "init-vm.org" LISP)
               )))

@@ -60,13 +60,14 @@ tab on left will act as indent while on the right of character as
 
 
 (defun pengpengxp-c-common-mode ()
+  (interactive)
   (which-function-mode)
   ;; (peng-local-set-key (kbd "C-c C-v") 'compile)
   (peng-local-set-key (kbd "C-c C-v") 'peng-compile-current-c-or-cpp-file)
 
   (yas-minor-mode 1)
   ;; (nlinum-mode 1)			;show the line number, nlinum-mode is faster
-  (display-line-numbers-mode 1)         ;new line number
+  ;; (display-line-numbers-mode 1)         ;new line number
 
   (local-set-key (kbd "C-j") 'view-stardict-in-buffer)
   ;; for the #if #else #endif

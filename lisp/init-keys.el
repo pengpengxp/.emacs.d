@@ -79,7 +79,8 @@
 ;; (peng-global-set-key (kbd "M-g M-g") 'avy-goto-char)
 (peng-global-set-key (kbd "M-g M-g") 'evil-ace-jump-char-mode)
 (peng-global-set-key (kbd "M-g M-l") 'avy-goto-line)
-(peng-global-set-key (kbd "M-g M-w") 'avy-goto-word-1)
+(peng-global-set-key (kbd "M-g w") 'avy-goto-word-1)
+(peng-global-set-key (kbd "M-g e") 'avy-goto-word-0)
 
 (peng-global-set-key (kbd "C-x C-f") 'find-file)
 
@@ -884,10 +885,6 @@
 (peng-global-set-key (kbd "C-c <C-tab>") 'ivy-switch-buffer)
 (peng-global-set-key (kbd "<kp-decimal>") 'peng-etags-select)
 (peng-global-set-key (kbd "<kp-0>") 'pop-tag-mark)
-
-;;; for eshell
-(peng-global-set-key (kbd "C-M-'") 'shell-switcher-new-shell)
-(peng-global-set-key (kbd "C-'") 'shell-switcher-switch-buffer)
 
 
 (provide 'init-keys)

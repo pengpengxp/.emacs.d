@@ -743,6 +743,7 @@ Breadcrumb bookmarks:
 (peng-global-set-key (kbd "C-M-e") 'sp-end-of-sexp)
 
 (peng-global-set-key (kbd "<f8>") 'w3m-bookmark-view)
+(peng-global-set-key (kbd "<S-iso-lefttab>") 'evil-ace-jump-char-mode)
 ;; (peng-global-set-key (kbd "<f5>") #'(lambda (x)
 ;;                                       (interactive "P")
 ;;                                       (progn
@@ -771,10 +772,9 @@ Breadcrumb bookmarks:
 (peng-global-set-key (kbd "<pause>") 'symbol-overlay-put)
 (peng-global-set-key (kbd "<Scroll_Lock>") 'symbol-overlay-remove-all)
 
-(peng-global-set-key (kbd "<S-left>") 'peng-recent-cc-buffer)
-(peng-global-set-key (kbd "<S-right>") 'peng-recent-cc-buffer)
-
-
+;;; for eshell
+(peng-global-set-key (kbd "C-M-'") 'avy-goto-char)
+(peng-global-set-key (kbd "C-'") 'avy-goto-char-timer)
 
 ;;; for windows configure
 ;; ;;; origin
@@ -820,6 +820,11 @@ Breadcrumb bookmarks:
 (define-key evil-motion-state-map (kbd "5") 'peng-custumize-ag-regexp)
 (define-key evil-normal-state-map (kbd "6") 'helm-semantic-or-imenu)
 (define-key evil-motion-state-map (kbd "6") 'helm-semantic-or-imenu)
+
+(define-key evil-normal-state-map  (kbd "7") 'bm-show)
+(define-key evil-motion-state-map  (kbd "7") 'bm-show)
+(define-key evil-normal-state-map  (kbd "8") 'bm-show-all)
+(define-key evil-motion-state-map  (kbd "8") 'bm-show-all)
 
 ;;; on my thinkpad T420s, I don't want to use these keys.
 (global-unset-key (kbd "<XF86Back>"))

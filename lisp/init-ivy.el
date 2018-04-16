@@ -10,7 +10,7 @@
 
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
-(setq ivy-ignore-buffers '("\\` " "\\`\\*"))
+;; (setq ivy-ignore-buffers '("\\` " "\\`\\*"))
 
 
 (defun my-ivy-switch-buffer ()

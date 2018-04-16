@@ -48,6 +48,14 @@
         (compile my-command)
         (switch-to-buffer-other-window "*compilation*")))))
 
-
+(defun peng-delete-trailing-space-and-untabify ()
+  "delete all trailing space and untabify in current buffer."
+  (interactive)
+  (save-restriction
+    (progn
+      (delete-trailing-whitespace (point-min) (point-max))
+      (untabify (point-min) (point-max))
+      (save-buffer)
+      )))
 
 (provide 'init-cdyq)
