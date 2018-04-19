@@ -7,6 +7,7 @@
          (sai-dir (concat project-dir "/sai"))
          (rpc-dir (concat project-dir "/rpc"))
          (l2-dir (concat project-dir "/l2"))
+         (core-dir (concat project-dir "/core"))
          (l2d-dir (concat project-dir "/l2/l2d"))
          (bcm-dir (concat project-dir "/hal/switch/bcm"))
          (igmpd-dir (concat project-dir "/l2/igmpd"))
@@ -28,6 +29,7 @@
                                           "rpc"
                                           "fhos-common"
                                           "bcm"
+                                          "core"
                                           )))
 
          (default-directory
@@ -39,6 +41,7 @@
            ((equal my-action "rpc") rpc-dir)
            ((equal my-action "fhos-common") fhos-common-dir)
            ((equal my-action "bcm") bcm-dir)
+           ((equal my-action "core") core-dir)
            ))
          )
     (let ((my-command (if (equal "arm" arch)

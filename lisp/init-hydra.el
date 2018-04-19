@@ -783,6 +783,7 @@ Breadcrumb bookmarks:
 ;; (define-key evil-normal-state-map "'" 'jump-to-register)
 ;; (define-key evil-motion-state-map "'" 'jump-to-register)
 ;;; now
+(define-key evil-normal-state-map (kbd "s") 'avy-goto-char-timer)
 (define-key evil-normal-state-map (kbd "F") 'my-ivy-switch-buffer)
 (define-key evil-normal-state-map (kbd "m") 'ivy-push-view)
 (define-key evil-motion-state-map (kbd "m") 'ivy-push-view)
