@@ -852,4 +852,19 @@ Breadcrumb bookmarks:
   ("f" counsel-gtags-go-forward "forward" :exit nil)
   )
 
+;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; <f19> key                                                    ;;;
+;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(peng-global-set-key (kbd "s-j") 'ace-jump-buffer)
+(peng-global-set-key (kbd "s-k") 'kill-word)
+(peng-global-set-key (kbd "s-h") 'evil-backward-char)
+(peng-global-set-key (kbd "s-l") 'evil-forward-char)
+
+(peng-global-set-key (kbd "<s-return>") 'avy-goto-char-timer)
+(peng-global-set-key (kbd "s-m") 'magit-status)
+
+(peng-global-set-key (kbd "s-/") 'undo-tree-undo)
+(peng-global-set-key (kbd "s-y") 'hydra-peng-yank/body)
+(peng-global-set-key (kbd "s-SPC") 'save-buffer)
+
 (provide 'init-hydra)
