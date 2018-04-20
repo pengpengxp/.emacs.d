@@ -22,7 +22,8 @@
   (imagemagick-register-types))
 
 ;; default
-(setq mu4e-maildir (expand-file-name "~/mutt_mail"))
+;; (setq mu4e-maildir (expand-file-name "~/mutt_mail"))
+(setq mu4e-maildir (expand-file-name "~/Maildir"))
 
 
 ;; (setq mu4e-get-mail-command "offlineimap")
@@ -131,5 +132,21 @@
 ;; View html message in firefox (type aV)
 (add-to-list 'mu4e-view-actions
 '("ViewInBrowser" . mu4e-action-view-in-browser) t)
+
+
+(defun mu4e-headers-mark-all-unread-read ()
+  "Put a ! \(read) mark on all visible unread messages"
+  (interactive)
+  (mu4e-headers-mark-for-each-if
+   (cons 'read nil)
+   (lambda (msg param)
+     (memq 'unread (mu4e-msg-field msg :flags)))))
+
+(defun mu4e-headers-flag-all-read ()
+  "Flag all visible messages as \"read\""
+  (interactive)
+  (mu4e-headers-mark-all-unread-read)
+  (mu4e-mark-execute-all t))
+
 
 (provide 'init-mu4e)

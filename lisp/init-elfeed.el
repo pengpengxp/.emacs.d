@@ -45,6 +45,8 @@
         ("http://rss.xinhuanet.com/rss/legal.xml")  ;新华网（法治新闻）
         ("https://cn.reuters.com/rssFeed/transportationNews/")  ;路透: 汽车交通
         ("http://cn.reuters.com/rssFeed/fundsNews/")  ;路透: 基金
+        ("https://blog.lilydjwg.me/feed")  ; 依云
+        ("http://feeds.feedburner.com/catonmat?format=xml")
         ))
 
 ;; (define-key elfeed-search-mode-map (kbd "RET") 'elfeed-search-show-entry)
