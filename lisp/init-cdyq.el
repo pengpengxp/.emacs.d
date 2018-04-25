@@ -1,4 +1,5 @@
 (defvar cdyq-arch nil)
+(defvar cdyq-build nil)
 
 (defun peng-cdyq-compile-funciton (x)
   (interactive "P")
@@ -21,7 +22,19 @@
          (arm-build-dir (concat project-dir "/build/freescale/arm"))
          (x86-build-dir (concat project-dir "/build/freescale/x86"))
 
-         (make-command "make clean && bear make -j8 BUILD=debug")
+         (release-build "release")
+         (debug-build "debug")
+
+         (build (if (not x)
+                    (if cdyq-build
+                        cdyq-build
+                      release-build)
+                  (ivy-read "Which build :"
+                            (list release-build
+                                  debug-build))))
+
+         (make-command (concat "make clean && bear make -j8 BUILD="
+                               build))
 
          (arch (if (not x)
                    (if cdyq-arch
@@ -30,8 +43,10 @@
                  (ivy-read "Which ARCH :" (list freescale-string
                                                 broadcom-string
                                                 x86-string))))
-         (my-action (ivy-read (concat "Compile "
+         (my-action (ivy-read (concat "Compile ARCH="
                                       arch
+                                      " BUILD="
+                                      build
                                       " Action: ") (list
                                                    "igmpd"
                                                    "l2d"
