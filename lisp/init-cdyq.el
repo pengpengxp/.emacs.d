@@ -1,3 +1,5 @@
+(defvar cdyq-arch nil)
+
 (defun peng-cdyq-compile-funciton (x)
   (interactive "P")
 
@@ -22,21 +24,24 @@
          (make-command "make clean && bear make -j8 BUILD=debug")
 
          (arch (if (not x)
-                   freescale-string
+                   (if cdyq-arch
+                       cdyq-arch
+                     freescale-string)
                  (ivy-read "Which ARCH :" (list freescale-string
                                                 broadcom-string
                                                 x86-string))))
-
-         (my-action (ivy-read "Action: " (list
-                                          "igmpd"
-                                          "l2d"
-                                          "l2"
-                                          "sai"
-                                          "rpc"
-                                          "fhos-common"
-                                          "bcm"
-                                          "core"
-                                          )))
+         (my-action (ivy-read (concat "Compile "
+                                      arch
+                                      " Action: ") (list
+                                                   "igmpd"
+                                                   "l2d"
+                                                   "l2"
+                                                   "sai"
+                                                   "rpc"
+                                                   "fhos-common"
+                                                   "bcm"
+                                                   "core"
+                                                   )))
 
          (default-directory
            (cond
@@ -59,6 +64,7 @@
 
                        (t make-command))))
       (progn
+        (setq cdyq-arch arch)
         (compile my-command)
         (switch-to-buffer-other-window "*compilation*")))))
 
