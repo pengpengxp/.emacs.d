@@ -80,6 +80,7 @@
                        (t make-command))))
       (progn
         (setq cdyq-arch arch)
+        (setq cdyq-build build)
         (compile my-command)
         (switch-to-buffer-other-window "*compilation*")))))
 
