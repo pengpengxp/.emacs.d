@@ -167,7 +167,4 @@ definition"
   (ring-insert find-tag-marker-ring (point-marker))
   (counsel-gtags-dwim))
 
-(require 'auto-save)
-(auto-save-enable)
-
 (provide 'init-global)
