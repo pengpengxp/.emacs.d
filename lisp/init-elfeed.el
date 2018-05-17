@@ -47,6 +47,11 @@
         ("http://cn.reuters.com/rssFeed/fundsNews/")  ;路透: 基金
         ("https://blog.lilydjwg.me/feed")  ; 依云
         ("http://feeds.feedburner.com/catonmat?format=xml")
+        
+        ("http://www.cdtf.gov.cn/cdstfxq/gzdt/rss.xml")  ; 成都天府新区定期报告
+        ("http://www.cdtf.gov.cn/cdstfxq/tfdt/rss.xml")  ; 成都天府新区新闻信息
+        ("http://www.cdtf.gov.cn/cdstfxq/gsgg/rss.xml")  ; 成都天府新区通知公告
+        ("http://www.cdtf.gov.cn/cdstfxq/mtjj/rss.xml")  ; 成都天府新区媒体报告
         ))
 
 ;; (define-key elfeed-search-mode-map (kbd "RET") 'elfeed-search-show-entry)

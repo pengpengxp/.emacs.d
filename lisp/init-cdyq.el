@@ -94,4 +94,36 @@
       (save-buffer)
       )))
 
+(defun peng-switch-all-tmux-window ()
+  (interactive)
+
+  (let* ((line (ivy-read "Please choose a terminal to switch: " (split-string (shell-command-to-string "tmux list-windows -a") "\n")))
+         (session-name (car (split-string line ":")))
+         (window-index (cadr (split-string line ":")))
+         (command (concat "wmctrl -xR lilyterm.Lilyterm && "
+                          "tmux switchc -t "
+                          session-name
+                          " && tmux select-window -t "
+                          session-name
+                          ":"
+                          window-index)))
+    (shell-command command)))
+
+(defun peng-switch-all-tmux-window ()
+  (interactive)
+  (let* ((tmux-list-command "tmux list-windows -a -F '#{session_name}:#{window_index}: #{window_name} #{pane_current_path} pane:#{window_panes}'")
+         (line (ivy-read "Please choose a terminal to switch: "
+                         (split-string (shell-command-to-string
+                                        tmux-list-command) "\n")))
+         (session-name (car (split-string line ":")))
+         (window-index (cadr (split-string line ":")))
+         (command (concat "wmctrl -xR lilyterm.Lilyterm && "
+                          "tmux switchc -t "
+                          session-name
+                          " && tmux select-window -t "
+                          session-name
+                          ":"
+                          window-index)))
+    (shell-command command)))
+
 (provide 'init-cdyq)

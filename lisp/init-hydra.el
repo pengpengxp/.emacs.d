@@ -752,7 +752,7 @@ Breadcrumb bookmarks:
 ;;                                             (ibuffer-update t)
 ;;                                           (ibuffer-update nil)))))
 (peng-global-set-key (kbd "<f5>") 'mu4e)
-(peng-global-set-key (kbd "<f11>") 'peng-cdyq-compile-funciton)
+(peng-global-set-key (kbd "<f11>") 'peng-switch-all-tmux-window)
 (peng-global-set-key (kbd "<f10>") #'(lambda ()
                                        (interactive)
                                        (progn

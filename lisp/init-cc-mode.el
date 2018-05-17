@@ -113,7 +113,8 @@ tab on left will act as indent while on the right of character as
                                                          (let ((original-point (point-marker)))
                                                            (deactivate-mark)
                                                            (ring-insert find-tag-marker-ring original-point)
-                                                           (helm-imenu)
+                                                           ;; (helm-imenu)
+                                                           (counsel-imenu)
                                                            ;; (rtags-imenu)
                                                            )))
 

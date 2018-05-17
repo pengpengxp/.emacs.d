@@ -78,6 +78,8 @@
 (peng-global-set-key (kbd "M-g M-c") 'avy-goto-char-2)
 ;; (peng-global-set-key (kbd "M-g M-g") 'avy-goto-char)
 (peng-global-set-key (kbd "M-g M-g") 'evil-ace-jump-char-mode)
+(peng-global-set-key (kbd "M-g t") 'peng-switch-all-tmux-window)
+(peng-global-set-key (kbd "M-g M-t") 'peng-switch-all-tmux-window)
 (peng-global-set-key (kbd "M-g M-l") 'avy-goto-line)
 (peng-global-set-key (kbd "M-g w") 'avy-goto-word-1)
 (peng-global-set-key (kbd "M-g e") 'avy-goto-word-0)

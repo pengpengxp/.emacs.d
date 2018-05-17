@@ -27,6 +27,7 @@
 
      (setq company-dabbrev-downcase nil)
      (setq company-dabbrev-ignore-case t)
+     (setq company-dabbrev-code-ignore-case t)
 
      (setq company-show-numbers t)
      ;; (setq company-begin-commands '(self-insert-command))
