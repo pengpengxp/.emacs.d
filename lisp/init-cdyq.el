@@ -14,6 +14,7 @@
          (sai-dir (concat project-dir "/sai"))
          (rpc-dir (concat project-dir "/rpc"))
          (l2-dir (concat project-dir "/l2"))
+         (app-dir (concat project-dir "/app"))
          (core-dir (concat project-dir "/core"))
          (l2d-dir (concat project-dir "/l2/l2d"))
          (bcm-dir (concat project-dir "/hal/switch/bcm"))
@@ -53,6 +54,7 @@
                                                    "l2"
                                                    "sai"
                                                    "rpc"
+                                                   "app"
                                                    "fhos-common"
                                                    "bcm"
                                                    "core"
@@ -68,6 +70,7 @@
             ((equal my-action "fhos-common") fhos-common-dir)
             ((equal my-action "bcm") bcm-dir)
             ((equal my-action "core") core-dir)
+            ((equal my-action "app") app-dir)
             ))
          )
     (let ((my-command (cond

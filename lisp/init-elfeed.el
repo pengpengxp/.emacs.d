@@ -9,6 +9,8 @@
         ("https://oremacs.com/atom.xml")
         ("http://feed.williamlong.info/")
 
+        ("http://ergoemacs.org/emacs/blog.xml") ;李杀
+
         ("http://feed.xbeta.info")      ;善用佳软
         ("http://feed.appinn.com/")     ;小众软件
         ("http://feed.36kr.com/c/33346/f/566026/index.rss")  ;36氪
@@ -18,7 +20,8 @@
 
         ("blog.ecocn.org/feed")         ;经济学人中文版
 
-        ("http://rss.cnn.com/rss/edition_asia.rss") ;cnn Asia
+        ;; ("http://rss.cnn.com/rss/edition_asia.rss") ;cnn Asia
+        ("http://feeds.bbci.co.uk/zhongwen/simp/rss.xml")  ;BBC中文网
 
         ("http://www.chinagfw.org/feeds/posts/default")
         ("http://zhangwuchang.blog.caixin.com/feed")  ;张五常财新博客
@@ -48,10 +51,10 @@
         ("https://blog.lilydjwg.me/feed")  ; 依云
         ("http://feeds.feedburner.com/catonmat?format=xml")
         
-        ("http://www.cdtf.gov.cn/cdstfxq/gzdt/rss.xml")  ; 成都天府新区定期报告
-        ("http://www.cdtf.gov.cn/cdstfxq/tfdt/rss.xml")  ; 成都天府新区新闻信息
-        ("http://www.cdtf.gov.cn/cdstfxq/gsgg/rss.xml")  ; 成都天府新区通知公告
-        ("http://www.cdtf.gov.cn/cdstfxq/mtjj/rss.xml")  ; 成都天府新区媒体报告
+        ;; ("http://www.cdtf.gov.cn/cdstfxq/gzdt/rss.xml")  ; 成都天府新区定期报告
+        ;; ("http://www.cdtf.gov.cn/cdstfxq/tfdt/rss.xml")  ; 成都天府新区新闻信息
+        ;; ("http://www.cdtf.gov.cn/cdstfxq/gsgg/rss.xml")  ; 成都天府新区通知公告
+        ;; ("http://www.cdtf.gov.cn/cdstfxq/mtjj/rss.xml")  ; 成都天府新区媒体报告
         ))
 
 ;; (define-key elfeed-search-mode-map (kbd "RET") 'elfeed-search-show-entry)

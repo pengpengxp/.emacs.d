@@ -197,7 +197,6 @@ tab on left will act as indent while on the right of character as
   ;; (peng-local-set-key (kbd "M-SPC") 'peng-counsel-gtags-dwim)
   ;; (peng-local-set-key (kbd "<S-left>") 'counsel-gtags-go-backward)
   ;; (peng-local-set-key (kbd "<S-right>") 'counsel-gtags-go-forward)
-  (peng-local-set-key (kbd "<f1>") 'counsel-gtags-go-backward)
   (peng-local-set-key  (kbd "<f2>") 'counsel-gtags-go-forward)
   (peng-local-set-key (kbd "<XF86Back>") 'symbol-overlay-remove-all)
   (peng-local-set-key (kbd "<XF86Forward>") 'symbol-overlay-put)

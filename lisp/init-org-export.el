@@ -83,7 +83,7 @@
 \\usepackage{listings}
 \\usepackage{amssymb}
 \\usepackage{booktabs}
-\\usepackage[colorlinks,linkcolor=blue,anchorcolor=red,citecolor=blue]{hyperref}
+\\usepackage[colorlinks,linkcolor=black,anchorcolor=red,citecolor=black]{hyperref}
 \\tolerance=1000
 
 % 设置源码格式
